@@ -51,7 +51,9 @@
       align-items: center;
     }
 
-    .h-left { display: flex; align-items: center; gap: 16px; }
+    .h-left { display: flex; flex-direction: column; gap: 10px; }
+    .h-top  { display: flex; align-items: center; gap: 16px; }
+    .h-identity { display: flex; flex-direction: column; justify-content: center; }
 
     .h-name {
       font-family: var(--TT);
@@ -68,16 +70,17 @@
       letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--blue);
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .h-tagline {
       font-family: var(--TT);
-      font-size: 9pt;
-      font-weight: 300;
+      font-size: 10.5pt;
+      font-weight: 400;
       font-style: italic;
-      color: rgba(36,97,140,.75);
-      margin-top: 5px;
+      color: rgba(36,97,140,.8);
+      padding-top: 8px;
+      border-top: 1px solid rgba(36,97,140,.18);
     }
 
     .h-contact {
@@ -449,16 +452,18 @@
   <!-- HEADER -->
   <header style="margin-top:40px">
     <div class="h-left">
-      <svg width="40" height="52" viewBox="0 0 20 26" aria-hidden="true" style="flex-shrink:0;margin-top:2px">
-        <polygon points="10,0 20,6 10,12 0,6" fill="#f9d711"/>
-        <polygon points="0,6 0,20 10,26 10,12" fill="#24618c"/>
-        <polygon points="20,6 10,12 10,26 20,20" fill="#ff6464"/>
-      </svg>
-      <div>
-        <div class="h-name">Bénédicte Dufour</div>
-        <div class="h-role">Communication · Produit · IA</div>
-        <div class="h-tagline">Je fais le lien entre les équipes, les outils et les utilisateurs.</div>
+      <div class="h-top">
+        <svg width="44" height="58" viewBox="0 0 20 26" aria-hidden="true" style="flex-shrink:0">
+          <polygon points="10,0 20,6 10,12 0,6" fill="#f9d711"/>
+          <polygon points="0,6 0,20 10,26 10,12" fill="#24618c"/>
+          <polygon points="20,6 10,12 10,26 20,20" fill="#ff6464"/>
+        </svg>
+        <div class="h-identity">
+          <div class="h-name">Bénédicte Dufour</div>
+          <div class="h-role">Communication · Produit · IA</div>
+        </div>
       </div>
+      <div class="h-tagline">Je fais le lien entre les équipes, les outils et les utilisateurs.</div>
     </div>
 
     <div class="h-contact">
