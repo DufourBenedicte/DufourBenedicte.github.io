@@ -91,20 +91,18 @@
     .hc-yellow small { display: block; font-family: var(--TT); font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--blue); opacity: .55; margin-bottom: 8px; }
     .hc-yellow p { font-family: var(--TT); font-size: clamp(.85rem,1.5vw,1.1rem); font-weight: 800; color: var(--blue); line-height: 1.25; }
 
-    /* Chevrons — vague séquentielle gauche → droite */
-    @keyframes chevron-pulse {
-      0%, 100% { transform: translateX(0)    scale(1); }
-      50%      { transform: translateX(22px) scale(1.35); }
+    /* Chevrons — vague séquentielle, 4 SVGs indépendants */
+    .chevrons-wrap { display: flex; align-items: center; gap: 0; }
+    .chev { width: clamp(25px,4.2vw,52px); height: auto; overflow: visible; flex-shrink: 0; }
+    @keyframes chev-wave {
+      0%, 100% { transform: translateY(0)     scale(1);    }
+      50%      { transform: translateY(-16px) scale(1.18); }
     }
-    .chevrons-svg polygon {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: chevron-pulse 2.4s ease-in-out infinite;
-    }
-    .chevrons-svg polygon:nth-child(1) { animation-delay: 0s; }
-    .chevrons-svg polygon:nth-child(2) { animation-delay: 0.22s; }
-    .chevrons-svg polygon:nth-child(3) { animation-delay: 0.44s; }
-    .chevrons-svg polygon:nth-child(4) { animation-delay: 0.66s; }
+    .chev { animation: chev-wave 2.2s ease-in-out infinite; }
+    .chev-1 { animation-delay: 0s; }
+    .chev-2 { animation-delay: 0.22s; }
+    .chev-3 { animation-delay: 0.44s; }
+    .chev-4 { animation-delay: 0.66s; }
 
     /* Formes animées bas-gauche — ▲ ● ■ en boucle */
     .hc-tris { background: var(--cream); display: flex; align-items: center; justify-content: center; }
@@ -342,14 +340,14 @@
     <h1 class="h-name">Bénédicte<br>Dufour</h1>
   </div>
 
-  <!-- Centre haut : séquence 4 chevrons colorés (rouge → jaune → vert → bleu) -->
+  <!-- Centre haut : 4 chevrons animés en vague -->
   <div class="hc-chevs fi d1">
-    <svg class="chevrons-svg" viewBox="0 0 240 76" aria-hidden="true">
-      <polygon points="0,0 60,38 0,76"     fill="#24618c"/>
-      <polygon points="60,0 120,38 60,76"   fill="#ff6464"/>
-      <polygon points="120,0 180,38 120,76" fill="#35d7b1"/>
-      <polygon points="180,0 240,38 180,76" fill="#f9d711"/>
-    </svg>
+    <div class="chevrons-wrap" aria-hidden="true">
+      <svg class="chev chev-1" viewBox="0 0 60 76" overflow="visible"><polygon points="0,0 60,38 0,76" fill="#24618c"/></svg>
+      <svg class="chev chev-2" viewBox="0 0 60 76" overflow="visible"><polygon points="0,0 60,38 0,76" fill="#ff6464"/></svg>
+      <svg class="chev chev-3" viewBox="0 0 60 76" overflow="visible"><polygon points="0,0 60,38 0,76" fill="#35d7b1"/></svg>
+      <svg class="chev chev-4" viewBox="0 0 60 76" overflow="visible"><polygon points="0,0 60,38 0,76" fill="#f9d711"/></svg>
+    </div>
   </div>
 
   <!-- Bloc jaune : sous-titre -->
