@@ -403,24 +403,27 @@
       text-transform: uppercase;
       text-decoration: none;
       cursor: pointer;
-      border: none;
-      background: none;
       padding: 7px 14px;
-      transition: background .2s, color .2s;
+      border: 1.5px solid var(--blue);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition: color .38s cubic-bezier(.25,.46,.45,.94);
+    }
+    .cv-nav a::before, .cv-nav button::before {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      transition: transform .42s cubic-bezier(.25,.46,.45,.94);
     }
 
-    .nav-back {
-      color: var(--blue);
-      border: 1.5px solid var(--blue) !important;
-    }
-    .nav-back:hover { background: var(--blue); color: var(--cream) !important; }
+    .nav-back { color: var(--blue); background: transparent; }
+    .nav-back::before { background: var(--blue); transform: translateX(-101%); }
+    .nav-back:hover { color: var(--cream); }
+    .nav-back:hover::before { transform: translateX(0); }
 
-    .nav-print {
-      background: var(--blue) !important;
-      color: var(--cream) !important;
-      border: 1.5px solid var(--blue) !important;
-    }
-    .nav-print:hover { background: transparent !important; color: var(--blue) !important; }
+    .nav-print { color: var(--cream); background: transparent; }
+    .nav-print::before { background: var(--blue); transform: translateX(0); }
+    .nav-print:hover { color: var(--blue); }
+    .nav-print:hover::before { transform: translateX(101%); }
 
     /* ── LOGO ANIMATION ── */
     @keyframes cube-spin {
