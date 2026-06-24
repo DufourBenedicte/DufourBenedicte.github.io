@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Bénédicte Dufour · Communication · Produit · IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fffbf4;
+      --blue:  #24618c;
+      --green: #35d7b1;
+      --yellow:#f9d711;
+      --red:   #ff6464;
+      --ink:   #1c1c2e;
+      --muted: #6b6b80;
+      --TT: 'Jost', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #d8d8d8;
+      color: var(--ink);
+      font-size: 9pt;
+      line-height: 1.5;
+    }
+
+    /* ── PAGE A4 ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 10mm auto;
+      background: var(--cream);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      box-shadow: 0 6px 48px rgba(0,0,0,.18);
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--blue);
+      padding: 22px 26px 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .h-left { display: flex; align-items: flex-start; gap: 14px; }
+
+    .h-name {
+      font-family: var(--TT);
+      font-weight: 800;
+      font-size: 22pt;
+      color: var(--cream);
+      line-height: 1.0;
+    }
+
+    .h-role {
+      font-family: var(--TT);
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-top: 6px;
+    }
+
+    .h-tagline {
+      font-family: var(--TT);
+      font-size: 8pt;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,251,244,.65);
+      margin-top: 5px;
+    }
+
+    .h-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-end;
+      padding-top: 3px;
+    }
+
+    .h-contact a,
+    .h-contact span {
+      font-family: var(--TT);
+      font-size: 7pt;
+      color: rgba(255,251,244,.8);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .h-contact a:hover { color: var(--green); }
+
+    .h-contact svg { flex-shrink: 0; }
+
+    /* ── BODY ── */
+    .body {
+      display: grid;
+      grid-template-columns: 36% 1fr;
+    }
+
+    /* ── LEFT COLUMN (bleu) ── */
+    .col-left {
+      background: var(--blue);
+      padding: 0 18px 20px;
+    }
+
+    .col-left::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: rgba(255,251,244,.15);
+      margin-bottom: 18px;
+    }
+
+    .section-l { margin-bottom: 18px; }
+
+    .section-l-title {
+      font-family: var(--TT);
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .section-l-title::before {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 1px;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* Compétences */
+    .comp-item {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      margin-bottom: 9px;
+    }
+
+    .comp-icon { flex-shrink: 0; margin-top: 2px; }
+
+    .comp-name {
+      font-family: var(--TT);
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 1px;
+    }
+
+    .comp-detail {
+      font-size: 6.5pt;
+      color: rgba(255,251,244,.55);
+      line-height: 1.45;
+    }
+
+    /* Outils */
+    .tools-group { margin-bottom: 8px; }
+
+    .tools-label {
+      font-size: 5.5pt;
+      font-weight: 500;
+      color: rgba(255,251,244,.45);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 4px;
+    }
+
+    .tools-badges { display: flex; flex-wrap: wrap; gap: 3px; }
+
+    .badge {
+      font-family: var(--TT);
+      font-size: 5.5pt;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 2px 5px;
+      background: rgba(255,251,244,.08);
+      color: rgba(255,251,244,.75);
+      border: .5px solid rgba(255,251,244,.18);
+    }
+
+    /* Langues */
+    .lang-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .lang-name {
+      font-family: var(--TT);
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .lang-level { font-size: 6.5pt; color: rgba(255,251,244,.55); }
+
+    /* ── RIGHT COLUMN (crème) ── */
+    .col-right { padding: 18px 22px 20px; }
+
+    .section-r { margin-bottom: 16px; }
+
+    .section-r-title {
+      font-family: var(--TT);
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .section-r-title::before {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 1px;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* Expériences */
+    .xp-item { margin-bottom: 12px; }
+    .xp-item:last-child { margin-bottom: 0; }
+
+    .xp-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2px;
+    }
+
+    .xp-title {
+      font-family: var(--TT);
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .xp-date {
+      font-family: var(--TT);
+      font-size: 6pt;
+      font-weight: 700;
+      color: var(--green);
+      background: rgba(53,215,177,.12);
+      padding: 1px 6px;
+      white-space: nowrap;
+    }
+
+    .xp-company {
+      font-family: var(--TT);
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 4px;
+    }
+
+    .xp-list { list-style: none; }
+
+    .xp-list li {
+      font-size: 7.5pt;
+      color: var(--ink);
+      line-height: 1.5;
+      padding-left: 10px;
+      position: relative;
+      margin-bottom: 1px;
+    }
+
+    .xp-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 6pt;
+      top: 1px;
+    }
+
+    /* Formations */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 14px;
+    }
+
+    .form-col-title {
+      font-family: var(--TT);
+      font-size: 6pt;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(36,97,140,.15);
+    }
+
+    .form-item { margin-bottom: 6px; }
+
+    .form-name {
+      font-family: var(--TT);
+      font-size: 7pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .form-school {
+      font-size: 6.5pt;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--blue);
+      padding: 7px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ft-shapes { display: flex; align-items: center; gap: 3px; }
+
+    .ft-url {
+      font-family: var(--TT);
+      font-size: 6pt;
+      color: rgba(255,251,244,.4);
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: var(--cream); }
+      .page { margin: 0; width: 100%; box-shadow: none; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="h-left">
+      <svg width="46" height="46" viewBox="0 0 32 32" aria-hidden="true" style="flex-shrink:0;margin-top:2px">
+        <rect width="32" height="32" fill="#f9d711" rx="2"/>
+        <circle cx="16" cy="16" r="14" fill="#35d7b1"/>
+        <polygon points="16,5 26.5,23 5.5,23" fill="#ff6464"/>
+      </svg>
+      <div>
+        <div class="h-name">Bénédicte Dufour</div>
+        <div class="h-role">Communication · Produit · IA</div>
+        <div class="h-tagline">Je fais le lien entre les équipes, les outils et les utilisateurs.</div>
+      </div>
+    </div>
+
+    <div class="h-contact">
+      <span>
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,251,244,.55)" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        06 47 74 47 06
+      </span>
+      <a href="mailto:dufour.benedicte@gmail.com">
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,251,244,.55)" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        dufour.benedicte@gmail.com
+      </a>
+      <!-- Remplacer par l'URL LinkedIn réelle -->
+      <a href="https://linkedin.com/in/benedicte-dufour" target="_blank">
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="rgba(255,251,244,.55)"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/benedicte-dufour
+      </a>
+      <a href="https://dufourbenedicte.github.io" target="_blank">
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,251,244,.55)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        dufourbenedicte.github.io
+      </a>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- COLONNE GAUCHE -->
+    <div class="col-left">
+
+      <div class="section-l">
+        <div class="section-l-title">Compétences</div>
+
+        <div class="comp-item">
+          <div class="comp-icon"><svg width="10" height="9" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg></div>
+          <div>
+            <div class="comp-name">Communication digitale</div>
+            <div class="comp-detail">Onboarding, newsletters, emailing, campagnes RSE, pédagogie client</div>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-icon"><svg width="10" height="10" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#f9d711"/></svg></div>
+          <div>
+            <div class="comp-name">Rédaction & stratégie éditoriale</div>
+            <div class="comp-detail">Copywriting, storytelling, kits de communication B2B</div>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-icon"><svg width="9" height="9" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ff6464"/></svg></div>
+          <div>
+            <div class="comp-name">Design graphique & direction artistique</div>
+            <div class="comp-detail">Supports web & print, infographies, motion design, identité visuelle</div>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-icon"><svg width="10" height="9" viewBox="0 0 100 87"><polygon points="50,87 0,0 100,0" fill="rgba(255,251,244,.5)"/></svg></div>
+          <div>
+            <div class="comp-name">Prototypage & UX</div>
+            <div class="comp-detail">Maquettes interactives, parcours utilisateur, outils no-code</div>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-icon"><svg width="10" height="10" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="rgba(255,251,244,.5)"/></svg></div>
+          <div>
+            <div class="comp-name">IA & suivi de performance</div>
+            <div class="comp-detail">IA générative, automatisation, reporting OKR / KPIs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-l">
+        <div class="section-l-title">Outils</div>
+        <div class="tools-group">
+          <div class="tools-label">Création</div>
+          <div class="tools-badges">
+            <span class="badge">Photoshop</span>
+            <span class="badge">Illustrator</span>
+            <span class="badge">After Effects</span>
+            <span class="badge">Premiere</span>
+            <span class="badge">Animate</span>
+            <span class="badge">Canva</span>
+          </div>
+        </div>
+        <div class="tools-group">
+          <div class="tools-label">Communication & projet</div>
+          <div class="tools-badges">
+            <span class="badge">Google Workspace</span>
+            <span class="badge">Teams</span>
+            <span class="badge">Planner</span>
+            <span class="badge">Notion</span>
+            <span class="badge">Gitbook</span>
+            <span class="badge">Tangos</span>
+          </div>
+        </div>
+        <div class="tools-group">
+          <div class="tools-label">IA</div>
+          <div class="tools-badges">
+            <span class="badge">Claude</span>
+            <span class="badge">ChatGPT</span>
+            <span class="badge">Midjourney</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-l">
+        <div class="section-l-title">Langues</div>
+        <div class="lang-item">
+          <span class="lang-name">Français</span>
+          <span class="lang-level">Langue maternelle</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Anglais</span>
+          <span class="lang-level">Capacité complète</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLONNE DROITE -->
+    <div class="col-right">
+
+      <div class="section-r">
+        <div class="section-r-title">Expériences</div>
+
+        <div class="xp-item">
+          <div class="xp-header">
+            <div class="xp-title">Chargée de communication</div>
+            <div class="xp-date">2023 – 2026</div>
+          </div>
+          <div class="xp-company">Strapp · Alternance puis CDI</div>
+          <ul class="xp-list">
+            <li>Conception et déploiement de l'onboarding digital pour les gestionnaires de flotte mobile en entreprise</li>
+            <li>Pilotage des newsletters et campagnes de sensibilisation B2B</li>
+            <li>Campagne RSE solidaire « À vos tiroirs » en partenariat avec le Secours Populaire</li>
+            <li>Prototype e-commerce Strapp Family — direction créative, architecture UX et production assistée par IA</li>
+            <li>Refonte des supports pédagogiques (base documentaire Gitbook, guides interactifs Tangos)</li>
+          </ul>
+        </div>
+
+        <div class="xp-item">
+          <div class="xp-header">
+            <div class="xp-title">Graphiste freelance · Print & Web</div>
+            <div class="xp-date">2002 – 2022</div>
+          </div>
+          <div class="xp-company">Indépendante</div>
+          <ul class="xp-list">
+            <li>Identités visuelles et supports pour Crealan, Esprit Bonsaï, Klubgraphik, MaunaKea</li>
+            <li>Illustrations jeunesse pour Milan Presse (Toboclic) et animations Flash</li>
+          </ul>
+        </div>
+
+        <div class="xp-item">
+          <div class="xp-header">
+            <div class="xp-title">Commerciale B2B & téléconseillère</div>
+            <div class="xp-date">2007 – 2011</div>
+          </div>
+          <div class="xp-company">Leasecom · Bodet · Société Générale · GDF</div>
+          <ul class="xp-list">
+            <li>Vente directe et téléconseil sur plateformes complexes multi-tâches</li>
+            <li>Expertise relation client et gestion de compte en environnements B2B et B2C</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="section-r">
+        <div class="section-r-title">Formations</div>
+        <div class="form-grid">
+          <div>
+            <div class="form-col-title">Communication & Design</div>
+            <div class="form-item">
+              <div class="form-name">MBA Direction Artistique</div>
+              <div class="form-school">MyDigitalSchool · 2025</div>
+            </div>
+            <div class="form-item">
+              <div class="form-name">Licence Graphiste Multimédia UX UI</div>
+              <div class="form-school">ICADÉMIE · 2023</div>
+            </div>
+            <div class="form-item">
+              <div class="form-name">Diplôme d'état Infographiste / mise en page</div>
+              <div class="form-school">2005</div>
+            </div>
+          </div>
+          <div>
+            <div class="form-col-title">Autres domaines</div>
+            <div class="form-item">
+              <div class="form-name">DEUG Histoire de l'art & archéologie</div>
+              <div class="form-school">Université · 1997</div>
+            </div>
+            <div class="form-item">
+              <div class="form-name">Diplôme d'état Aide-Soignante</div>
+              <div class="form-school">2015</div>
+            </div>
+            <div class="form-item">
+              <div class="form-name">Gestes et soins d'urgence N2</div>
+              <div class="form-school">2021</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ft-shapes">
+      <svg width="10" height="9" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg>
+      <svg width="8" height="8" viewBox="0 0 100 100" style="margin-left:3px"><circle cx="50" cy="50" r="50" fill="#f9d711"/></svg>
+      <svg width="8" height="8" viewBox="0 0 100 100" style="margin-left:3px"><rect width="100" height="100" fill="#ff6464"/></svg>
+    </div>
+    <div class="ft-url">dufourbenedicte.github.io · 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
