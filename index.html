@@ -52,6 +52,8 @@
       100% { transform: rotate(360deg) scale(1); }
     }
     .nav-logo:hover .logo-mark { animation: cube-spin 0.65s cubic-bezier(0.4,0,0.2,1); }
+    /* Logo toujours visible : ombre légère sur fond crème, face bleue → crème sur fond bleu mobile */
+    .logo-mark { filter: drop-shadow(0 1px 3px rgba(36,97,140,.18)); }
     .nav-links { display: flex; list-style: none; gap: clamp(20px,3vw,40px); }
     .nav-links a { font-family: var(--TT); font-size: .82rem; font-weight: 600; letter-spacing: .07em; color: var(--ink); position: relative; transition: color .2s; }
     .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--green); transition: width .28s; }
@@ -68,6 +70,7 @@
       #nav:not(.stuck) .nav-logo { color: var(--cream); }
       #nav:not(.stuck) .nav-logo em { color: var(--yellow); }
       #nav:not(.stuck) .burger span { background: var(--cream); }
+      #nav:not(.stuck) .logo-mark polygon:nth-child(2) { fill: var(--cream); }
       #nav { transition: padding .3s, background .3s, box-shadow .3s; }
 
       .burger { display: flex; }

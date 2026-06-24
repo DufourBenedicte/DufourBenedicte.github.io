@@ -477,8 +477,10 @@
       100% { transform: rotate(360deg) scale(1); }
     }
     .h-left { cursor: default; }
-    .h-left svg { transform-origin: center center; }
+    .h-left svg { transform-origin: center center; filter: drop-shadow(0 1px 3px rgba(36,97,140,.2)); }
     .h-left:hover svg { animation: cube-spin 0.65s cubic-bezier(0.4,0,0.2,1); }
+    /* Face bleue → crème sur fond vert du header */
+    .h-left svg polygon:nth-child(2) { fill: var(--cream); }
 
     /* ── RESPONSIVE MOBILE ── */
     @media (max-width: 640px) {
