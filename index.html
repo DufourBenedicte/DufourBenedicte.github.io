@@ -213,6 +213,54 @@
     .ct-val { font-size: .92rem; font-weight: 500; color: var(--cream); }
     @media (max-width: 720px) { .ct-grid { grid-template-columns: 1fr; } }
 
+    /* ── CUSTOM CURSOR (desktop uniquement) ── */
+    @media (hover: hover) and (pointer: fine) {
+      * { cursor: none !important; }
+      #cursor {
+        position: fixed; pointer-events: none; z-index: 99999;
+        top: 0; left: 0;
+        transform: translate(-50%, -60%);
+        opacity: 0; transition: opacity 0.25s;
+        will-change: left, top;
+      }
+      #cursor.active { opacity: 1; }
+      #cursor.spin svg { animation: cube-spin 0.65s cubic-bezier(0.4,0,0.2,1) forwards; }
+      #cursor.big svg { transform: scale(1.4); transition: transform 0.2s; }
+    }
+
+    /* ── HERO TEXT ENTRANCE ── */
+    @keyframes heroUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .h-eyebrow        { animation: heroUp 0.5s ease 0.5s both; }
+    .h-name           { animation: heroUp 0.8s cubic-bezier(.25,.46,.45,.94) 0.2s both; }
+    .hc-yellow small  { animation: heroUp 0.4s ease 0.35s both; }
+    .hc-yellow > p    { animation: heroUp 0.55s ease 0.5s both; }
+    .h-role           { animation: heroUp 0.5s ease 0.85s both; }
+    .h-tagline        { animation: heroUp 0.6s ease 1.05s both; }
+    .h-ctas           { animation: heroUp 0.5s ease 1.25s both; }
+
+    /* ── PROJECT CARDS — hover enrichi ── */
+    .proj-img::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--yellow);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.38s cubic-bezier(.25,.46,.45,.94);
+      z-index: 2;
+    }
+    .proj-card:hover .proj-img::before { transform: scaleX(1); }
+    .proj-img { transition: filter 0.4s ease; }
+    .proj-card:hover .proj-img { filter: brightness(1.07) saturate(1.08); }
+
+    /* ── SKILL BLOCKS — lift au hover ── */
+    .sk-block { transition: background .25s, transform .3s cubic-bezier(.25,.46,.45,.94); }
+    .sk-block:hover { transform: translateY(-6px); }
+
+    /* ── CONTACT — magnétisme (style de base) ── */
+    .ct-item { transition: transform 0.5s cubic-bezier(.25,.46,.45,.94), border-color .22s, background .22s; }
+
     /* ── FOOTER — fond bleu, 4 triangles ── */
     footer { padding: 24px 0; background: var(--blue); }
     .ft-in { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -223,6 +271,15 @@
   </style>
 </head>
 <body>
+
+<!-- CURSEUR CUBE PERSONNALISÉ -->
+<div id="cursor" aria-hidden="true">
+  <svg width="26" height="34" viewBox="0 0 20 26">
+    <polygon points="10,0 20,6 10,12 0,6" fill="#f9d711"/>
+    <polygon points="0,6 0,20 10,26 10,12" fill="#24618c"/>
+    <polygon points="20,6 10,12 10,26 20,20" fill="#ff6464"/>
+  </svg>
+</div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -542,6 +599,43 @@
     entries.forEach(e => { if (e.isIntersecting) { navAs.forEach(a => a.classList.remove('active')); const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`); if (a) a.classList.add('active'); }});
   }, { threshold: 0.45 });
   secs.forEach(s => sObs.observe(s));
+
+  // ── Curseur cube ──
+  const cur = document.getElementById('cursor');
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px';
+      cur.style.top  = e.clientY + 'px';
+      cur.classList.add('active');
+    }, { passive: true });
+    document.addEventListener('mouseleave', () => cur.classList.remove('active'));
+
+    // Spin + agrandissement sur les éléments interactifs
+    document.querySelectorAll('a, button, .sk-block, .proj-card, .wc-item, .ct-item').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cur.classList.add('spin', 'big');
+      });
+      el.addEventListener('mouseleave', () => {
+        cur.classList.remove('big');
+      });
+    });
+    cur.querySelector('svg').addEventListener('animationend', () => cur.classList.remove('spin'));
+  }
+
+  // ── Boutons contact magnétiques ──
+  document.querySelectorAll('.ct-item').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) * 0.14;
+      const y = (e.clientY - r.top  - r.height / 2) * 0.14;
+      el.style.transition = 'transform 0.1s ease, border-color .22s, background .22s';
+      el.style.transform  = `translate(${x}px, ${y}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transition = 'transform 0.55s cubic-bezier(.25,.46,.45,.94), border-color .22s, background .22s';
+      el.style.transform  = '';
+    });
+  });
 </script>
 </body>
 </html>
