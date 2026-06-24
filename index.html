@@ -40,8 +40,8 @@
     .fi.d1 { transition-delay: .12s; } .fi.d2 { transition-delay: .22s; } .fi.d3 { transition-delay: .32s; } .fi.d4 { transition-delay: .42s; }
 
     /* ── NAV ── */
-    #nav { position: fixed; inset: 0 0 auto; z-index: 200; padding: 22px 0; transition: background .3s, padding .3s, box-shadow .3s; }
-    #nav.stuck { background: rgba(249,244,236,.97); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 13px 0; box-shadow: 0 2px 0 var(--blue); }
+    #nav { position: fixed; inset: 0 0 auto; z-index: 200; padding: 22px 0; background: rgba(249,244,236,.97); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 0 var(--blue); transition: padding .3s; }
+    #nav.stuck { padding: 13px 0; }
     .nav-in { display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { font-family: var(--TT); font-weight: 800; font-size: 1.05rem; color: var(--blue); letter-spacing: .04em; }
     .nav-logo em { color: var(--green); font-style: normal; }
