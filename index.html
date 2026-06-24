@@ -63,10 +63,34 @@
     .burger.open span:nth-child(2) { opacity: 0; }
     .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     @media (max-width: 860px) {
+      /* Nav bleue au sommet (fond héro bleu), crème dès le scroll */
+      #nav:not(.stuck) { background: var(--blue); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+      #nav:not(.stuck) .nav-logo { color: var(--cream); }
+      #nav:not(.stuck) .nav-logo em { color: var(--yellow); }
+      #nav:not(.stuck) .burger span { background: var(--cream); }
+      #nav { transition: padding .3s, background .3s, box-shadow .3s; }
+
       .burger { display: flex; }
-      .nav-links { position: fixed; inset: 0 0 0 auto; width: min(280px,78vw); flex-direction: column; justify-content: center; gap: 36px; padding: 40px; background: var(--cream); box-shadow: -6px 0 30px rgba(0,0,0,.1); transform: translateX(100%); transition: transform .32s; z-index: 199; }
+
+      /* Overlay sombre derrière le panel */
+      #nav-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,.35); }
+      #nav-overlay.open { display: block; }
+
+      /* Panel latéral */
+      .nav-links {
+        position: fixed; inset: 0 0 0 auto;
+        width: min(280px,78vw);
+        flex-direction: column; justify-content: flex-start;
+        padding: 0; gap: 0;
+        background: var(--cream);
+        box-shadow: -6px 0 30px rgba(0,0,0,.15);
+        transform: translateX(100%); transition: transform .32s;
+        z-index: 199; overflow-y: auto;
+      }
+      .nav-links li { border-bottom: 1px solid rgba(36,97,140,.08); }
+      .nav-links a { font-size: 1rem; display: block; padding: 18px 28px; color: var(--blue); letter-spacing: .05em; }
+      .nav-links a::after { display: none; }
       .nav-links.open { transform: translateX(0); }
-      .nav-links a { font-size: 1.1rem; }
     }
 
     /* ── HERO — grille Bauhaus 3×2, inspirée de la couverture Fancy ── */
@@ -318,6 +342,9 @@
   </svg>
 </div>
 
+<!-- OVERLAY MENU MOBILE -->
+<div id="nav-overlay" aria-hidden="true"></div>
+
 <!-- NAV -->
 <nav id="nav">
   <div class="wrap">
@@ -349,13 +376,13 @@
 <section id="hero">
 
   <!-- Bloc bleu : nom -->
-  <div class="hc-blue fi">
+  <div class="hc-blue">
     <p class="h-eyebrow">Communication · Produit · IA</p>
     <h1 class="h-name">Bénédicte<br>Dufour</h1>
   </div>
 
   <!-- Centre haut : 4 chevrons animés en vague -->
-  <div class="hc-chevs fi d1">
+  <div class="hc-chevs">
     <div class="chevrons-wrap" aria-hidden="true">
       <svg class="chev chev-1" viewBox="0 0 60 76" overflow="visible"><polygon points="0,0 60,38 0,76" fill="#24618c"/></svg>
       <svg class="chev chev-2" viewBox="0 0 60 76" overflow="visible"><polygon points="0,0 60,38 0,76" fill="#ff6464"/></svg>
@@ -365,7 +392,7 @@
   </div>
 
   <!-- Bloc jaune : mots empilés -->
-  <div class="hc-yellow fi d1">
+  <div class="hc-yellow">
     <small>Portfolio 2026</small>
     <p class="hc-word">Comprendre.</p>
     <p class="hc-word">Concevoir.</p>
@@ -373,7 +400,7 @@
   </div>
 
   <!-- Bas-gauche : ▲ ● ■ animés en boucle -->
-  <div class="hc-tris fi d2">
+  <div class="hc-tris">
     <div class="shapes-anim" aria-hidden="true">
       <svg class="shape-tri"  viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg>
       <svg class="shape-circ" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#f9d711"/></svg>
@@ -382,7 +409,7 @@
   </div>
 
   <!-- Bloc vert : tagline + CTA -->
-  <div class="hc-green fi d2">
+  <div class="hc-green">
     <p class="h-role">Communication · Produit · Opérations · IA</p>
     <p class="h-tagline">Je fais le lien entre les équipes,<br>les outils et les utilisateurs.</p>
     <div class="h-ctas">
@@ -623,10 +650,14 @@
   window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 40), { passive: true });
 
   // Burger mobile
-  const burger = document.getElementById('burger');
-  const links  = document.getElementById('navLinks');
-  burger.addEventListener('click', () => { burger.classList.toggle('open'); links.classList.toggle('open'); });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); links.classList.remove('open'); }));
+  const burger  = document.getElementById('burger');
+  const links   = document.getElementById('navLinks');
+  const overlay = document.getElementById('nav-overlay');
+  function closeMenu() { burger.classList.remove('open'); links.classList.remove('open'); overlay.classList.remove('open'); }
+  function openMenu()  { burger.classList.add('open');    links.classList.add('open');    overlay.classList.add('open'); }
+  burger.addEventListener('click', () => burger.classList.contains('open') ? closeMenu() : openMenu());
+  overlay.addEventListener('click', closeMenu);
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
   // Fade-in au scroll
   const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold: 0.08 });

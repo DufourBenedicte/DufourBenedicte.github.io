@@ -480,6 +480,46 @@
     .h-left svg { transform-origin: center center; }
     .h-left:hover svg { animation: cube-spin 0.65s cubic-bezier(0.4,0,0.2,1); }
 
+    /* ── RESPONSIVE MOBILE ── */
+    @media (max-width: 640px) {
+      .page { width: 100%; min-height: 100vh; margin: 0; box-shadow: none; border-radius: 0; }
+
+      .cv-nav { padding: 8px 16px; }
+      .cv-nav a, .cv-nav button { font-size: 6.5pt; padding: 6px 10px; letter-spacing: .06em; }
+
+      header {
+        grid-template-columns: 1fr;
+        padding: 58px 20px 18px;
+        gap: 14px;
+      }
+      .h-left { gap: 12px; }
+      .h-name { font-size: 22pt; }
+      .h-role { font-size: 6pt; letter-spacing: .16em; }
+      .h-contact {
+        align-items: flex-start;
+        border-top: 1px solid rgba(36,97,140,.2);
+        padding-top: 12px;
+        gap: 6px;
+      }
+      .h-contact a, .h-contact span { font-size: 7.5pt; }
+
+      .accroche { flex-direction: column; gap: 10px; padding: 12px 20px 12px 15px; }
+      .accroche-chips { max-width: 100%; justify-content: flex-start; }
+
+      .body { grid-template-columns: 1fr; }
+
+      .col-left { border-right: none; border-bottom: 1px solid rgba(36,97,140,.1); padding: 20px; }
+      .col-right { padding: 20px; }
+
+      .section-l { margin-bottom: 20px; }
+      .section-r { margin-bottom: 22px; }
+
+      .xp-header { flex-wrap: wrap; gap: 4px; }
+      .xp-title { font-size: 10pt; }
+
+      footer { padding: 8px 20px; }
+    }
+
     /* ── PRINT ── */
     @media print {
       body { background: var(--cream); }
