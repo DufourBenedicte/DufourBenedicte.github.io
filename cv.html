@@ -131,16 +131,37 @@
       gap: 7px;
     }
 
-    .section-l-title::before {
+    .section-l-title::before,
+    .section-r-title::before {
       content: '';
       display: block;
-      width: 30px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       flex-shrink: 0;
-      margin-top: 1px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 10'%3E%3Cpolygon points='5,0 10,10 0,10' fill='%23f9d711'/%3E%3Ccircle cx='16' cy='5' r='5' fill='%2335d7b1'/%3E%3Crect x='22' y='0' width='8' height='8' fill='%23ff6464'/%3E%3C/svg%3E");
       background-size: contain;
       background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Compétences — ▲ triangle jaune */
+    .col-left .section-l:nth-child(1) .section-l-title::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 9'%3E%3Cpolygon points='5,0 10,9 0,9' fill='%23f9d711'/%3E%3C/svg%3E");
+    }
+    /* Outils — ● cercle vert */
+    .col-left .section-l:nth-child(2) .section-l-title::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='5' fill='%2335d7b1'/%3E%3C/svg%3E");
+    }
+    /* Langues — ■ carré rouge */
+    .col-left .section-l:nth-child(3) .section-l-title::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9'%3E%3Crect width='9' height='9' fill='%23ff6464'/%3E%3C/svg%3E");
+    }
+    /* Expériences — ▽ triangle bleu inversé */
+    .col-right .section-r:nth-child(1) .section-r-title::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 9'%3E%3Cpolygon points='0,0 10,0 5,9' fill='%2324618c'/%3E%3C/svg%3E");
+    }
+    /* Formations — ■ carré vert */
+    .col-right .section-r:nth-child(2) .section-r-title::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9'%3E%3Crect width='9' height='9' fill='%2335d7b1'/%3E%3C/svg%3E");
     }
 
     /* Compétences */
@@ -237,18 +258,6 @@
       display: flex;
       align-items: center;
       gap: 7px;
-    }
-
-    .section-r-title::before {
-      content: '';
-      display: block;
-      width: 30px;
-      height: 10px;
-      flex-shrink: 0;
-      margin-top: 1px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 10'%3E%3Cpolygon points='5,0 10,10 0,10' fill='%23f9d711'/%3E%3Ccircle cx='16' cy='5' r='5' fill='%2335d7b1'/%3E%3Crect x='22' y='0' width='8' height='8' fill='%23ff6464'/%3E%3C/svg%3E");
-      background-size: contain;
-      background-repeat: no-repeat;
     }
 
     /* Expériences */
