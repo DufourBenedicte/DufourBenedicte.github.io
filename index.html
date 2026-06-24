@@ -15,9 +15,9 @@
     a { color: inherit; text-decoration: none; }
 
     :root {
-      --cream: #F9F4EC; --blue: #24618C; --green: #3ECFB2;
-      --yellow: #F5C518; --red: #E8453C; --ink: #1C1C2E; --muted: #6B6B80;
-      --border: rgba(43,63,140,.12);
+      --cream: #fffbf4; --blue: #24618c; --green: #35d7b1;
+      --yellow: #f9d711; --red: #ff6464; --ink: #1C1C2E; --muted: #6B6B80;
+      --border: rgba(36,97,140,.12);
       --TT: 'Jost', sans-serif; --max: 1160px; --sp: clamp(64px,9vw,108px);
     }
 
@@ -40,7 +40,7 @@
     .fi.d1 { transition-delay: .12s; } .fi.d2 { transition-delay: .22s; } .fi.d3 { transition-delay: .32s; } .fi.d4 { transition-delay: .42s; }
 
     /* ── NAV ── */
-    #nav { position: fixed; inset: 0 0 auto; z-index: 200; padding: 22px 0; background: rgba(249,244,236,.97); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 0 var(--blue); transition: padding .3s; }
+    #nav { position: fixed; inset: 0 0 auto; z-index: 200; padding: 22px 0; background: rgba(255,251,244,.97); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 0 var(--blue); transition: padding .3s; }
     #nav.stuck { padding: 13px 0; }
     .nav-in { display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--TT); font-weight: 800; font-size: 1.05rem; color: var(--blue); letter-spacing: .04em; }
@@ -73,8 +73,8 @@
 
     /* Bloc bleu — nom */
     .hc-blue { background: var(--blue); padding: clamp(18px,3vw,40px); padding-top: clamp(80px,13vh,120px); display: flex; flex-direction: column; justify-content: flex-end; }
-    .h-eyebrow { font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 10px; }
-    .h-name { font-family: var(--TT); font-size: clamp(2.2rem,5vw,4.8rem); font-weight: 800; color: white; line-height: 1.0; }
+    .h-eyebrow { font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,251,244,.5); margin-bottom: 10px; }
+    .h-name { font-family: var(--TT); font-size: clamp(2.2rem,5vw,4.8rem); font-weight: 800; color: var(--cream); line-height: 1.0; }
 
     /* Centre haut — 4 chevrons colorés */
     .hc-chevs { background: var(--cream); display: flex; align-items: center; justify-content: center; padding: 20px; padding-top: clamp(80px,13vh,120px); }
@@ -91,20 +91,20 @@
 
     /* Bloc vert — tagline + CTA */
     .hc-green { grid-column: 2 / 4; background: var(--green); padding: clamp(28px,5vw,60px) clamp(22px,4.5vw,56px); display: flex; flex-direction: column; justify-content: center; }
-    .h-role { font-family: var(--TT); font-size: clamp(.65rem,1.1vw,.8rem); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.65); margin-bottom: 14px; }
-    .h-tagline { font-family: var(--TT); font-size: clamp(1.3rem,3vw,2.4rem); font-weight: 700; color: white; line-height: 1.2; margin-bottom: 36px; }
+    .h-role { font-family: var(--TT); font-size: clamp(.65rem,1.1vw,.8rem); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,251,244,.65); margin-bottom: 14px; }
+    .h-tagline { font-family: var(--TT); font-size: clamp(1.3rem,3vw,2.4rem); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 36px; }
     .h-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
     /* Boutons */
     .btn { font-family: var(--TT); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 14px 26px; display: inline-block; border: 2px solid; transition: all .22s; cursor: pointer; }
-    .btn-w { border-color: white; background: white; color: var(--green); }
-    .btn-w:hover { background: transparent; color: white; }
-    .btn-o { border-color: white; background: transparent; color: white; }
-    .btn-o:hover { background: white; color: var(--green); }
-    .btn-b { border-color: var(--blue); background: var(--blue); color: white; }
+    .btn-w { border-color: var(--cream); background: var(--cream); color: var(--green); }
+    .btn-w:hover { background: transparent; color: var(--cream); }
+    .btn-o { border-color: var(--cream); background: transparent; color: var(--cream); }
+    .btn-o:hover { background: var(--cream); color: var(--green); }
+    .btn-b { border-color: var(--blue); background: var(--blue); color: var(--cream); }
     .btn-b:hover { background: transparent; color: var(--blue); }
     .btn-bo { border-color: var(--blue); background: transparent; color: var(--blue); }
-    .btn-bo:hover { background: var(--blue); color: white; }
+    .btn-bo:hover { background: var(--blue); color: var(--cream); }
 
     @media (max-width: 760px) {
       #hero { grid-template-columns: 1fr; grid-template-rows: auto auto; min-height: 100svh; }
@@ -128,21 +128,21 @@
     @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } .about-stick { position: static; } }
 
     /* ── PROJECTS ── */
-    #projects { padding: var(--sp) 0; background: rgba(43,63,140,.025); }
+    #projects { padding: var(--sp) 0; background: rgba(36,97,140,.025); }
     .proj-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(16px,2.5vw,24px); }
     .proj-card { background: var(--cream); border: 1px solid var(--border); overflow: hidden; transition: transform .3s, box-shadow .3s; }
-    .proj-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(43,63,140,.12); }
+    .proj-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(36,97,140,.12); }
     .proj-card:nth-child(5) { grid-column: span 2; display: grid; grid-template-columns: 1fr 1.8fr; }
     .proj-card:nth-child(5) .proj-img { height: 100%; min-height: 220px; }
     .proj-img { height: clamp(160px,18vw,220px); position: relative; overflow: hidden; }
     /* triangle décoratif dans le coin des images */
-    .proj-img::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 0; border-bottom: clamp(36px,5vw,60px) solid rgba(249,244,236,.2); border-right: clamp(36px,5vw,60px) solid transparent; }
-    .proj-img-lbl { position: absolute; bottom: 10px; right: 10px; font-family: var(--TT); font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); background: rgba(0,0,0,.2); padding: 3px 7px; }
-    .p1 { background: linear-gradient(135deg,#163d5a,#24618C 50%,#3ECFB2); }
-    .p2 { background: linear-gradient(140deg,#24618C,#E8453C 55%,#F5C518); }
-    .p3 { background: linear-gradient(130deg,#3ECFB2,#24618C 55%,#163d5a); }
-    .p4 { background: linear-gradient(140deg,#111827,#24618C 55%,#3ECFB2); }
-    .p5 { background: linear-gradient(130deg,#F5C518,#E8453C 38%,#24618C); }
+    .proj-img::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 0; border-bottom: clamp(36px,5vw,60px) solid rgba(255,251,244,.2); border-right: clamp(36px,5vw,60px) solid transparent; }
+    .proj-img-lbl { position: absolute; bottom: 10px; right: 10px; font-family: var(--TT); font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,251,244,.6); background: rgba(0,0,0,.2); padding: 3px 7px; }
+    .p1 { background: linear-gradient(135deg,#163d5a,#24618c 50%,#35d7b1); }
+    .p2 { background: linear-gradient(140deg,#24618c,#ff6464 55%,#f9d711); }
+    .p3 { background: linear-gradient(130deg,#35d7b1,#24618c 55%,#163d5a); }
+    .p4 { background: linear-gradient(140deg,#111827,#24618c 55%,#35d7b1); }
+    .p5 { background: linear-gradient(130deg,#f9d711,#ff6464 38%,#24618c); }
     .proj-body { padding: clamp(20px,3vw,28px); }
     .proj-num { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
     .proj-title { font-family: var(--TT); font-size: clamp(1.1rem,1.8vw,1.3rem); font-weight: 800; color: var(--blue); line-height: 1.2; margin-bottom: 8px; }
@@ -156,19 +156,19 @@
     /* ── SKILLS — fond bleu, icônes ▲ ● ■ du design system Fancy ── */
     #skills { padding: var(--sp) 0; background: var(--blue); }
     #skills .eyebrow { color: var(--green); }
-    #skills .sh { color: white; }
-    .skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: rgba(255,255,255,.1); border: 2px solid rgba(255,255,255,.1); }
+    #skills .sh { color: var(--cream); }
+    .skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: rgba(255,251,244,.1); border: 2px solid rgba(255,251,244,.1); }
     .sk-block { background: var(--blue); padding: clamp(24px,3.5vw,44px) clamp(20px,2.5vw,32px); position: relative; overflow: hidden; transition: background .25s; }
-    .sk-block:hover { background: rgba(255,255,255,.07); }
+    .sk-block:hover { background: rgba(255,251,244,.07); }
     .sk-icon { display: block; margin-bottom: 20px; }
-    .sk-name { font-family: var(--TT); font-size: 1rem; font-weight: 700; color: white; margin-bottom: 10px; }
-    .sk-items { font-size: .84rem; color: rgba(255,255,255,.6); line-height: 1.75; }
+    .sk-name { font-family: var(--TT); font-size: 1rem; font-weight: 700; color: var(--cream); margin-bottom: 10px; }
+    .sk-items { font-size: .84rem; color: rgba(255,251,244,.6); line-height: 1.75; }
     .sk-accent { width: 22px; height: 3px; margin-top: 22px; }
     @media (max-width: 860px) { .skills-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 440px) { .skills-grid { grid-template-columns: 1fr; } }
 
     /* ── WATERCOLORS ── */
-    #watercolors { padding: var(--sp) 0; background: rgba(43,63,140,.02); }
+    #watercolors { padding: var(--sp) 0; background: rgba(36,97,140,.02); }
     .wc-intro { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-bottom: clamp(36px,5vw,56px); }
     .bonsai-mark { font-family: var(--TT); font-size: .64rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
     .wc-desc { font-size: .97rem; color: var(--muted); line-height: 1.7; max-width: 540px; margin-top: -8px; }
@@ -176,10 +176,10 @@
     .wc-side p { font-family: var(--TT); font-size: .75rem; color: var(--muted); margin-top: 6px; }
     .wc-gallery { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 200px 200px; gap: clamp(8px,1.2vw,14px); }
     .wc-item { position: relative; overflow: hidden; cursor: pointer; }
-    .wc-item::after { content: ''; position: absolute; inset: 0; background: rgba(43,63,140,0); transition: background .3s; }
-    .wc-item:hover::after { background: rgba(43,63,140,.12); }
+    .wc-item::after { content: ''; position: absolute; inset: 0; background: rgba(36,97,140,0); transition: background .3s; }
+    .wc-item:hover::after { background: rgba(36,97,140,.12); }
     .wc-item:nth-child(2) { grid-row: span 2; }
-    .wc-lbl { position: absolute; bottom: 10px; left: 12px; font-family: var(--TT); font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.75); z-index: 1; }
+    .wc-lbl { position: absolute; bottom: 10px; left: 12px; font-family: var(--TT); font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,251,244,.75); z-index: 1; }
     .wc-item:nth-child(1) { background: linear-gradient(155deg,#a8d5c2,#7bc4a9 35%,#c8e8dc 80%,#e4f5ed); }
     .wc-item:nth-child(2) { background: linear-gradient(130deg,#f4e4d0,#e8c8a0 40%,#d4b07c 80%,#f0dcc4); }
     .wc-item:nth-child(3) { background: linear-gradient(165deg,#b8d4e8,#8ab8d4 55%,#c4dae8); }
@@ -191,27 +191,27 @@
     /* ── CONTACT — fond vert ── */
     #contact { padding: var(--sp) 0; background: var(--green); position: relative; overflow: hidden; }
     /* cercles décoratifs */
-    #contact::before { content: ''; position: absolute; bottom: -80px; right: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,.08); pointer-events: none; }
-    #contact::after { content: ''; position: absolute; top: -60px; left: -60px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,.06); pointer-events: none; }
+    #contact::before { content: ''; position: absolute; bottom: -80px; right: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,251,244,.08); pointer-events: none; }
+    #contact::after { content: ''; position: absolute; top: -60px; left: -60px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,251,244,.06); pointer-events: none; }
     .ct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,7vw,100px); align-items: center; position: relative; }
-    #contact .eyebrow { color: rgba(255,255,255,.65); }
-    .ct-heading { font-family: var(--TT); font-size: clamp(2.2rem,5vw,4rem); font-weight: 800; color: white; line-height: 1.05; margin-bottom: 22px; }
-    .ct-heading em { font-style: italic; font-weight: 300; color: rgba(255,255,255,.7); }
-    .ct-sub { font-size: .97rem; color: rgba(255,255,255,.8); line-height: 1.7; }
+    #contact .eyebrow { color: rgba(255,251,244,.65); }
+    .ct-heading { font-family: var(--TT); font-size: clamp(2.2rem,5vw,4rem); font-weight: 800; color: var(--cream); line-height: 1.05; margin-bottom: 22px; }
+    .ct-heading em { font-style: italic; font-weight: 300; color: rgba(255,251,244,.7); }
+    .ct-sub { font-size: .97rem; color: rgba(255,251,244,.8); line-height: 1.7; }
     .ct-links { display: flex; flex-direction: column; gap: 14px; }
-    .ct-item { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1.5px solid rgba(255,255,255,.3); color: inherit; transition: border-color .22s, background .22s; }
-    .ct-item:hover { border-color: white; background: rgba(255,255,255,.1); }
-    .ct-icon { width: 42px; height: 42px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ct-item { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1.5px solid rgba(255,251,244,.3); color: inherit; transition: border-color .22s, background .22s; }
+    .ct-item:hover { border-color: var(--cream); background: rgba(255,251,244,.1); }
+    .ct-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .ct-icon svg { width: 17px; height: 17px; fill: var(--green); }
-    .ct-label { font-family: var(--TT); font-size: .63rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 2px; }
-    .ct-val { font-size: .92rem; font-weight: 500; color: white; }
+    .ct-label { font-family: var(--TT); font-size: .63rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,251,244,.6); margin-bottom: 2px; }
+    .ct-val { font-size: .92rem; font-weight: 500; color: var(--cream); }
     @media (max-width: 720px) { .ct-grid { grid-template-columns: 1fr; } }
 
     /* ── FOOTER — fond bleu, 4 triangles ── */
     footer { padding: 24px 0; background: var(--blue); }
     .ft-in { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .ft-name { font-family: var(--TT); font-weight: 800; font-size: .85rem; color: white; }
-    .ft-copy { font-size: .78rem; color: rgba(255,255,255,.45); }
+    .ft-name { font-family: var(--TT); font-weight: 800; font-size: .85rem; color: var(--cream); }
+    .ft-copy { font-size: .78rem; color: rgba(255,251,244,.45); }
     .ft-tris { display: flex; gap: 4px; align-items: flex-end; }
     .ft-tris svg { width: 14px; height: auto; display: block; }
   </style>
@@ -224,9 +224,9 @@
     <div class="nav-in">
       <a href="#hero" class="nav-logo">
         <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" class="logo-mark">
-          <rect width="32" height="32" fill="#F5C518" rx="2"/>
-          <circle cx="16" cy="16" r="16" fill="#3ECFB2"/>
-          <polygon points="16,5 26.5,23 5.5,23" fill="#E8453C"/>
+          <rect width="32" height="32" fill="#f9d711" rx="2"/>
+          <circle cx="16" cy="16" r="14" fill="#35d7b1"/>
+          <polygon points="16,5 26.5,23 5.5,23" fill="#ff6464"/>
         </svg>
         Bénédicte <em>Dufour</em>
       </a>
@@ -256,10 +256,10 @@
   <!-- Centre haut : séquence 4 chevrons colorés (rouge → jaune → vert → bleu) -->
   <div class="hc-chevs fi d1">
     <svg class="chevrons-svg" viewBox="0 0 240 76" aria-hidden="true">
-      <polygon points="0,0 60,38 0,76"    fill="#E8453C"/>
-      <polygon points="60,0 120,38 60,76"  fill="#F5C518"/>
-      <polygon points="120,0 180,38 120,76" fill="#3ECFB2"/>
-      <polygon points="180,0 240,38 180,76" fill="#24618C"/>
+      <polygon points="0,0 60,38 0,76"    fill="#ff6464"/>
+      <polygon points="60,0 120,38 60,76"  fill="#f9d711"/>
+      <polygon points="120,0 180,38 120,76" fill="#35d7b1"/>
+      <polygon points="180,0 240,38 180,76" fill="#24618c"/>
     </svg>
   </div>
 
@@ -271,10 +271,10 @@
 
   <!-- Bas-gauche : 4 triangles empilés (bleu, vert, jaune, rouge) -->
   <div class="hc-tris fi d2">
-    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#24618C"/></svg>
-    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#3ECFB2"/></svg>
-    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#F5C518"/></svg>
-    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#E8453C"/></svg>
+    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#24618c"/></svg>
+    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg>
+    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#f9d711"/></svg>
+    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#ff6464"/></svg>
   </div>
 
   <!-- Bloc vert : tagline + CTA -->
@@ -301,9 +301,9 @@
         <h2 class="sh">Parcours<br>&amp; vision</h2>
         <!-- Alphabet visuel ▲ ● ■ du design system Fancy -->
         <div class="geo-alpha">
-          <svg width="22" height="19" viewBox="0 0 100 87" aria-hidden="true"><polygon points="50,0 0,87 100,87" fill="#3ECFB2"/></svg>
-          <svg width="20" height="20" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#F5C518"/></svg>
-          <svg width="18" height="18" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#E8453C"/></svg>
+          <svg width="22" height="19" viewBox="0 0 100 87" aria-hidden="true"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg>
+          <svg width="20" height="20" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#f9d711"/></svg>
+          <svg width="18" height="18" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#ff6464"/></svg>
         </div>
       </div>
 
@@ -400,7 +400,7 @@
       <!-- ▲ Direction artistique -->
       <div class="sk-block fi">
         <svg class="sk-icon" width="48" height="42" viewBox="0 0 100 87" aria-hidden="true">
-          <polygon points="50,0 0,87 100,87" fill="#3ECFB2"/>
+          <polygon points="50,0 0,87 100,87" fill="#35d7b1"/>
         </svg>
         <h3 class="sk-name">Direction artistique</h3>
         <p class="sk-items">Identité visuelle · Design system · Branding · Art direction · Charte graphique</p>
@@ -410,7 +410,7 @@
       <!-- ● Stratégie éditoriale -->
       <div class="sk-block fi d1">
         <svg class="sk-icon" width="44" height="44" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="50" fill="#F5C518"/>
+          <circle cx="50" cy="50" r="50" fill="#f9d711"/>
         </svg>
         <h3 class="sk-name">Stratégie éditoriale</h3>
         <p class="sk-items">Content marketing · Newsletters · Réseaux sociaux · Copywriting · SEO éditorial</p>
@@ -420,7 +420,7 @@
       <!-- ■ Production & création -->
       <div class="sk-block fi d2">
         <svg class="sk-icon" width="42" height="42" viewBox="0 0 100 100" aria-hidden="true">
-          <rect width="100" height="100" fill="#E8453C"/>
+          <rect width="100" height="100" fill="#ff6464"/>
         </svg>
         <h3 class="sk-name">Production &amp; création</h3>
         <p class="sk-items">Motion design · Prototypage · IA générative · Vidéo · Print · UX design</p>
@@ -430,7 +430,7 @@
       <!-- ▲ inversé — Pilotage -->
       <div class="sk-block fi d3">
         <svg class="sk-icon" width="48" height="42" viewBox="0 0 100 87" aria-hidden="true">
-          <polygon points="50,87 0,0 100,0" fill="rgba(255,255,255,.85)"/>
+          <polygon points="50,87 0,0 100,0" fill="rgba(255,251,244,.85)"/>
         </svg>
         <h3 class="sk-name">Pilotage de projets</h3>
         <p class="sk-items">Brief créatif · Coordination · Prestataires · Planning · RSE &amp; ESS</p>
@@ -506,10 +506,10 @@
     <div class="ft-in">
       <span class="ft-name">Bénédicte Dufour</span>
       <div class="ft-tris" aria-hidden="true">
-        <svg width="14" height="12" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#24618C"/></svg>
-        <svg width="14" height="12" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#3ECFB2"/></svg>
-        <svg width="14" height="12" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#F5C518"/></svg>
-        <svg width="14" height="12" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#E8453C"/></svg>
+        <svg width="14" height="12" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#24618c"/></svg>
+        <svg width="14" height="12" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg>
+        <svg width="14" height="12" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#f9d711"/></svg>
+        <svg width="14" height="12" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#ff6464"/></svg>
       </div>
       <span class="ft-copy">© 2026 — Responsable Communication</span>
     </div>
