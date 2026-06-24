@@ -351,9 +351,52 @@
       color: rgba(255,251,244,.4);
     }
 
+    /* ── BARRE NAV ── */
+    .cv-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,251,244,.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--blue);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cv-nav a, .cv-nav button {
+      font-family: var(--TT);
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 7px 14px;
+      transition: background .2s, color .2s;
+    }
+
+    .nav-back {
+      color: var(--blue);
+      border: 1.5px solid var(--blue) !important;
+    }
+    .nav-back:hover { background: var(--blue); color: var(--cream) !important; }
+
+    .nav-print {
+      background: var(--blue);
+      color: var(--cream) !important;
+      border: 1.5px solid var(--blue) !important;
+    }
+    .nav-print:hover { background: transparent; color: var(--blue) !important; }
+
     /* ── PRINT ── */
     @media print {
       body { background: var(--cream); }
+      .cv-nav { display: none; }
       .page { margin: 0; width: 100%; box-shadow: none; }
       @page { size: A4; margin: 0; }
     }
@@ -362,8 +405,14 @@
 <body>
 <div class="page">
 
+  <!-- BARRE NAV (masquée à l'impression) -->
+  <nav class="cv-nav">
+    <a href="index.html" class="nav-back">← Portfolio</a>
+    <button class="nav-print" onclick="window.print()">Télécharger PDF</button>
+  </nav>
+
   <!-- HEADER -->
-  <header>
+  <header style="margin-top:40px">
     <div class="h-left">
       <svg width="46" height="46" viewBox="0 0 32 32" aria-hidden="true" style="flex-shrink:0;margin-top:2px">
         <rect width="32" height="32" fill="#f9d711" rx="2"/>
@@ -387,9 +436,9 @@
         dufour.benedicte@gmail.com
       </a>
       <!-- Remplacer par l'URL LinkedIn réelle -->
-      <a href="https://linkedin.com/in/benedicte-dufour" target="_blank">
+      <a href="https://fr.linkedin.com/in/b%C3%A9n%C3%A9dicte-dufour-90199381" target="_blank">
         <svg width="9" height="9" viewBox="0 0 24 24" fill="rgba(255,251,244,.55)"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        linkedin.com/in/benedicte-dufour
+        linkedin.com/in/bénédicte-dufour
       </a>
       <a href="https://dufourbenedicte.github.io" target="_blank">
         <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,251,244,.55)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
