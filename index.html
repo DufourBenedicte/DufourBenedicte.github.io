@@ -88,12 +88,12 @@
 
     /* Bloc jaune — accroche */
     .hc-yellow { background: var(--yellow); padding: clamp(14px,2.5vw,32px); padding-top: clamp(80px,13vh,120px); display: flex; flex-direction: column; justify-content: flex-end; }
-    .hc-yellow small { display: block; font-family: var(--TT); font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--blue); opacity: .55; margin-bottom: 8px; }
-    .hc-yellow p { font-family: var(--TT); font-size: clamp(.85rem,1.5vw,1.1rem); font-weight: 800; color: var(--blue); line-height: 1.25; }
+    .hc-yellow small { display: block; font-family: var(--TT); font-size: .56rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--blue); opacity: .5; margin-bottom: 14px; }
+    .hc-word { font-family: var(--TT); font-size: clamp(1.15rem,2.6vw,2.1rem); font-weight: 800; color: var(--blue); line-height: 1.05; }
 
     /* Chevrons — vague séquentielle, 4 SVGs indépendants */
     .chevrons-wrap { display: flex; align-items: center; gap: 0; }
-    .chev { width: clamp(25px,4.2vw,52px); height: auto; overflow: visible; flex-shrink: 0; }
+    .chev { width: clamp(36px,6vw,76px); height: auto; overflow: visible; flex-shrink: 0; }
     @keyframes chev-wave {
       0%, 100% { transform: translateY(0)     scale(1);    }
       50%      { transform: translateY(-16px) scale(1.18); }
@@ -127,16 +127,38 @@
     .h-tagline { font-family: var(--TT); font-size: clamp(1.3rem,3vw,2.4rem); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 36px; }
     .h-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* Boutons */
-    .btn { font-family: var(--TT); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 14px 26px; display: inline-block; border: 2px solid; transition: all .22s; cursor: pointer; }
-    .btn-w { border-color: var(--cream); background: var(--cream); color: var(--green); }
-    .btn-w:hover { background: transparent; color: var(--cream); }
-    .btn-o { border-color: var(--cream); background: transparent; color: var(--cream); }
-    .btn-o:hover { background: var(--cream); color: var(--green); }
-    .btn-b { border-color: var(--blue); background: var(--blue); color: var(--cream); }
-    .btn-b:hover { background: transparent; color: var(--blue); }
-    .btn-bo { border-color: var(--blue); background: transparent; color: var(--blue); }
-    .btn-bo:hover { background: var(--blue); color: var(--cream); }
+    /* Boutons — effet wipe horizontal */
+    .btn {
+      font-family: var(--TT); font-size: .7rem; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase;
+      padding: 12px 26px; display: inline-block;
+      border: 1.5px solid; position: relative; overflow: hidden;
+      transition: color .38s cubic-bezier(.25,.46,.45,.94);
+      isolation: isolate;
+    }
+    .btn::before {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      transition: transform .42s cubic-bezier(.25,.46,.45,.94);
+    }
+    .btn-w  { border-color: var(--cream); color: var(--green); }
+    .btn-w::before  { background: var(--cream); transform: translateX(0); }
+    .btn-w:hover  { color: var(--cream); }
+    .btn-w:hover::before  { transform: translateX(101%); }
+
+    .btn-o  { border-color: var(--cream); color: var(--cream); }
+    .btn-o::before  { background: var(--cream); transform: translateX(-101%); }
+    .btn-o:hover  { color: var(--green); }
+    .btn-o:hover::before  { transform: translateX(0); }
+
+    .btn-b  { border-color: var(--blue); color: var(--cream); }
+    .btn-b::before  { background: var(--blue); transform: translateX(0); }
+    .btn-b:hover  { color: var(--blue); }
+    .btn-b:hover::before  { transform: translateX(101%); }
+
+    .btn-bo { border-color: var(--blue); color: var(--blue); }
+    .btn-bo::before { background: var(--blue); transform: translateX(-101%); }
+    .btn-bo:hover { color: var(--cream); }
+    .btn-bo:hover::before { transform: translateX(0); }
 
     @media (max-width: 760px) {
       #hero { grid-template-columns: 1fr; grid-template-rows: auto auto; min-height: 100svh; }
@@ -352,10 +374,12 @@
     </div>
   </div>
 
-  <!-- Bloc jaune : sous-titre -->
+  <!-- Bloc jaune : mots empilés -->
   <div class="hc-yellow fi d1">
     <small>Portfolio 2026</small>
-    <p>Comprendre. Concevoir. Connecter.</p>
+    <p class="hc-word">Comprendre.</p>
+    <p class="hc-word">Concevoir.</p>
+    <p class="hc-word">Connecter.</p>
   </div>
 
   <!-- Bas-gauche : ▲ ● ■ animés en boucle -->
