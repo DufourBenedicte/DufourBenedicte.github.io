@@ -289,91 +289,23 @@
 
   <section class="mockup-section">
     <div class="wrap">
-      <div class="browser-wrap">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <span></span><span></span><span></span>
+      <div style="display:flex;justify-content:center;align-items:flex-start;gap:clamp(32px,5vw,64px);flex-wrap:wrap;">
+        <div style="flex:none;width:clamp(200px,28vw,300px);">
+          <div style="border:3px solid var(--blue);border-radius:36px;overflow:hidden;box-shadow:8px 8px 0 var(--yellow);padding:10px;background:#002635;">
+            <img src="Strapp_Family_Screen.jpg" alt="Strapp Family · vue mobile accueil" style="width:100%;border-radius:26px;display:block;">
           </div>
-          <div class="browser-url">strapp-family.apps-script.com</div>
         </div>
-
-        <div class="app-ui">
-          <div class="app-nav">
-            <div class="app-logo">
-              <span class="app-logo-dot"></span>
-              Strapp Family
-            </div>
-            <div class="app-nav-links">
-              <span class="active">Accueil</span>
-              <span>Catalogue</span>
-              <span>Panier</span>
-            </div>
-          </div>
-
-          <div class="app-body">
-
-            <div class="app-club">
-              <span class="app-club-dot"></span>
-              Cette plateforme est réservée aux collaborateurs et ex-collaborateurs des entreprises clientes de Strapp. <strong>Vous en faites partie.</strong>
-            </div>
-
-            <div class="app-search">
-              <span class="app-search-icon">🔍</span>
-              <span class="app-search-text">Rechercher un téléphone, une marque…</span>
-              <span class="app-search-btn">Rechercher</span>
-            </div>
-
-            <div class="app-section-title">La collection</div>
-            <div class="app-chips">
-              <span class="app-chip">Apple</span>
-              <span class="app-chip">Samsung</span>
-              <span class="app-chip">Google</span>
-              <span class="app-chip">Écoresponsable</span>
-              <span class="app-chip">Durcis</span>
-              <span class="app-chip">Tablettes</span>
-              <span class="app-chip fill">Voir tout le catalogue →</span>
-            </div>
-
-            <div style="height:1px;background:#ECECEC;margin:0 0 18px"></div>
-
-            <div class="app-section-title-row">
-              <span class="app-section-title" style="margin:0">Toujours au top !</span>
-              <span class="app-section-badge">Marqués sur le châssis · impeccables à l'usage</span>
-            </div>
-            <p style="font-size:10px;color:#888;margin-bottom:14px">
-              Ils portent les traces de leur première vie au niveau du chassis. Ça baisse leur grading et leur prix alors que leur écran et leur batterie restent impeccables pour un usage au top !
-            </p>
-            <div class="app-deal-grid">
-              <div class="app-deal-card">
-                <div class="app-deal-name">Apple iPhone 12</div>
-                <div class="app-deal-spec">64 Go · iOS · Grade B</div>
-                <div class="app-deal-prices">
-                  <span class="app-deal-now">99 €</span>
-                  <span class="app-deal-was">179 €</span>
-                </div>
-                <div class="app-deal-eco">🌱 Reconditionné</div>
-              </div>
-              <div class="app-deal-card">
-                <div class="app-deal-name">Samsung Galaxy S21</div>
-                <div class="app-deal-spec">128 Go · Android · Grade B</div>
-                <div class="app-deal-prices">
-                  <span class="app-deal-now">129 €</span>
-                  <span class="app-deal-was">229 €</span>
-                </div>
-                <div class="app-deal-eco">🌱 Reconditionné</div>
-              </div>
-              <div class="app-deal-card">
-                <div class="app-deal-name">Google Pixel 6</div>
-                <div class="app-deal-spec">128 Go · Android · Grade B</div>
-                <div class="app-deal-prices">
-                  <span class="app-deal-now">149 €</span>
-                  <span class="app-deal-was">259 €</span>
-                </div>
-                <div class="app-deal-eco">🌱 Reconditionné</div>
-              </div>
-            </div>
-
-          </div>
+        <div style="flex:1;min-width:260px;max-width:440px;padding-top:clamp(16px,3vw,40px);">
+          <div class="eyebrow" style="margin-bottom:20px;"><span class="eyebrow-dot"></span>Interface</div>
+          <p style="font-size:clamp(1rem,1.8vw,1.15rem);color:var(--blue);line-height:1.7;margin-bottom:20px;">
+            Une app mobile-first pensée pour aller à l'essentiel : recherche prédictive, navigation par catégorie, fiches produit détaillées avec grading et batterie, panier et sélection de point relais.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--blue);"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;"></span>Catalogue filtrable par marque, type, prix</li>
+            <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--blue);"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;"></span>Recherche prédictive sur le stock</li>
+            <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--blue);"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;"></span>Panier · tunnel de commande · points relais</li>
+            <li style="display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--blue);"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;"></span>Déployé sur Google Apps Script</li>
+          </ul>
         </div>
       </div>
     </div>
