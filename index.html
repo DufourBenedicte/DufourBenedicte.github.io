@@ -91,9 +91,10 @@
     .hc-yellow small { display: block; font-family: var(--TT); font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--blue); opacity: .55; margin-bottom: 8px; }
     .hc-yellow p { font-family: var(--TT); font-size: clamp(.85rem,1.5vw,1.1rem); font-weight: 800; color: var(--blue); line-height: 1.25; }
 
-    /* Triangles empilés bas-gauche */
-    .hc-tris { background: var(--cream); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: clamp(20px,5%,56px); gap: 3px; }
-    .hc-tris svg { width: clamp(50px,7.5vw,94px); height: auto; display: block; }
+    /* Cube XL bas-gauche */
+    .hc-tris { background: var(--cream); display: flex; align-items: center; justify-content: center; }
+    .hc-tris .cube-xl { width: clamp(80px,11vw,150px); height: auto; display: block; transform-origin: center center; transition: transform .3s; }
+    .hc-tris:hover .cube-xl { animation: cube-spin 0.9s cubic-bezier(0.4,0,0.2,1); }
 
     /* Bloc vert — tagline + CTA */
     .hc-green { grid-column: 2 / 4; background: var(--green); padding: clamp(28px,5vw,60px) clamp(22px,4.5vw,56px); display: flex; flex-direction: column; justify-content: center; }
@@ -332,12 +333,13 @@
     <p>Comprendre. Concevoir. Connecter.</p>
   </div>
 
-  <!-- Bas-gauche : 4 triangles empilés (bleu, vert, jaune, rouge) -->
+  <!-- Bas-gauche : cube isométrique XL -->
   <div class="hc-tris fi d2">
-    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#24618c"/></svg>
-    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg>
-    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#f9d711"/></svg>
-    <svg viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#ff6464"/></svg>
+    <svg class="cube-xl" viewBox="0 0 20 26" aria-hidden="true">
+      <polygon points="10,0 20,6 10,12 0,6" fill="#f9d711"/>
+      <polygon points="0,6 0,20 10,26 10,12" fill="#24618c"/>
+      <polygon points="20,6 10,12 10,26 20,20" fill="#ff6464"/>
+    </svg>
   </div>
 
   <!-- Bloc vert : tagline + CTA -->
