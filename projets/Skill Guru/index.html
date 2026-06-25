@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Guru · Stratégie créative · Bénédicte Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #fffbf4; color: #24618c; line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --cream: #fffbf4;
+      --blue: #24618c;
+      --green: #35d7b1;
+      --yellow: #f9d711;
+      --red: #ff6464;
+      --muted: rgba(36,97,140,.55);
+      --border: rgba(36,97,140,.12);
+      --TT: 'Jost', sans-serif;
+      --max: 1100px;
+      /* Skill Guru palette */
+      --sg-purple: #2D1B69;
+      --sg-violet: #7C3AED;
+      --sg-green: #10B981;
+      --sg-amber: #F59E0B;
+      --sg-light: #F5F3FF;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px,4vw,48px); }
+
+    /* NAV */
+    .top-nav {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,251,244,.96);
+      backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-nav-in { display: flex; align-items: center; justify-content: space-between; }
+    .back-link {
+      font-family: var(--TT); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 8px;
+      transition: gap .2s;
+    }
+    .back-link:hover { gap: 14px; }
+    .nav-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    /* HERO */
+    .hero { padding: clamp(48px,7vw,88px) 0 0; }
+    .eyebrow {
+      font-family: var(--TT); font-size: .68rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue);
+    }
+    .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .hero-title {
+      font-family: var(--TT); font-size: clamp(2.4rem,5vw,4rem);
+      font-weight: 800; color: var(--blue); line-height: 1.05; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--green); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(.95rem,1.5vw,1.05rem); color: var(--muted);
+      max-width: 580px; line-height: 1.7; margin-bottom: 32px;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+    .tag {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      color: var(--blue);
+    }
+    .tag.green { background: rgba(53,215,177,.12); border-color: rgba(53,215,177,.3); color: #1a7e65; }
+    .tag.yellow { background: rgba(249,215,17,.15); border-color: rgba(249,215,17,.4); color: #8a7000; }
+
+    /* AXES STRATÉGIQUES */
+    .axes-band {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
+      border: 1px solid var(--border); margin-bottom: 0;
+    }
+    .axe {
+      padding: 20px 18px;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .axe:last-child { border-right: none; }
+    .axe-num {
+      font-family: var(--TT); font-size: .58rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .axe-title { font-family: var(--TT); font-size: .85rem; font-weight: 700; color: var(--blue); line-height: 1.3; }
+    .axe-dot {
+      position: absolute; top: 20px; right: 18px;
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+
+    /* MOCKUP SKILL GURU */
+    .mockup-section { padding: clamp(48px,6vw,72px) 0; }
+    .sg-shell {
+      border: 2px solid var(--blue);
+      box-shadow: 8px 8px 0 var(--green);
+      overflow: hidden;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .browser-bar {
+      background: #f0f0f0;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .browser-dots { display: flex; gap: 6px; }
+    .browser-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .browser-dots span:nth-child(1) { background: #ff5f57; }
+    .browser-dots span:nth-child(2) { background: #febc2e; }
+    .browser-dots span:nth-child(3) { background: #28c840; }
+    .browser-url {
+      flex: 1; background: #fff; border-radius: 4px;
+      padding: 4px 12px; font-size: 11px; color: #666;
+      border: 1px solid #ddd; font-family: monospace;
+    }
+
+    /* Skill Guru interface */
+    .sg-ui { display: flex; min-height: 420px; }
+    .sg-sidebar {
+      width: 200px; flex-shrink: 0;
+      background: var(--sg-purple);
+      padding: 20px 0;
+      display: flex; flex-direction: column;
+    }
+    .sg-brand {
+      padding: 0 20px 20px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 8px;
+    }
+    .sg-brand-name { font-family: var(--TT); font-weight: 800; font-size: 14px; color: #fff; }
+    .sg-brand-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--sg-green); margin-right: 5px; }
+    .sg-brand-tag { font-size: 9px; color: rgba(255,255,255,.3); letter-spacing: .1em; margin-top: 2px; }
+
+    .sg-nav-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 20px;
+      font-size: 11px; font-weight: 500;
+      color: rgba(255,255,255,.45);
+      transition: background .15s;
+    }
+    .sg-nav-item.active {
+      background: rgba(124,58,237,.35);
+      color: #fff;
+      border-right: 3px solid var(--sg-violet);
+    }
+    .sg-nav-icon { font-size: 13px; width: 16px; text-align: center; }
+    .sg-xp-block {
+      margin-top: auto;
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .sg-xp-label { font-size: 8px; color: rgba(255,255,255,.3); letter-spacing: .15em; text-transform: uppercase; margin-bottom: 6px; }
+    .sg-xp-bar-wrap { background: rgba(255,255,255,.1); border-radius: 999px; height: 5px; margin-bottom: 5px; }
+    .sg-xp-bar { background: var(--sg-amber); border-radius: 999px; height: 5px; width: 68%; }
+    .sg-xp-val { font-size: 9px; color: var(--sg-amber); font-weight: 600; }
+
+    .sg-main { flex: 1; background: var(--sg-light); padding: 24px; overflow: hidden; }
+    .sg-main-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .sg-welcome { font-family: var(--TT); font-weight: 700; font-size: 14px; color: var(--sg-purple); }
+    .sg-badge-row { display: flex; gap: 8px; }
+    .sg-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: #fff; border-radius: 999px;
+      padding: 4px 10px; font-size: 9px; font-weight: 700;
+      color: var(--sg-purple); border: 1px solid rgba(45,27,105,.15);
+    }
+    .sg-badge-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    .sg-active-session {
+      background: var(--sg-purple);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .sg-session-icon { font-size: 2rem; flex-shrink: 0; }
+    .sg-session-text { flex: 1; }
+    .sg-session-title { font-weight: 700; font-size: 12px; color: #fff; margin-bottom: 4px; }
+    .sg-session-sub { font-size: 10px; color: rgba(255,255,255,.5); }
+    .sg-session-progress { background: rgba(255,255,255,.12); border-radius: 999px; height: 4px; margin-top: 8px; }
+    .sg-session-bar { background: var(--sg-green); border-radius: 999px; height: 4px; width: 45%; }
+    .sg-session-cta {
+      background: var(--sg-green); color: #fff;
+      font-size: 9px; font-weight: 700; padding: 8px 14px; border-radius: 4px; flex-shrink: 0;
+    }
+
+    .sg-courses-label { font-size: 9px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(45,27,105,.4); margin-bottom: 10px; }
+    .sg-courses { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .sg-course-card {
+      background: #fff; border-radius: 6px;
+      border: 1px solid rgba(45,27,105,.08);
+      padding: 14px 12px;
+    }
+    .sg-course-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .sg-course-title { font-weight: 700; font-size: 10px; color: var(--sg-purple); margin-bottom: 4px; line-height: 1.3; }
+    .sg-course-meta { font-size: 9px; color: rgba(45,27,105,.4); margin-bottom: 8px; }
+    .sg-course-prog { background: rgba(45,27,105,.07); border-radius: 999px; height: 3px; }
+    .sg-course-bar { border-radius: 999px; height: 3px; }
+
+    /* AXES */
+    .axes-section { padding: clamp(32px,5vw,60px) 0; border-top: 1px solid var(--border); }
+    .axes-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(16px,3vw,28px); margin-top: 28px; }
+    .axe-card { border: 1px solid var(--border); padding: 28px; }
+    .axe-card-num {
+      font-family: var(--TT); font-size: .6rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .axe-card-title { font-family: var(--TT); font-size: 1.05rem; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+    .axe-card-desc { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+
+    /* STRATÉGIE COM */
+    .com-section { padding: clamp(32px,5vw,60px) 0; border-top: 1px solid var(--border); }
+    .com-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,3vw,28px); margin-top: 28px; }
+    .com-card { border: 1px solid var(--border); padding: 24px; }
+    .com-target {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 10px;
+    }
+    .com-title { font-family: var(--TT); font-size: .95rem; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+    .com-channel {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .78rem; color: var(--blue); margin-bottom: 6px;
+    }
+    .com-channel::before { content: '·'; color: var(--green); font-weight: 700; }
+
+    /* BUDGET */
+    .budget-band {
+      background: var(--blue); color: var(--cream);
+      padding: clamp(32px,5vw,56px) 0;
+    }
+    .budget-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; align-items: center; }
+    .budget-stat { text-align: center; }
+    .budget-num { font-family: var(--TT); font-size: clamp(2rem,4vw,3rem); font-weight: 800; color: var(--cream); }
+    .budget-label { font-size: .78rem; color: rgba(255,251,244,.6); margin-top: 6px; letter-spacing: .08em; }
+    .budget-divider { width: 1px; background: rgba(255,251,244,.15); height: 80px; margin: 0 auto; }
+
+    /* INFOS */
+    .infos { padding: clamp(32px,5vw,60px) 0; border-top: 1px solid var(--border); }
+    .infos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,3vw,32px); }
+    .info-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 10px;
+    }
+    .info-value { font-size: .95rem; color: var(--blue); line-height: 1.7; }
+    .info-value strong { font-weight: 600; }
+
+    /* CTA */
+    .cta-section {
+      padding: clamp(48px,6vw,80px) 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
+    .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 16px 32px;
+      transition: background .2s, gap .2s;
+    }
+    .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+
+    .section-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+
+    @media (max-width: 760px) {
+      .axes-band { grid-template-columns: repeat(2,1fr); }
+      .axe:nth-child(2) { border-right: none; }
+      .axes-grid { grid-template-columns: 1fr; }
+      .com-grid { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: 1fr; }
+      .budget-inner { grid-template-columns: 1fr; }
+      .budget-divider { width: 80px; height: 1px; }
+      .sg-sidebar { display: none; }
+      .sg-courses { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="wrap top-nav-in">
+      <a class="back-link" href="../../index.html">
+        <span>←</span> Portfolio
+      </a>
+      <span class="nav-label">Stratégie créative · Skill Guru</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Stratégie créative · M2 Design Appliqué · 2025</div>
+      <h1 class="hero-title">Skill Guru<br><em>plateforme de gamification</em></h1>
+      <p class="hero-desc">
+        Construire la stratégie créative complète d'une startup edtech proposant une plateforme de jeux sérieux et de gamification pour l'enseignement supérieur : axes de communication, production de maquettes, plan d'action et budget.
+      </p>
+      <div class="hero-meta">
+        <span class="tag">Stratégie créative</span>
+        <span class="tag">Communication B2B</span>
+        <span class="tag">UX Design</span>
+        <span class="tag">Direction artistique</span>
+        <span class="tag">Figma</span>
+        <span class="tag green">Projet M2 DA</span>
+      </div>
+
+      <div class="axes-band">
+        <div class="axe">
+          <span class="axe-dot" style="background:var(--green);"></span>
+          <p class="axe-num">Axe 01</p>
+          <p class="axe-title">Innovation pédagogique</p>
+        </div>
+        <div class="axe">
+          <span class="axe-dot" style="background:var(--yellow);"></span>
+          <p class="axe-num">Axe 02</p>
+          <p class="axe-title">Digitalisation</p>
+        </div>
+        <div class="axe">
+          <span class="axe-dot" style="background:var(--red);"></span>
+          <p class="axe-num">Axe 03</p>
+          <p class="axe-title">Collaboration</p>
+        </div>
+        <div class="axe">
+          <span class="axe-dot" style="background:#7C3AED;"></span>
+          <p class="axe-num">Axe 04</p>
+          <p class="axe-title">Esthétique ludique</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mockup-section">
+    <div class="wrap">
+      <div class="sg-shell">
+        <div class="browser-bar">
+          <div class="browser-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="browser-url">app.skillguru.io · Tableau de bord</div>
+        </div>
+
+        <div class="sg-ui">
+          <aside class="sg-sidebar">
+            <div class="sg-brand">
+              <p class="sg-brand-name"><span class="sg-brand-dot"></span>Skill Guru</p>
+              <p class="sg-brand-tag">Enseignement gamifié</p>
+            </div>
+            <div class="sg-nav-item active"><span class="sg-nav-icon">▦</span> Tableau de bord</div>
+            <div class="sg-nav-item"><span class="sg-nav-icon">◈</span> Mes cours</div>
+            <div class="sg-nav-item"><span class="sg-nav-icon">◎</span> Catalogue</div>
+            <div class="sg-nav-item"><span class="sg-nav-icon">▲</span> Missions</div>
+            <div class="sg-nav-item"><span class="sg-nav-icon">◆</span> Classement</div>
+            <div class="sg-xp-block">
+              <p class="sg-xp-label">XP · Niveau 4</p>
+              <div class="sg-xp-bar-wrap"><div class="sg-xp-bar"></div></div>
+              <p class="sg-xp-val">680 / 1 000 XP</p>
+            </div>
+          </aside>
+
+          <main class="sg-main">
+            <div class="sg-main-header">
+              <p class="sg-welcome">Bonjour, Élodie 👋</p>
+              <div class="sg-badge-row">
+                <span class="sg-badge"><span class="sg-badge-dot" style="background:#F59E0B;"></span> 680 XP</span>
+                <span class="sg-badge"><span class="sg-badge-dot" style="background:#10B981;"></span> 3 badges</span>
+              </div>
+            </div>
+
+            <div class="sg-active-session">
+              <span class="sg-session-icon">🎮</span>
+              <div class="sg-session-text">
+                <p class="sg-session-title">Session en cours · Skill Project : Innovation numérique</p>
+                <p class="sg-session-sub">Module 3 sur 6 · Défi collaboratif · 14 participants actifs</p>
+                <div class="sg-session-progress"><div class="sg-session-bar"></div></div>
+              </div>
+              <span class="sg-session-cta">Reprendre →</span>
+            </div>
+
+            <p class="sg-courses-label">Mes cours actifs</p>
+            <div class="sg-courses">
+              <div class="sg-course-card">
+                <p class="sg-course-icon">📐</p>
+                <p class="sg-course-title">Design Thinking appliqué</p>
+                <p class="sg-course-meta">12 modules · 4h estimées</p>
+                <div class="sg-course-prog"><div class="sg-course-bar" style="width:75%;background:#10B981;"></div></div>
+              </div>
+              <div class="sg-course-card">
+                <p class="sg-course-icon">📊</p>
+                <p class="sg-course-title">Data Storytelling</p>
+                <p class="sg-course-meta">8 modules · 2h30 estimées</p>
+                <div class="sg-course-prog"><div class="sg-course-bar" style="width:40%;background:#7C3AED;"></div></div>
+              </div>
+              <div class="sg-course-card">
+                <p class="sg-course-icon">🤝</p>
+                <p class="sg-course-title">Leadership collaboratif</p>
+                <p class="sg-course-meta">10 modules · 3h estimées</p>
+                <div class="sg-course-prog"><div class="sg-course-bar" style="width:20%;background:#F59E0B;"></div></div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="axes-section">
+    <div class="wrap">
+      <p class="section-label">4 axes stratégiques</p>
+      <div class="axes-grid">
+        <div class="axe-card">
+          <p class="axe-card-num" style="color:var(--green);">Axe 01 · Innovation pédagogique</p>
+          <h3 class="axe-card-title">Révolutionner l'apprentissage</h3>
+          <p class="axe-card-desc">Positionner Skill Guru comme pionnier de la transformation pédagogique dans l'enseignement supérieur : remplacer les cours passifs par des expériences actives, collaboratives et engageantes grâce aux jeux sérieux.</p>
+        </div>
+        <div class="axe-card">
+          <p class="axe-card-num" style="color:var(--yellow);">Axe 02 · Digitalisation</p>
+          <h3 class="axe-card-title">Accompagner les établissements</h3>
+          <p class="axe-card-desc">Répondre aux enjeux de modernisation des institutions d'enseignement supérieur : outils numériques clés en main, intégration simple, accompagnement des formateurs dans la transition digitale.</p>
+        </div>
+        <div class="axe-card">
+          <p class="axe-card-num" style="color:var(--red);">Axe 03 · Collaboration</p>
+          <h3 class="axe-card-title">Créer du lien entre acteurs</h3>
+          <p class="axe-card-desc">Encourager les dynamiques de groupe et la co-création entre étudiants, favoriser le partage de ressources entre formateurs, et créer une communauté active autour de la plateforme.</p>
+        </div>
+        <div class="axe-card">
+          <p class="axe-card-num" style="color:#7C3AED;">Axe 04 · Esthétique ludique</p>
+          <h3 class="axe-card-title">Rendre l'apprentissage désirable</h3>
+          <p class="axe-card-desc">Une direction artistique soignée, des interfaces gamifiées (XP, badges, niveaux, défis), des visuels engageants : l'esthétique comme levier de motivation et de différenciation face aux plateformes concurrentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="com-section">
+    <div class="wrap">
+      <p class="section-label">Stratégie de communication B2B · 3 cibles</p>
+      <div class="com-grid">
+        <div class="com-card">
+          <p class="com-target">Cible 01</p>
+          <h3 class="com-title">Établissements d'enseignement</h3>
+          <p class="com-channel">Téléprospection via GetaLink</p>
+          <p class="com-channel">Salons et événements sectoriels</p>
+          <p class="com-channel">Démonstrations sur site</p>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.6;">Directeurs pédagogiques, responsables innovation · Approche directe et démonstration ROI.</p>
+        </div>
+        <div class="com-card">
+          <p class="com-target">Cible 02</p>
+          <h3 class="com-title">Formateurs · Enseignants</h3>
+          <p class="com-channel">LinkedIn · contenus pédagogiques</p>
+          <p class="com-channel">YouTube · tutoriels plateforme</p>
+          <p class="com-channel">Discord · communauté active</p>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.6;">Enseignants-chercheurs et formateurs freelance · Approche communautaire et preuve par la pratique.</p>
+        </div>
+        <div class="com-card">
+          <p class="com-target">Cible 03</p>
+          <h3 class="com-title">Clients · Fidélisation</h3>
+          <p class="com-channel">Onboarding structuré</p>
+          <p class="com-channel">Suivi de progression · rapports</p>
+          <p class="com-channel">Support et accompagnement</p>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.6;">Établissements déjà clients · Accompagnement dans la montée en compétences et l'adoption complète.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="budget-band">
+    <div class="wrap">
+      <div class="budget-inner">
+        <div class="budget-stat">
+          <p class="budget-num">200 k€</p>
+          <p class="budget-label">Budget total TTC · plan 45 semaines</p>
+        </div>
+        <div class="budget-divider"></div>
+        <div class="budget-stat">
+          <p class="budget-num">45</p>
+          <p class="budget-label">Semaines · sept 2025 · juil 2026</p>
+        </div>
+        <div class="budget-divider"></div>
+        <div class="budget-stat">
+          <p class="budget-num">33</p>
+          <p class="budget-label">Slides · stratégie créative complète</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="infos">
+    <div class="wrap">
+      <div class="infos-grid">
+        <div>
+          <p class="info-label">Contexte</p>
+          <p class="info-value">Brief M2 Design Appliqué · Concevoir la stratégie créative d'une startup edtech de gamification pour l'enseignement supérieur · Projet solo · Livré en février 2025</p>
+        </div>
+        <div>
+          <p class="info-label">Mon rôle</p>
+          <p class="info-value">
+            <strong>Stratégie créative</strong> · direction artistique · maquettes UX Figma · plan de communication B2B · planning · budget · prestataires
+          </p>
+        </div>
+        <div>
+          <p class="info-label">Livrables</p>
+          <p class="info-value">Présentation 33 slides · maquettes Figma (inscription, création classe, catalogue, session, mobile étudiant) · plan d'action 45 semaines · budget 200k€ TTC</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="cta-lead">D'autres projets à explorer</p>
+      <p class="cta-sub">Retour au portfolio pour voir l'ensemble des réalisations.</p>
+      <a class="cta-btn" href="../../index.html#projets">
+        Voir tous les projets <span>→</span>
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>
