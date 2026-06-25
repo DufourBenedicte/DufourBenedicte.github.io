@@ -274,22 +274,7 @@
     .ct-val { font-size: .92rem; font-weight: 500; color: var(--cream); }
     @media (max-width: 720px) { .ct-grid { grid-template-columns: 1fr; } }
 
-    /* ── CUSTOM CURSOR (desktop uniquement) ── */
-    @media (hover: hover) and (pointer: fine) {
-      * { cursor: none !important; }
-      #cursor {
-        position: fixed; pointer-events: none; z-index: 99999;
-        top: 0; left: 0;
-        transform: translate(-50%, -60%);
-        opacity: 0; transition: opacity 0.25s;
-        will-change: left, top;
-      }
-      #cursor.active { opacity: 1; }
-      #cursor.spin svg { animation: cube-spin 0.65s cubic-bezier(0.4,0,0.2,1) forwards; }
-      #cursor.big svg { transform: scale(1.4); transition: transform 0.2s; }
-    }
-
-    /* ── HERO TEXT ENTRANCE ── */
+/* ── HERO TEXT ENTRANCE ── */
     @keyframes heroUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: none; }
@@ -332,15 +317,6 @@
   </style>
 </head>
 <body>
-
-<!-- CURSEUR CUBE PERSONNALISÉ -->
-<div id="cursor" aria-hidden="true">
-  <svg width="16" height="21" viewBox="0 0 20 26">
-    <polygon points="10,0 20,6 10,12 0,6" fill="#f9d711"/>
-    <polygon points="0,6 0,20 10,26 10,12" fill="#24618c"/>
-    <polygon points="20,6 10,12 10,26 20,20" fill="#ff6464"/>
-  </svg>
-</div>
 
 <!-- OVERLAY MENU MOBILE -->
 <div id="nav-overlay" aria-hidden="true"></div>
@@ -727,29 +703,7 @@
   }, { threshold: 0.45 });
   secs.forEach(s => sObs.observe(s));
 
-  // ── Curseur cube ──
-  const cur = document.getElementById('cursor');
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.addEventListener('mousemove', e => {
-      cur.style.left = e.clientX + 'px';
-      cur.style.top  = e.clientY + 'px';
-      cur.classList.add('active');
-    }, { passive: true });
-    document.addEventListener('mouseleave', () => cur.classList.remove('active'));
-
-    // Spin + agrandissement sur les éléments interactifs
-    document.querySelectorAll('a, button, .sk-block, .proj-card, .wc-item, .ct-item').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cur.classList.add('spin', 'big');
-      });
-      el.addEventListener('mouseleave', () => {
-        cur.classList.remove('big');
-      });
-    });
-    cur.querySelector('svg').addEventListener('animationend', () => cur.classList.remove('spin'));
-  }
-
-  // ── Morphing formes au survol ──
+// ── Morphing formes au survol ──
   const trisZone = document.querySelector('.hc-tris');
   if (trisZone) {
     const shapeEls = [
