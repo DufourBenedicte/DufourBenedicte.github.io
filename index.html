@@ -134,7 +134,8 @@
     /* Formes animées bas-gauche — ▲ ● ■ morphing au survol */
     .hc-tris { background: var(--cream); display: flex; align-items: center; justify-content: center; cursor: pointer; }
     .shapes-anim { position: relative; width: clamp(72px,10vw,130px); height: clamp(72px,10vw,130px); }
-    .shapes-anim svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transform: scale(0.85); transition: opacity 0.45s ease, transform 0.45s ease; }
+    .shapes-anim svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity 0.45s ease, transform 0.45s ease; }
+    .shape-tri, .shape-sq { opacity: 0; transform: scale(0.85); }
     .shape-circ { opacity: 1; transform: scale(1); }
 
     /* Bloc vert — tagline + CTA */
