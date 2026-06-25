@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florence Brisson · Identité de marque · Bénédicte Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #fffbf4; color: #24618c; line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --cream: #fffbf4;
+      --blue: #24618c;
+      --green: #35d7b1;
+      --yellow: #f9d711;
+      --muted: rgba(36,97,140,.55);
+      --border: rgba(36,97,140,.12);
+      --TT: 'Jost', sans-serif;
+      --max: 1100px;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px,4vw,48px); }
+
+    /* NAV */
+    .top-nav {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,251,244,.96);
+      backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-nav-in { display: flex; align-items: center; justify-content: space-between; }
+    .back-link {
+      font-family: var(--TT); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 8px;
+      transition: gap .2s;
+    }
+    .back-link:hover { gap: 14px; }
+    .nav-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    /* HERO */
+    .hero { padding: clamp(48px,7vw,88px) 0 clamp(48px,6vw,72px); }
+    .eyebrow {
+      font-family: var(--TT); font-size: .68rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue);
+    }
+    .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .hero-title {
+      font-family: var(--TT); font-size: clamp(2.4rem,5vw,4rem);
+      font-weight: 800; color: var(--blue); line-height: 1.05; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--green); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(.95rem,1.5vw,1.05rem); color: var(--muted);
+      max-width: 580px; line-height: 1.75; margin-bottom: 32px;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+    .tag {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px; border: 1px solid var(--border); color: var(--blue);
+    }
+    .tag.yellow { background: rgba(249,215,17,.15); border-color: rgba(249,215,17,.4); color: #7a6500; }
+
+    /* PROPOSITION DE VALEUR */
+    .pov-block {
+      border: 1px solid var(--border);
+      padding: 22px 28px;
+      display: inline-flex; flex-direction: column; gap: 6px;
+    }
+    .pov-main { font-family: var(--TT); font-size: clamp(.9rem,1.5vw,1.1rem); font-weight: 700; color: var(--blue); }
+    .pov-vision { font-family: var(--TT); font-size: clamp(.85rem,1.3vw,1rem); font-weight: 400; color: var(--muted); font-style: italic; }
+    .pov-caption { font-size: .72rem; color: var(--muted); margin-top: 6px; }
+
+    /* SECTIONS */
+    section.cs-section { padding: clamp(40px,6vw,72px) 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+
+    /* IMAGES */
+    .slide-wrap { margin-bottom: clamp(16px,3vw,28px); }
+    .slide-wrap:last-child { margin-bottom: 0; }
+    .slide-img {
+      width: 100%; display: block;
+      border: 2px solid var(--blue);
+      box-shadow: 6px 6px 0 var(--yellow);
+    }
+    .slide-caption {
+      font-family: var(--TT); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-top: 10px;
+    }
+    .slides-2col {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(16px,3vw,28px); margin-bottom: clamp(16px,3vw,28px);
+    }
+    .slides-2col .slide-wrap { margin-bottom: 0; }
+
+    /* VALEURS */
+    .valeurs { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2.5vw,24px); margin-bottom: clamp(28px,4vw,48px); }
+    .valeur { padding: 26px 22px; border: 1px solid var(--border); }
+    .valeur-mot { font-family: var(--TT); font-size: 1.1rem; font-weight: 800; color: var(--blue); margin-bottom: 10px; }
+    .valeur-desc { font-size: .82rem; color: var(--muted); line-height: 1.65; }
+
+    /* MANIFESTE */
+    .manifeste-block {
+      background: var(--yellow);
+      padding: clamp(24px,4vw,40px) clamp(24px,4vw,48px);
+    }
+    .manifeste-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; opacity: .7; }
+    .manifeste-text { font-family: var(--TT); font-size: clamp(.9rem,1.5vw,1.05rem); color: var(--blue); line-height: 1.8; font-weight: 400; }
+
+    /* PERSONAS */
+    .personas { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2.5vw,24px); }
+    .persona { border: 1px solid var(--border); padding: 22px 20px; }
+    .persona-name { font-family: var(--TT); font-size: .95rem; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+    .persona-role { font-size: .78rem; color: var(--muted); margin-bottom: 12px; }
+    .persona-story { font-size: .82rem; color: var(--blue); line-height: 1.6; border-left: 2px solid var(--green); padding-left: 12px; }
+
+    /* INFOS */
+    .infos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,3vw,32px); }
+    .info-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .info-value { font-size: .95rem; color: var(--blue); line-height: 1.7; }
+    .info-value strong { font-weight: 600; }
+
+    /* CTA */
+    .cta-section { padding: clamp(48px,6vw,80px) 0; text-align: center; border-top: 1px solid var(--border); }
+    .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
+    .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 16px 32px; transition: background .2s, gap .2s;
+    }
+    .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+
+    @media (max-width: 700px) {
+      .slides-2col { grid-template-columns: 1fr; }
+      .valeurs { grid-template-columns: 1fr; }
+      .personas { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="wrap top-nav-in">
+      <a class="back-link" href="../../index.html"><span>←</span> Portfolio</a>
+      <span class="nav-label">Identité de marque · Florence Brisson</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Workshop Client · M2 DAD · Juillet 2025</div>
+      <h1 class="hero-title">Florence Brisson<br><em>marque ancrée dans le réel</em></h1>
+      <p class="hero-desc">
+        Positionnement de marque, création de l'identité visuelle et kit de communication sur mesure pour une économiste de la construction freelance, spécialisée dans la réhabilitation du bâti ancien et l'écoconstruction.
+      </p>
+      <div class="hero-meta">
+        <span class="tag">Positionnement de marque</span>
+        <span class="tag">Identité visuelle</span>
+        <span class="tag">Déclinaisons</span>
+        <span class="tag">Kit com réseaux</span>
+        <span class="tag">Direction créative</span>
+        <span class="tag yellow">Workshop Client M2 DAD</span>
+      </div>
+      <div class="pov-block">
+        <span class="pov-main">Une économie de la construction fiable pour des projets plus durables.</span>
+        <span class="pov-vision">Réconcilier économie, patrimoine et écoconstruction pour faire de la rénovation responsable un standard accessible.</span>
+        <p class="pov-caption">Proposition de valeur · Vision · Florence Brisson, économiste freelance</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Moodboard · Univers de marque</p>
+      <div class="slide-wrap">
+        <img class="slide-img" src="screens/page-30.jpg" alt="Florence Brisson · moodboard · ancrage, sobriété, transmission, clarté">
+        <p class="slide-caption">Moodboard · Ancrage · Sobriété · Transmission · Clarté · Précision et responsabilité</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Identité visuelle · Logo et charte</p>
+      <div class="slide-wrap">
+        <img class="slide-img" src="screens/page-37.jpg" alt="Florence Brisson · logo guidelines · monogramme FB · grille de construction">
+        <p class="slide-caption">Logo Guidelines · Monogramme FB · B inversé (voûtes) + F retourné (architecture) · Grille de construction</p>
+      </div>
+      <div class="slides-2col">
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/page-40.jpg" alt="Florence Brisson · palette de couleurs · craie matte, enduit sable, colombage, bois patiné, bleu ardoise, noir bleuté">
+          <p class="slide-caption">Palette · Craie matte · Enduit sable · Colombage · Bois patiné · Bleu ardoise</p>
+        </div>
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/page-41.jpg" alt="Florence Brisson · patterns · grille, demi-cercle, ligne claire">
+          <p class="slide-caption">Patterns · Grilles architecture · Demi-cercles (voûtes) · Ligne claire</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Déclinaisons · Mise en situation</p>
+      <div class="slide-wrap">
+        <img class="slide-img" src="screens/page-42.jpg" alt="Florence Brisson · carte de visite recto verso · bannière LinkedIn · mocup">
+        <p class="slide-caption">Carte de visite recto / verso · Bannière LinkedIn · Mocup mise en situation</p>
+      </div>
+      <div class="slide-wrap">
+        <img class="slide-img" src="screens/page-43.jpg" alt="Florence Brisson · document A4 · mocups papeterie">
+        <p class="slide-caption">Document A4 · Papeterie · Mise en situation</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Plateforme de marque · Valeurs</p>
+      <div class="valeurs">
+        <div class="valeur">
+          <p class="valeur-mot">Transmission</p>
+          <p class="valeur-desc">Partager un savoir-faire technique exigeant, rendre la complexité du bâti ancien accessible aux maîtres d'ouvrage et aux architectes.</p>
+        </div>
+        <div class="valeur">
+          <p class="valeur-mot">Précision</p>
+          <p class="valeur-desc">Chaque chiffre compte. Une économie rigoureuse, construite avec méthode, en clin d'oeil au langage des plans et du bâti.</p>
+        </div>
+        <div class="valeur">
+          <p class="valeur-mot">Éthique</p>
+          <p class="valeur-desc">Défendre une approche durable, raisonner en coûts globaux, privilégier la réhabilitation et l'écoconstruction sur la démolition-reconstruction.</p>
+        </div>
+      </div>
+      <div class="manifeste-block">
+        <p class="manifeste-label">Manifeste</p>
+        <p class="manifeste-text">
+          Florence Brisson croit que chaque bâtiment ancien est une ressource précieuse, non un problème à effacer. Elle accompagne ses clients avec rigueur et transparence, parce que la confiance se construit sur des chiffres justes et une parole claire. Réhabiliter, c'est transmettre.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">3 personas · Cibles identifiées</p>
+      <div class="personas">
+        <div class="persona">
+          <p class="persona-name">Claire · 38 ans</p>
+          <p class="persona-role">Architecte spécialisée bâti ancien</p>
+          <p class="persona-story">Cherche un économiste de confiance pour ses projets de réhabilitation. Sensible à la qualité du travail et à la communication professionnelle.</p>
+        </div>
+        <div class="persona">
+          <p class="persona-name">Laurent · 50 ans</p>
+          <p class="persona-role">Directeur technique de mairie</p>
+          <p class="persona-story">Pilote des projets de rénovation du patrimoine communal. A besoin d'estimations fiables et de rapports clairs pour les élus et les appels d'offres.</p>
+        </div>
+        <div class="persona">
+          <p class="persona-name">Samir · 42 ans</p>
+          <p class="persona-role">Fondateur d'un atelier éco-construction</p>
+          <p class="persona-story">Développe des projets de construction durable. Veut s'appuyer sur une économiste qui partage ses valeurs environnementales et comprend les filières biosourcées.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <div class="infos-grid">
+        <div>
+          <p class="info-label">Contexte</p>
+          <p class="info-value">Workshop Client M2 DAD · MyDigitalSchool · Coach Anaïs Breton · Juillet 2025 · Projet solo</p>
+        </div>
+        <div>
+          <p class="info-label">Mon rôle</p>
+          <p class="info-value"><strong>Direction créative</strong> · audit de positionnement · plateforme de marque · identité visuelle · déclinaisons · kit de communication réseaux</p>
+        </div>
+        <div>
+          <p class="info-label">Livrables</p>
+          <p class="info-value">Moodboard · Logo et charte graphique · Palette (Amaranth + Roboto + Source Sans Pro) · Carte de visite · Bannière LinkedIn · Document A4 · Kit Notion</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="cta-lead">D'autres projets à explorer</p>
+      <p class="cta-sub">Retour au portfolio pour voir l'ensemble des réalisations.</p>
+      <a class="cta-btn" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+    </div>
+  </section>
+
+</body>
+</html>
