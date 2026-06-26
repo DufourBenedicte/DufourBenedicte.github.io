@@ -96,7 +96,7 @@
       .nav-links.open { transform: translateX(0); }
     }
 
-    /* ── HERO — grille Bauhaus 3×2, inspirée de la couverture Fancy ── */
+    /* ── HERO · grille Bauhaus 3×2, inspirée de la couverture Fancy ── */
     #hero {
       min-height: 100svh;
       display: grid;
@@ -104,21 +104,21 @@
       grid-template-rows: 42vh calc(100svh - 42vh);
     }
 
-    /* Bloc bleu — nom */
+    /* Bloc bleu · nom */
     .hc-blue { background: var(--blue); padding: clamp(18px,3vw,40px); padding-top: clamp(80px,13vh,120px); display: flex; flex-direction: column; justify-content: flex-end; }
     .h-eyebrow { font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,251,244,.5); margin-bottom: 10px; }
     .h-name { font-family: var(--TT); font-size: clamp(2.2rem,5vw,4.8rem); font-weight: 800; color: var(--cream); line-height: 1.0; }
 
-    /* Centre haut — 4 chevrons colorés */
+    /* Centre haut · 4 chevrons colorés */
     .hc-chevs { background: var(--cream); display: flex; align-items: center; justify-content: center; padding: 20px; padding-top: clamp(80px,13vh,120px); }
     .chevrons-svg { width: clamp(100px,17vw,210px); height: auto; }
 
-    /* Bloc jaune — accroche */
+    /* Bloc jaune · accroche */
     .hc-yellow { background: var(--yellow); padding: clamp(14px,2.5vw,32px); padding-top: clamp(80px,13vh,120px); display: flex; flex-direction: column; justify-content: flex-end; }
     .hc-yellow small { display: block; font-family: var(--TT); font-size: .56rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--blue); opacity: .5; margin-bottom: 14px; }
     .hc-word { font-family: var(--TT); font-size: clamp(1.15rem,2.6vw,2.1rem); font-weight: 800; color: var(--blue); line-height: 1.05; }
 
-    /* Chevrons — vague séquentielle, 4 SVGs indépendants */
+    /* Chevrons · vague séquentielle, 4 SVGs indépendants */
     .chevrons-wrap { display: flex; align-items: center; gap: 0; }
     .chev { width: clamp(36px,6vw,76px); height: auto; overflow: visible; flex-shrink: 0; }
     @keyframes chev-wave {
@@ -131,20 +131,20 @@
     .chev-3 { animation-delay: 0.44s; }
     .chev-4 { animation-delay: 0.66s; }
 
-    /* Formes animées bas-gauche — ▲ ● ■ morphing au survol */
+    /* Formes animées bas-gauche · ▲ ● ■ morphing au survol */
     .hc-tris { background: var(--cream); display: flex; align-items: center; justify-content: center; cursor: pointer; }
     .shapes-anim { position: relative; width: clamp(72px,10vw,130px); height: clamp(72px,10vw,130px); }
     .shapes-anim svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity 0.45s ease, transform 0.45s ease; }
     .shape-tri, .shape-sq { opacity: 0; transform: scale(0.85); }
     .shape-circ { opacity: 1; transform: scale(1); }
 
-    /* Bloc vert — tagline + CTA */
+    /* Bloc vert · tagline + CTA */
     .hc-green { grid-column: 2 / 4; background: var(--green); padding: clamp(28px,5vw,60px) clamp(22px,4.5vw,56px); display: flex; flex-direction: column; justify-content: center; }
     .h-role { font-family: var(--TT); font-size: clamp(.65rem,1.1vw,.8rem); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,251,244,.65); margin-bottom: 14px; }
     .h-tagline { font-family: var(--TT); font-size: clamp(1.3rem,3vw,2.4rem); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 36px; }
     .h-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* Boutons — effet wipe horizontal */
+    /* Boutons · effet wipe horizontal */
     .btn {
       font-family: var(--TT); font-size: .7rem; font-weight: 700;
       letter-spacing: .13em; text-transform: uppercase;
@@ -225,7 +225,7 @@
     .proj-badge { display: inline-block; font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; background: rgba(62,207,178,.14); color: var(--green); }
     @media (max-width: 640px) { .proj-grid { grid-template-columns: 1fr; } .proj-card:nth-child(5) { grid-column: auto; display: block; } .proj-card:nth-child(5) .proj-img { height: 180px; } }
 
-    /* ── SKILLS — fond bleu, icônes ▲ ● ■ du design system Fancy ── */
+    /* ── SKILLS · fond bleu, icônes ▲ ● ■ du design system Fancy ── */
     #skills { padding: var(--sp) 0; background: var(--cream); }
     #skills .eyebrow { color: var(--blue); }
     #skills .sh { color: var(--blue); }
@@ -256,7 +256,7 @@
     .wc-lbl { background: rgba(255,251,244,.88); color: var(--blue) !important; padding: 3px 8px; }
     @media (max-width: 680px) { .wc-gallery { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; } .wc-item:nth-child(2) { grid-row: auto; } .wc-gallery .wc-item { height: 160px; } .wc-intro { grid-template-columns: 1fr; } .wc-side { text-align: left; } }
 
-    /* ── CONTACT — fond vert ── */
+    /* ── CONTACT · fond vert ── */
     #contact { padding: var(--sp) 0; background: var(--green); position: relative; overflow: hidden; }
     /* cercles décoratifs */
     #contact::before { content: ''; position: absolute; bottom: -80px; right: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,251,244,.08); pointer-events: none; }
@@ -288,7 +288,7 @@
     .h-tagline        { animation: heroUp 0.6s ease 1.05s both; }
     .h-ctas           { animation: heroUp 0.5s ease 1.25s both; }
 
-    /* ── PROJECT CARDS — hover enrichi ── */
+    /* ── PROJECT CARDS · hover enrichi ── */
     .proj-img::before {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
@@ -301,14 +301,14 @@
     .proj-img { transition: filter 0.4s ease; }
     .proj-card:hover .proj-img { filter: brightness(1.07) saturate(1.08); }
 
-    /* ── SKILL BLOCKS — lift au hover ── */
+    /* ── SKILL BLOCKS · lift au hover ── */
     .sk-block { transition: background .25s, transform .3s cubic-bezier(.25,.46,.45,.94); }
     .sk-block:hover { transform: translateY(-6px); }
 
-    /* ── CONTACT — magnétisme (style de base) ── */
+    /* ── CONTACT · magnétisme (style de base) ── */
     .ct-item { transition: transform 0.5s cubic-bezier(.25,.46,.45,.94), border-color .22s, background .22s; }
 
-    /* ── FOOTER — fond bleu, 4 triangles ── */
+    /* ── FOOTER · fond bleu, 4 triangles ── */
     footer { padding: 24px 0; background: var(--blue); }
     .ft-in { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     .ft-name { font-family: var(--TT); font-weight: 800; font-size: .85rem; color: var(--cream); }
@@ -349,7 +349,7 @@
   </div>
 </nav>
 
-<!-- HERO — grille 3×2, DA Fancy -->
+<!-- HERO · grille 3×2, DA Fancy -->
 <section id="hero">
 
   <!-- Bloc bleu : nom -->
@@ -562,7 +562,7 @@
   </div>
 </section>
 
-<!-- COMPÉTENCES — fond bleu, icônes ▲ ● ■ ▲ -->
+<!-- COMPÉTENCES · fond bleu, icônes ▲ ● ■ ▲ -->
 <section id="skills">
   <div class="wrap">
     <span class="eyebrow fi">Savoir-faire</span>
@@ -599,7 +599,7 @@
         <div class="sk-accent" style="background:var(--red)"></div>
       </div>
 
-      <!-- ▲ inversé — Pilotage -->
+      <!-- ▲ inversé · Pilotage -->
       <div class="sk-block fi d3">
         <svg class="sk-icon" width="48" height="42" viewBox="0 0 100 87" aria-hidden="true">
           <polygon points="50,87 0,0 100,0" fill="#24618c"/>
@@ -653,7 +653,7 @@
   </div>
 </section>
 
-<!-- CONTACT — fond vert -->
+<!-- CONTACT · fond vert -->
 <section id="contact">
   <div class="wrap">
     <div class="ct-grid">
@@ -686,7 +686,7 @@
   </div>
 </section>
 
-<!-- FOOTER — fond bleu, séquence 4 triangles -->
+<!-- FOOTER · fond bleu, séquence 4 triangles -->
 <footer>
   <div class="wrap">
     <div class="ft-in">
