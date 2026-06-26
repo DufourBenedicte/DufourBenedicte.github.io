@@ -124,10 +124,14 @@
     }
     .hero-cta:hover { background: #1a4a6e; gap: 16px; }
 
+    .slides-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,2vw,20px); margin-bottom: clamp(16px,3vw,28px); }
+    .slides-3col .slide-wrap { margin-bottom: 0; }
+
     @media (max-width: 760px) {
       .axes-band { grid-template-columns: repeat(2,1fr); }
       .axe:nth-child(2) { border-right: none; }
       .slides-2col { grid-template-columns: 1fr; }
+      .slides-3col { grid-template-columns: 1fr; }
       .com-grid { grid-template-columns: 1fr; }
       .infos-grid { grid-template-columns: 1fr; }
       .budget-inner { grid-template-columns: 1fr; gap: 24px; }
@@ -185,6 +189,60 @@
           <p class="axe-num">Axe 04</p>
           <p class="axe-title">Esthétique ludique &amp; identité forte</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Cartographie des cibles · 3 segments</p>
+      <div class="slide-wrap">
+        <img class="slide-img" src="screens/carto-page-12.jpg" alt="Skill Guru · identification des 3 cibles · étudiants, formateurs, responsables pédagogiques" loading="lazy">
+        <p class="slide-caption">Identification des cibles · Étudiants · Formateurs · Responsables pédagogiques</p>
+      </div>
+      <div class="slides-3col" style="margin-top:clamp(16px,3vw,28px);">
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/carto-page-16.jpg" alt="Skill Guru · persona étudiant · Thibault Clairon" loading="lazy">
+          <p class="slide-caption">Persona 01 · Thibault · Étudiant</p>
+        </div>
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/carto-page-19.jpg" alt="Skill Guru · persona formateur · Julien Martin" loading="lazy">
+          <p class="slide-caption">Persona 02 · Julien · Formateur</p>
+        </div>
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/carto-page-22.jpg" alt="Skill Guru · persona responsable pédagogique · Sophie Dupont" loading="lazy">
+          <p class="slide-caption">Persona 03 · Sophie · Responsable pédagogique</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Identité visuelle · Skill Guru &amp; Skill Project</p>
+      <div class="slides-2col">
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/carto-page-36.jpg" alt="Skill Guru · concept identité · pixel art · rebranding" loading="lazy">
+          <p class="slide-caption">Concept identité · pixel art · rebranding enseignement supérieur</p>
+        </div>
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/carto-page-40.jpg" alt="Skill Guru · logo institutionnel" loading="lazy">
+          <p class="slide-caption">Logo Skill Guru · institutionnel · poulpe flat pixel art · ED Interlock</p>
+        </div>
+      </div>
+      <div class="slides-2col">
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/carto-page-50.jpg" alt="Skill Project · concept identité visuelle" loading="lazy">
+          <p class="slide-caption">Skill Project · concept identité · palette violet/rose/bleu</p>
+        </div>
+        <div class="slide-wrap">
+          <img class="slide-img" src="screens/carto-page-54.jpg" alt="Skill Project · logo institutionnel" loading="lazy">
+          <p class="slide-caption">Logo Skill Project · La gestion de projet devient un jeu</p>
+        </div>
+      </div>
+      <div class="slide-wrap">
+        <img class="slide-img" src="screens/carto-page-57.jpg" alt="Skill Guru · visuels réseaux sociaux · bannière LinkedIn · YouTube" loading="lazy">
+        <p class="slide-caption">Déclinaisons · Bannière LinkedIn · Miniature YouTube · Visuels de lancement</p>
       </div>
     </div>
   </section>
