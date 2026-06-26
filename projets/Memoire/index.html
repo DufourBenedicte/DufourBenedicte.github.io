@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mémoire professionnel · Croître sans déshumaniser · Bénédicte Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #fffbf4; color: #24618c; line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --cream: #fffbf4;
+      --blue: #24618c;
+      --green: #35d7b1;
+      --yellow: #f9d711;
+      --muted: rgba(36,97,140,.55);
+      --border: rgba(36,97,140,.12);
+      --TT: 'Jost', sans-serif;
+      --max: 1100px;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px,4vw,48px); }
+
+    .top-nav {
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+      background: rgba(255,251,244,.96); backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-nav-in { display: flex; align-items: center; justify-content: space-between; }
+    .back-link {
+      font-family: var(--TT); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 8px; transition: gap .2s;
+    }
+    .back-link:hover { gap: 14px; }
+    .nav-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    .hero { padding: clamp(48px,7vw,88px) 0 clamp(40px,5vw,64px); }
+    .eyebrow {
+      font-family: var(--TT); font-size: .68rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue);
+    }
+    .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .hero-title {
+      font-family: var(--TT); font-size: clamp(2rem,4.5vw,3.6rem);
+      font-weight: 800; color: var(--blue); line-height: 1.08; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--green); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(.95rem,1.5vw,1.05rem); color: var(--muted);
+      max-width: 640px; line-height: 1.75; margin-bottom: 32px;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+    .tag {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px; border: 1px solid var(--border); color: var(--blue);
+    }
+    .tag.yellow { background: rgba(249,215,17,.15); border-color: rgba(249,215,17,.4); color: #7a6500; }
+    .tag.green { background: rgba(53,215,177,.15); border-color: rgba(53,215,177,.5); color: #1a6b57; }
+
+    .mention-note {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid var(--border); padding: 14px 20px;
+      font-family: var(--TT); font-size: .78rem; font-weight: 700; color: var(--blue);
+    }
+    .mention-note span { color: var(--green); font-size: 1.2rem; }
+
+    section.cs-section { padding: clamp(40px,6vw,72px) 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+
+    .slide-wrap { margin-bottom: clamp(16px,3vw,28px); }
+    .slide-wrap:last-child { margin-bottom: 0; }
+    .slide-img { width: 100%; display: block; border: 2px solid var(--blue); box-shadow: 6px 6px 0 var(--yellow); }
+    .slide-caption { font-family: var(--TT); font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+    .slides-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px,3vw,28px); margin-bottom: clamp(16px,3vw,28px); }
+    .slides-2col .slide-wrap { margin-bottom: 0; }
+
+    .context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,4vw,56px); align-items: start; }
+    .context-block h2 {
+      font-family: var(--TT); font-size: clamp(1.2rem,2.2vw,1.7rem);
+      font-weight: 800; color: var(--blue); line-height: 1.15; margin-bottom: 14px;
+    }
+    .context-block p { font-size: .92rem; color: var(--muted); line-height: 1.75; margin-bottom: 10px; }
+
+    .parts-list { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2.5vw,24px); }
+    .part-item { border: 1px solid var(--border); padding: 22px 20px; }
+    .part-num { font-family: var(--TT); font-size: .58rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+    .part-title { font-family: var(--TT); font-size: .9rem; font-weight: 700; color: var(--blue); margin-bottom: 8px; line-height: 1.3; }
+    .part-items { font-size: .78rem; color: var(--muted); line-height: 1.7; }
+
+    .enseignements { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2.5vw,24px); margin-top: clamp(32px,4vw,48px); }
+    .ens-item { padding: 24px 20px; background: var(--cream); border: 1px solid var(--border); }
+    .ens-num { font-family: var(--TT); font-size: .58rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+    .ens-title { font-family: var(--TT); font-size: .9rem; font-weight: 700; color: var(--blue); margin-bottom: 8px; line-height: 1.3; }
+    .ens-desc { font-size: .8rem; color: var(--muted); line-height: 1.65; }
+
+    .quote-block { background: var(--yellow); padding: clamp(24px,4vw,40px) clamp(24px,4vw,48px); margin-top: clamp(32px,4vw,48px); }
+    .quote-text { font-family: var(--TT); font-size: clamp(.9rem,1.5vw,1.05rem); color: var(--blue); line-height: 1.75; font-style: italic; margin-bottom: 14px; }
+    .quote-author { font-family: var(--TT); font-size: .68rem; font-weight: 700; color: var(--blue); opacity: .7; text-transform: uppercase; letter-spacing: .1em; }
+
+    .infos-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(16px,3vw,32px); }
+    .info-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .info-value { font-size: .92rem; color: var(--blue); line-height: 1.7; }
+    .info-value strong { font-weight: 600; }
+
+    .cta-section { padding: clamp(48px,6vw,80px) 0; text-align: center; border-top: 1px solid var(--border); }
+    .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
+    .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 16px 32px; transition: background .2s, gap .2s;
+    }
+    .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+    .cta-btn.outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .cta-btn.outline:hover { background: rgba(36,97,140,.06); gap: 16px; }
+    .cta-note { font-size: .82rem; color: var(--muted); margin-top: 16px; font-style: italic; }
+
+    @media (max-width: 700px) {
+      .context-grid { grid-template-columns: 1fr; }
+      .slides-2col { grid-template-columns: 1fr; }
+      .parts-list { grid-template-columns: 1fr; }
+      .enseignements { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="wrap top-nav-in">
+      <a class="back-link" href="../../index.html"><span>←</span> Portfolio</a>
+      <span class="nav-label">Mémoire professionnel · M2 MBA Direction Artistique</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Projet 10 · Mémoire professionnel · 2025</p>
+      <h1 class="hero-title">Croître sans<br><em>déshumaniser</em></h1>
+      <p class="hero-desc">
+        Comment Strapp peut-elle automatiser sa communication client tout en conservant une relation de qualité fidèle à ses valeurs ? 64 pages à l'intersection de la stratégie de contenu, de la relation client B2B et de l'automatisation IA.
+      </p>
+      <div class="hero-meta">
+        <span class="tag yellow">Communication client</span>
+        <span class="tag yellow">Automatisation IA</span>
+        <span class="tag">Stratégie relationnelle</span>
+        <span class="tag">Recherche qualitative</span>
+        <span class="tag green">M2 MBA · MyDigitalSchool</span>
+      </div>
+      <div class="mention-note"><span>16,5</span> / 20 · Meilleure note à l'écrit de la promotion</div>
+    </div>
+  </section>
+
+  <section class="cs-section" style="border-top:none; padding-top:0;">
+    <div class="wrap">
+      <div class="slides-2col">
+        <div class="slide-wrap">
+          <img class="slide-img" src="memoire-apercu.jpg" alt="Mémoire · couverture" loading="lazy">
+          <p class="slide-caption">Couverture · Mémoire professionnel 2025</p>
+        </div>
+        <div class="slide-wrap">
+          <img class="slide-img" src="page-sommaire.jpg" alt="Mémoire · sommaire" loading="lazy">
+          <p class="slide-caption">Sommaire · 3 parties · 64 pages</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Contexte · Problématique</p>
+      <div class="context-grid">
+        <div class="context-block">
+          <h2>Une tension réelle au cœur de la croissance de Strapp</h2>
+          <p>Quand le portefeuille client grossit, la tentation de tout automatiser est forte. Mais chez Strapp, le lien humain et la qualité d'accompagnement font partie de l'offre. Standardiser à outrance, c'est risquer de perdre ce qui différencie.</p>
+          <p>Le mémoire part d'un terrain concret : l'observation du fonctionnement interne, des outils, des irritants terrain, et des attentes exprimées par les clients gestionnaires et les collaborateurs.</p>
+        </div>
+        <div class="context-block">
+          <h2>Une recherche menée depuis l'intérieur</h2>
+          <p>Positionnée comme chargée de communication client chez Strapp pendant 2 ans, j'avais un accès direct aux données, aux équipes et aux retours clients. Le mémoire s'appuie sur cette immersion : analyse des outils existants, entretiens internes, étude des parcours gestionnaires et collaborateurs.</p>
+          <p>L'objectif : ne pas produire un état de l'art théorique, mais une feuille de route opérationnelle pour une PME en croissance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Structure · 3 parties</p>
+      <div class="parts-list">
+        <div class="part-item">
+          <p class="part-num">Partie 1</p>
+          <p class="part-title">Contexte et environnement de Strapp</p>
+          <p class="part-items">Marché de la gestion de flotte mobile · modèle économique de Strapp · enjeux de communication client · mapping concurrentiel · analyse SWOT</p>
+        </div>
+        <div class="part-item">
+          <p class="part-num">Partie 2</p>
+          <p class="part-title">La communication client aujourd'hui</p>
+          <p class="part-items">Attentes des gestionnaires et collaborateurs · analyse des outils et supports existants · parcours client · points de friction identifiés</p>
+        </div>
+        <div class="part-item">
+          <p class="part-num">Partie 3</p>
+          <p class="part-title">Stratégies d'optimisation et recommandations</p>
+          <p class="part-items">Automatiser sans perdre l'âme · exemples externes inspirants · feuille de route opérationnelle · scénarios relationnels · onboarding · cohérence éditoriale</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Extraits · Analyses</p>
+      <div class="slides-2col">
+        <div class="slide-wrap">
+          <img class="slide-img" src="page-mapping-concurrentiel.jpg" alt="Mémoire · mapping concurrentiel" loading="lazy">
+          <p class="slide-caption">Mapping concurrentiel · marché gestion de flotte mobile</p>
+        </div>
+        <div class="slide-wrap">
+          <img class="slide-img" src="page-swot.jpg" alt="Mémoire · analyse SWOT Strapp" loading="lazy">
+          <p class="slide-caption">Analyse SWOT · Strapp</p>
+        </div>
+      </div>
+      <div class="slides-2col">
+        <div class="slide-wrap">
+          <img class="slide-img" src="page-parcours-gestionnaire.jpg" alt="Mémoire · parcours gestionnaire" loading="lazy">
+          <p class="slide-caption">Parcours gestionnaire · points de friction</p>
+        </div>
+        <div class="slide-wrap">
+          <img class="slide-img" src="page-conclusion.jpg" alt="Mémoire · conclusion et enseignements" loading="lazy">
+          <p class="slide-caption">Conclusion · trois enseignements</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Conclusion · 3 enseignements</p>
+      <div class="enseignements">
+        <div class="ens-item">
+          <p class="ens-num">Enseignement 1</p>
+          <p class="ens-title">La communication client est une expérience à part entière</p>
+          <p class="ens-desc">Elle ne se réduit pas à la transmission d'informations techniques. Dans un univers où la gestion de flotte reste souvent opaque, la clarté et la cohérence relationnelle deviennent des facteurs de différenciation réels.</p>
+        </div>
+        <div class="ens-item">
+          <p class="ens-num">Enseignement 2</p>
+          <p class="ens-title">Automatiser n'exclut pas l'humain</p>
+          <p class="ens-desc">Gagner en efficacité est un impératif. Mais automatiser ne signifie pas standardiser à outrance. Les séquences relationnelles peuvent être pensées pour rester personnalisées à des moments clés du parcours client.</p>
+        </div>
+        <div class="ens-item">
+          <p class="ens-num">Enseignement 3</p>
+          <p class="ens-title">Une croissance alignée avec les valeurs</p>
+          <p class="ens-desc">Structurer les parcours, formaliser les scénarios relationnels, professionnaliser l'onboarding, améliorer la cohérence éditoriale : autant de briques pour une communication plus fluide sans trahir l'ADN de Strapp.</p>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <p class="quote-text">"Merci de ton engagement sans faille pour Strapp. Ta énergie, ton état d'esprit et ta personnalité sont un vrai moteur pour l'équipe. C'est une joie de te voir prendre à cœur tous ces sujets."</p>
+        <p class="quote-author">Antoine de Verneuil · CEO Strapp · mot manuscrit reçu en décembre 2024</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Informations</p>
+      <div class="infos-grid">
+        <div>
+          <p class="info-label">Contexte</p>
+          <p class="info-value"><strong>Mémoire professionnel</strong><br>M2 MBA Direction Artistique · MyDigitalSchool · 2025</p>
+        </div>
+        <div>
+          <p class="info-label">Entreprise d'accueil</p>
+          <p class="info-value">Strapp Mobile · Nantes<br>Poste : Chargée de communication client</p>
+        </div>
+        <div>
+          <p class="info-label">Volume</p>
+          <p class="info-value">64 pages · bibliographie · annexes · infographies originales</p>
+        </div>
+        <div>
+          <p class="info-label">Note</p>
+          <p class="info-value"><strong>16,5 / 20</strong><br>Meilleure note à l'écrit de la promotion</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="cta-lead">D'autres projets à explorer</p>
+      <p class="cta-sub">Communication, produit, UX et automatisation.</p>
+      <div class="cta-buttons">
+        <a class="cta-btn" href="../../index.html">← Voir tous les projets</a>
+        <a class="cta-btn outline" href="../Strapp/">Projet Strapp · Présentation commerciale ↗</a>
+      </div>
+      <p class="cta-note">Mémoire complet disponible sur demande.</p>
+    </div>
+  </section>
+
+</body>
+</html>
