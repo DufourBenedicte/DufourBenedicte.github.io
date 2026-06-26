@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Présentation commerciale Strapp · Bénédicte Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #fffbf4; color: #24618c; line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --cream: #fffbf4;
+      --blue: #24618c;
+      --green: #35d7b1;
+      --yellow: #f9d711;
+      --muted: rgba(36,97,140,.55);
+      --border: rgba(36,97,140,.12);
+      --TT: 'Jost', sans-serif;
+      --max: 1100px;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px,4vw,48px); }
+
+    /* NAV */
+    .top-nav {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,251,244,.96);
+      backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-nav-in { display: flex; align-items: center; justify-content: space-between; }
+    .back-link {
+      font-family: var(--TT); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 8px;
+      transition: gap .2s;
+    }
+    .back-link:hover { gap: 14px; }
+    .nav-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    /* HERO */
+    .hero { padding: clamp(48px,7vw,88px) 0 clamp(48px,6vw,72px); }
+    .eyebrow {
+      font-family: var(--TT); font-size: .68rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue);
+    }
+    .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
+    .hero-title {
+      font-family: var(--TT); font-size: clamp(2.4rem,5vw,4rem);
+      font-weight: 800; color: var(--blue); line-height: 1.05; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--green); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(.95rem,1.5vw,1.05rem); color: var(--muted);
+      max-width: 580px; line-height: 1.75; margin-bottom: 32px;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+    .tag {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px; border: 1px solid var(--border); color: var(--blue);
+    }
+    .tag.yellow { background: rgba(249,215,17,.15); border-color: rgba(249,215,17,.4); color: #7a6500; }
+    .tag.green { background: rgba(53,215,177,.15); border-color: rgba(53,215,177,.5); color: #1a6b57; }
+
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .78rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 14px 28px; transition: background .2s, gap .2s;
+    }
+    .hero-cta:hover { background: #1a4a6e; gap: 16px; }
+
+    /* SECTIONS */
+    section.cs-section { padding: clamp(40px,6vw,72px) 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+
+    /* IMAGE */
+    .slide-wrap { margin-bottom: clamp(16px,3vw,28px); }
+    .slide-wrap:last-child { margin-bottom: 0; }
+    .slide-img {
+      width: 100%; display: block;
+      border: 2px solid var(--blue);
+      box-shadow: 6px 6px 0 var(--yellow);
+    }
+    .slide-caption {
+      font-family: var(--TT); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-top: 10px;
+    }
+
+    /* STRUCTURE SLIDES */
+    .slides-structure { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(12px,2vw,20px); }
+    .slide-block { border: 1px solid var(--border); padding: 18px 16px; }
+    .slide-block-num {
+      font-family: var(--TT); font-size: .58rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 8px;
+    }
+    .slide-block-title {
+      font-family: var(--TT); font-size: .85rem; font-weight: 700;
+      color: var(--blue); margin-bottom: 6px; line-height: 1.25;
+    }
+    .slide-block-items { font-size: .75rem; color: var(--muted); line-height: 1.65; }
+
+    /* ARGUMENTS */
+    .args-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2.5vw,24px); }
+    .arg-item { padding: 22px 20px; border: 1px solid var(--border); }
+    .arg-stat {
+      font-family: var(--TT); font-size: clamp(1.6rem,3vw,2.2rem);
+      font-weight: 800; color: var(--blue); line-height: 1; margin-bottom: 8px;
+    }
+    .arg-stat span { color: var(--green); }
+    .arg-title { font-family: var(--TT); font-size: .85rem; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+    .arg-desc { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+    /* TÉMOIGNAGE */
+    .quote-block {
+      background: var(--yellow);
+      padding: clamp(24px,4vw,40px) clamp(24px,4vw,48px);
+    }
+    .quote-text {
+      font-family: var(--TT); font-size: clamp(.95rem,1.6vw,1.1rem);
+      color: var(--blue); line-height: 1.75; font-style: italic; margin-bottom: 14px;
+    }
+    .quote-author { font-family: var(--TT); font-size: .72rem; font-weight: 700; color: var(--blue); opacity: .7; text-transform: uppercase; letter-spacing: .1em; }
+
+    /* INFOS */
+    .infos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,3vw,32px); }
+    .info-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .info-value { font-size: .95rem; color: var(--blue); line-height: 1.7; }
+    .info-value strong { font-weight: 600; }
+
+    /* CTA */
+    .cta-section { padding: clamp(48px,6vw,80px) 0; text-align: center; border-top: 1px solid var(--border); }
+    .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
+    .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 16px 32px; transition: background .2s, gap .2s;
+    }
+    .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+
+    @media (max-width: 700px) {
+      .slides-structure { grid-template-columns: repeat(2,1fr); }
+      .args-grid { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="wrap top-nav-in">
+      <a class="back-link" href="../../index.html"><span>←</span> Portfolio</a>
+      <span class="nav-label">Communication commerciale · Strapp</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Communication B2B · Strapp · CDI</div>
+      <h1 class="hero-title">Présentation commerciale<br><em>Strapp</em></h1>
+      <p class="hero-desc">
+        Conception et réalisation de A à Z de la présentation commerciale animée de Strapp : structure narrative, argumentation TCO, design Canva, animation slide par slide. Outil utilisé directement par l'équipe commerciale en rendez-vous prospects.
+      </p>
+      <div class="hero-meta">
+        <span class="tag">Direction créative</span>
+        <span class="tag">Conception éditoriale</span>
+        <span class="tag">Canva</span>
+        <span class="tag">Communication B2B</span>
+        <span class="tag">27 slides animées</span>
+        <span class="tag yellow">Strapp · CDI</span>
+      </div>
+      <a class="hero-cta" href="https://canva.link/6iguq3grkzhk2wy" target="_blank" rel="noopener">
+        Voir la présentation animée <span>↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Slide de couverture · Aperçu</p>
+      <div class="slide-wrap">
+        <img class="slide-img" src="screen_Presentation_Commerciale.jpg" alt="Strapp · présentation commerciale · Optimise et simplifie la téléphonie mobile des entreprises" loading="lazy">
+        <p class="slide-caption">Slide de couverture · Strapp · Optimise et simplifie la téléphonie mobile des entreprises</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Structure narrative · 27 slides · 4 grandes parties</p>
+      <div class="slides-structure">
+        <div class="slide-block">
+          <p class="slide-block-num">Slides 01–05</p>
+          <h3 class="slide-block-title">Contexte marché</h3>
+          <p class="slide-block-items">TCO sous-estimé · coûts cachés des forfaits · coûts cachés des smartphones · attentes des entreprises</p>
+        </div>
+        <div class="slide-block">
+          <p class="slide-block-num">Slides 06–12</p>
+          <h3 class="slide-block-title">La mission et les piliers</h3>
+          <p class="slide-block-items">Mission Strapp · l'offre globale · plateforme Optimus · accompagnement · bases de connaissance</p>
+        </div>
+        <div class="slide-block">
+          <p class="slide-block-num">Slides 14–17</p>
+          <h3 class="slide-block-title">Offre opérateur</h3>
+          <p class="slide-block-items">Forfaits (Mini, Classique, Extra) · sans engagement · gestion déléguée des lignes · ARCEP</p>
+        </div>
+        <div class="slide-block">
+          <p class="slide-block-num">Slides 18–26</p>
+          <h3 class="slide-block-title">Offre terminaux</h3>
+          <p class="slide-block-items">Location-gestion · seconde vie · gestion du turnover · cycle de vie · achat de terminaux</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Arguments clés · chiffres de la présentation</p>
+      <div class="args-grid">
+        <div class="arg-item">
+          <p class="arg-stat"><span>75%</span></p>
+          <p class="arg-title">des entreprises calculent leur TCO sans les coûts cachés</p>
+          <p class="arg-desc">L'accroche de la partie contexte : poser le problème chiffré avant de présenter la solution Strapp.</p>
+        </div>
+        <div class="arg-item">
+          <p class="arg-stat"><span>90%</span></p>
+          <p class="arg-title">de temps économisé sur la gestion de la téléphonie</p>
+          <p class="arg-desc">Argument central de l'offre location-gestion, avec 97% des utilisateurs satisfaits du service.</p>
+        </div>
+        <div class="arg-item">
+          <p class="arg-stat"><span>100%</span></p>
+          <p class="arg-title">des téléphones Strapp ont une seconde vie</p>
+          <p class="arg-desc">Argument RSE différenciant : prolongement, rachat collaborateur, Acme Family, recyclage certifié.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Témoignage client · intégré dans la présentation</p>
+      <div class="quote-block">
+        <p class="quote-text">« Avant, nous étions bloqués dans des contrats rigides où chaque manipulation avait un coût. Aujourd'hui, on ajoute, on retire, on ajuste selon nos besoins, sans contraintes. Et forcément, à la fin du mois, ça se voit sur le budget. »</p>
+        <p class="quote-author">Houda Maitrot · Responsable des Services Généraux · Delaware</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <div class="infos-grid">
+        <div>
+          <p class="info-label">Contexte</p>
+          <p class="info-value">Outil commercial principal de Strapp · utilisé en rendez-vous prospects et envoyé en PDF · 27 slides animées sur Canva · 2024</p>
+        </div>
+        <div>
+          <p class="info-label">Mon rôle</p>
+          <p class="info-value"><strong>Projet piloté et réalisé intégralement</strong> · structure narrative · argumentation TCO · design et animation Canva · version PDF · retours marginaux du Directeur Commercial</p>
+        </div>
+        <div>
+          <p class="info-label">Impact</p>
+          <p class="info-value">Retours très positifs des prospects · qualifiée de <strong>« game changer »</strong> par le CEO et le Directeur Commercial · devient l'outil de référence pour tous les rendez-vous commerciaux</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="cta-lead">D'autres projets à explorer</p>
+      <p class="cta-sub">Retour au portfolio pour voir l'ensemble des réalisations.</p>
+      <a class="cta-btn" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+    </div>
+  </section>
+
+</body>
+</html>
