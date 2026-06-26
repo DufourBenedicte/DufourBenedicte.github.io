@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À vos tiroirs · Campagne RSE · Bénédicte Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #fffbf4; color: #24618c; line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --cream: #fffbf4;
+      --blue: #24618c;
+      --green: #35d7b1;
+      --yellow: #f9d711;
+      --muted: rgba(36,97,140,.55);
+      --border: rgba(36,97,140,.12);
+      --TT: 'Jost', sans-serif;
+      --max: 1100px;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px,4vw,48px); }
+
+    /* NAV */
+    .top-nav {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,251,244,.96);
+      backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-nav-in { display: flex; align-items: center; justify-content: space-between; }
+    .back-link {
+      font-family: var(--TT); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 8px;
+      transition: gap .2s;
+    }
+    .back-link:hover { gap: 14px; }
+    .nav-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    /* HERO */
+    .hero { padding: clamp(48px,7vw,88px) 0 clamp(48px,6vw,72px); }
+    .eyebrow {
+      font-family: var(--TT); font-size: .68rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue);
+    }
+    .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .hero-title {
+      font-family: var(--TT); font-size: clamp(2.4rem,5vw,4rem);
+      font-weight: 800; color: var(--blue); line-height: 1.05; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--green); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(.95rem,1.5vw,1.05rem); color: var(--muted);
+      max-width: 580px; line-height: 1.75; margin-bottom: 32px;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+    .tag {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px; border: 1px solid var(--border); color: var(--blue);
+    }
+    .tag.yellow { background: rgba(249,215,17,.15); border-color: rgba(249,215,17,.4); color: #7a6500; }
+    .tag.green { background: rgba(53,215,177,.15); border-color: rgba(53,215,177,.5); color: #1a6b57; }
+
+    /* EXTERNAL LINK */
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .75rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      border: 2px solid var(--blue); color: var(--blue);
+      padding: 12px 24px; transition: background .2s, color .2s, gap .2s;
+    }
+    .hero-cta:hover { background: var(--blue); color: var(--cream); gap: 16px; }
+
+    /* STATS BAND */
+    .stats-band {
+      background: var(--green);
+      padding: clamp(28px,4vw,44px) 0;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: clamp(16px,3vw,32px); text-align: center;
+    }
+    .stat-num {
+      font-family: var(--TT); font-size: clamp(1.8rem,4vw,3rem);
+      font-weight: 800; color: var(--blue); line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; color: var(--blue); opacity: .75; }
+
+    /* SECTIONS */
+    section.cs-section { padding: clamp(40px,6vw,72px) 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+
+    /* IMAGE */
+    .slide-wrap { margin-bottom: clamp(16px,3vw,28px); }
+    .slide-wrap:last-child { margin-bottom: 0; }
+    .slide-img {
+      width: 100%; display: block;
+      border: 2px solid var(--blue);
+      box-shadow: 6px 6px 0 var(--green);
+    }
+    .slide-caption {
+      font-family: var(--TT); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-top: 10px;
+    }
+
+    /* PROCESS */
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2.5vw,24px); }
+    .step { padding: 22px 20px; border: 1px solid var(--border); }
+    .step-num { font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+    .step-title { font-family: var(--TT); font-size: .9rem; font-weight: 700; color: var(--blue); margin-bottom: 7px; line-height: 1.3; }
+    .step-desc { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+    /* RSE */
+    .rse-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2.5vw,24px); }
+    .rse-item { padding: 22px 20px; background: rgba(53,215,177,.08); border: 1px solid rgba(53,215,177,.3); }
+    .rse-title { font-family: var(--TT); font-size: .9rem; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+    .rse-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+
+    /* INFOS */
+    .infos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,3vw,32px); }
+    .info-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .info-value { font-size: .95rem; color: var(--blue); line-height: 1.7; }
+    .info-value strong { font-weight: 600; }
+
+    /* CTA */
+    .cta-section { padding: clamp(48px,6vw,80px) 0; text-align: center; border-top: 1px solid var(--border); }
+    .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
+    .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 16px 32px; transition: background .2s, gap .2s;
+    }
+    .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+
+    @media (max-width: 700px) {
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .steps { grid-template-columns: 1fr; }
+      .rse-grid { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="wrap top-nav-in">
+      <a class="back-link" href="../../index.html"><span>←</span> Portfolio</a>
+      <span class="nav-label">Campagne RSE · À vos tiroirs</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Campagne RSE · Strapp · 2024–2026</div>
+      <h1 class="hero-title">À vos tiroirs<br><em>une seconde vie</em></h1>
+      <p class="hero-desc">
+        Campagne de sensibilisation solidaire lancée par Strapp en partenariat avec le Secours Populaire Français : collecter les smartphones professionnels dormants pour les redistribuer aux personnes en situation de fracture numérique, ou les recycler de façon certifiée.
+      </p>
+      <div class="hero-meta">
+        <span class="tag">Campagne RSE</span>
+        <span class="tag">Direction créative</span>
+        <span class="tag">Kit de communication</span>
+        <span class="tag">Économie circulaire</span>
+        <span class="tag green">Secours Populaire Français</span>
+        <span class="tag yellow">Strapp · CDI</span>
+      </div>
+      <a class="hero-cta" href="https://www.strappmobile.com/avos-tiroirs-2025" target="_blank" rel="noopener">Voir la landing page <span>↗</span></a>
+    </div>
+  </section>
+
+  <div class="stats-band">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div>
+          <p class="stat-num">252</p>
+          <p class="stat-label">téléphones collectés</p>
+        </div>
+        <div>
+          <p class="stat-num">105</p>
+          <p class="stat-label">appareils redistribués</p>
+        </div>
+        <div>
+          <p class="stat-num">147</p>
+          <p class="stat-label">téléphones recyclés</p>
+        </div>
+        <div>
+          <p class="stat-num">5 Mds</p>
+          <p class="stat-label">smartphones dans les tiroirs mondiaux</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Visuel de campagne · Kit de communication</p>
+      <div class="slide-wrap">
+        <img class="slide-img" src="A_Vos_Tiroirs_Aperçu.png" alt="À vos tiroirs · flyer campagne · Strapp x Secours Populaire">
+        <p class="slide-caption">Flyer campagne · Branding · QR code · Secours Populaire Français · Strapp</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Comment ça marche · 6 étapes</p>
+      <div class="steps">
+        <div class="step">
+          <p class="step-num">01 · Inscription</p>
+          <h3 class="step-title">Formulaire en ligne</h3>
+          <p class="step-desc">L'entreprise s'inscrit via la landing page et signale qu'elle dispose de smartphones de flotte inutilisés.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">02 · Inventaire</p>
+          <h3 class="step-title">Recensement des appareils</h3>
+          <p class="step-desc">Strapp guide l'entreprise pour identifier et comptabiliser les téléphones dormants dans sa flotte professionnelle.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">03 · Confirmation</p>
+          <h3 class="step-title">Communication du volume</h3>
+          <p class="step-desc">L'entreprise confirme le nombre d'appareils. Strapp prend en charge toute la logistique de collecte.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">04 · Expédition</p>
+          <h3 class="step-title">Étiquette gratuite</h3>
+          <p class="step-desc">Strapp envoie une étiquette d'expédition prépayée. L'entreprise n'a qu'à emballer et déposer le colis.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">05 · Diagnostic</p>
+          <h3 class="step-title">Tri & expertise</h3>
+          <p class="step-desc">Les appareils sont diagnostiqués par les experts Strapp : fonctionnels, reconditionnable ou recyclage certifié DEEE.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">06 · Impact</p>
+          <h3 class="step-title">Redistribution ou recyclage</h3>
+          <p class="step-desc">Les téléphones sont donnés au Secours Populaire ou recyclés proprement. L'entreprise reçoit un rapport d'impact RSE.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Bénéfices RSE pour les entreprises partenaires</p>
+      <div class="rse-grid">
+        <div class="rse-item">
+          <p class="rse-title">Engagement solidaire concret</p>
+          <p class="rse-desc">Les appareils fonctionnels sont redistribués à des personnes en fracture numérique via le Secours Populaire Français, en Loire-Atlantique et au-delà.</p>
+        </div>
+        <div class="rse-item">
+          <p class="rse-title">Empreinte écologique réduite</p>
+          <p class="rse-desc">Chaque smartphone produit génère 80 kg de CO² (ADEME). Prolonger la durée de vie d'un appareil, c'est éviter cette empreinte.</p>
+        </div>
+        <div class="rse-item">
+          <p class="rse-title">Rapport d'impact fourni</p>
+          <p class="rse-desc">Chaque partenaire reçoit un rapport documenté pour ses bilans RSE, sa communication interne et ses reportings extra-financiers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <div class="infos-grid">
+        <div>
+          <p class="info-label">Contexte</p>
+          <p class="info-value">Initiative RSE lancée par Strapp · Partenariat Secours Populaire Français · 2 éditions (2024 et 2026) · Nantes</p>
+        </div>
+        <div>
+          <p class="info-label">Mon rôle</p>
+          <p class="info-value"><strong>Cocréation du concept</strong> · direction créative · kit de communication complet (flyer, visuels réseaux, QR code) · pilotage opérationnel de la campagne</p>
+        </div>
+        <div>
+          <p class="info-label">Résultats</p>
+          <p class="info-value">252 téléphones collectés · 105 redistribués au Secours Populaire · 147 recyclés · 2 000 personnes aidées à Nantes · 2ème édition lancée mai 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="cta-lead">D'autres projets à explorer</p>
+      <p class="cta-sub">Retour au portfolio pour voir l'ensemble des réalisations.</p>
+      <a class="cta-btn" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+    </div>
+  </section>
+
+</body>
+</html>
