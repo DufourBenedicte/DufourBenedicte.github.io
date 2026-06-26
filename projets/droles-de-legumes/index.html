@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drôles de Paniers · UX Design · Bénédicte Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #fffbf4; color: #24618c; line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --cream: #fffbf4;
+      --blue: #24618c;
+      --green: #35d7b1;
+      --yellow: #f9d711;
+      --muted: rgba(36,97,140,.55);
+      --border: rgba(36,97,140,.12);
+      --TT: 'Jost', sans-serif;
+      --max: 1100px;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px,4vw,48px); }
+
+    /* NAV */
+    .top-nav {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,251,244,.96);
+      backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-nav-in { display: flex; align-items: center; justify-content: space-between; }
+    .back-link {
+      font-family: var(--TT); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 8px;
+      transition: gap .2s;
+    }
+    .back-link:hover { gap: 14px; }
+    .nav-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    /* HERO */
+    .hero { padding: clamp(48px,7vw,88px) 0 clamp(48px,6vw,72px); }
+    .eyebrow {
+      font-family: var(--TT); font-size: .68rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue);
+    }
+    .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .hero-title {
+      font-family: var(--TT); font-size: clamp(2.4rem,5vw,4rem);
+      font-weight: 800; color: var(--blue); line-height: 1.05; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--green); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(.95rem,1.5vw,1.05rem); color: var(--muted);
+      max-width: 580px; line-height: 1.75; margin-bottom: 32px;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+    .tag {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px; border: 1px solid var(--border); color: var(--blue);
+    }
+    .tag.green { background: rgba(53,215,177,.15); border-color: rgba(53,215,177,.5); color: #1a6b57; }
+    .tag.yellow { background: rgba(249,215,17,.15); border-color: rgba(249,215,17,.4); color: #7a6500; }
+
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .78rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 14px 28px; transition: background .2s, gap .2s;
+    }
+    .hero-cta:hover { background: #1a4a6e; gap: 16px; }
+
+    /* SECTIONS */
+    section.cs-section { padding: clamp(40px,6vw,72px) 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+    .section-title {
+      font-family: var(--TT); font-size: clamp(1.4rem,2.5vw,1.9rem);
+      font-weight: 800; color: var(--blue); margin-bottom: 16px; line-height: 1.15;
+    }
+    .section-body { font-size: .95rem; color: var(--muted); line-height: 1.75; max-width: 680px; margin-bottom: 32px; }
+
+    /* PROCESSUS */
+    .process-strip {
+      display: flex; gap: 0; border: 1px solid var(--border); overflow: hidden;
+      margin-bottom: clamp(32px,5vw,56px);
+    }
+    .process-step {
+      flex: 1; padding: 16px 14px; border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .process-step:last-child { border-right: none; }
+    .process-step-num {
+      font-family: var(--TT); font-size: .55rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 5px;
+    }
+    .process-step-name {
+      font-family: var(--TT); font-size: .78rem; font-weight: 700;
+      color: var(--blue); line-height: 1.25;
+    }
+
+    /* VALEURS */
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,2vw,20px); margin-top: 28px; }
+    .value-item {
+      padding: 18px 16px; background: rgba(53,215,177,.07);
+      border-left: 3px solid var(--green);
+    }
+    .value-name {
+      font-family: var(--TT); font-size: .82rem; font-weight: 700;
+      color: var(--blue); margin-bottom: 4px;
+    }
+    .value-desc { font-size: .75rem; color: var(--muted); line-height: 1.55; }
+
+    /* IMAGES */
+    .img-full {
+      width: 100%; display: block;
+      border: 2px solid var(--blue);
+      box-shadow: 6px 6px 0 var(--green);
+      margin-bottom: clamp(16px,3vw,28px);
+    }
+    .img-caption {
+      font-family: var(--TT); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-top: -18px; margin-bottom: clamp(24px,3vw,36px);
+    }
+
+    /* GRILLE 2 COL SCREENS */
+    .screens-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px,2vw,20px); margin-bottom: clamp(16px,3vw,28px); }
+    .screen-item img {
+      width: 100%; display: block;
+      border: 2px solid var(--blue);
+      box-shadow: 4px 4px 0 var(--green);
+    }
+    .screen-item-caption {
+      font-family: var(--TT); font-size: .6rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-top: 8px;
+    }
+
+    /* PERSONAS */
+    .personas-row { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,2vw,20px); margin-top: 28px; }
+    .persona-card { padding: 20px 18px; border: 1px solid var(--border); }
+    .persona-title {
+      font-family: var(--TT); font-size: .85rem; font-weight: 700;
+      color: var(--blue); margin-bottom: 6px;
+    }
+    .persona-desc { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+
+    /* ITERATIONS */
+    .iter-list { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 14px; }
+    .iter-list li {
+      padding: 14px 16px; border-left: 3px solid var(--yellow);
+      background: rgba(249,215,17,.08); font-size: .875rem; color: var(--blue); line-height: 1.6;
+    }
+    .iter-list li strong { font-weight: 700; }
+
+    /* INFOS */
+    .infos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,3vw,32px); }
+    .info-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .info-value { font-size: .95rem; color: var(--blue); line-height: 1.7; }
+    .info-value strong { font-weight: 600; }
+
+    /* CTA */
+    .cta-section { padding: clamp(48px,6vw,80px) 0; text-align: center; border-top: 1px solid var(--border); }
+    .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
+    .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 16px 32px; transition: background .2s, gap .2s;
+    }
+    .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+    .cta-btn.outline {
+      background: transparent; color: var(--blue);
+      border: 2px solid var(--blue);
+    }
+    .cta-btn.outline:hover { background: rgba(36,97,140,.06); gap: 16px; }
+
+    @media (max-width: 700px) {
+      .process-strip { flex-direction: column; }
+      .process-step { border-right: none; border-bottom: 1px solid var(--border); }
+      .process-step:last-child { border-bottom: none; }
+      .values-grid { grid-template-columns: 1fr; }
+      .personas-row { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: 1fr; }
+      .screens-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="wrap top-nav-in">
+      <a class="back-link" href="../../index.html"><span>←</span> Portfolio</a>
+      <span class="nav-label">Projet 09 · Drôles de Paniers</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>UX Design · Projet école M2 DAD</div>
+      <h1 class="hero-title">Drôles de Paniers<br><em>UX Design</em></h1>
+      <p class="hero-desc">
+        Application pour commander des paniers de légumes moches à partir de recettes. Un projet d'école autour de l'inflation alimentaire et de l'alimentation responsable · M2 Direction Artistique Digitale.
+      </p>
+      <div class="hero-meta">
+        <span class="tag">UX Research</span>
+        <span class="tag">Design UI</span>
+        <span class="tag">Tests utilisateurs</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Wireframes</span>
+        <span class="tag green">Projet école M2</span>
+        <span class="tag yellow">Noémi Pointel · Bénédicte Dufour</span>
+      </div>
+      <a class="hero-cta" href="https://www.figma.com/proto/NfbDw1mtQQtBYlYzmJvkYh/Panier-de-l%C3%A9gumes-moches?node-id=136-24&t=fuFuSihcUaxCSY4B-1&scaling=min-zoom&content-scaling=fixed&page-id=4%3A1011" target="_blank" rel="noopener">
+        Tester le prototype <span>↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- APERÇU COVER -->
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Présentation du projet</p>
+      <img class="img-full" src="screens/page-01.jpg" alt="Drôles de Paniers · présentation de projet · cover" loading="lazy">
+      <p class="img-caption">Cover de présentation · M2 DAD · Drôles de Paniers</p>
+    </div>
+  </section>
+
+  <!-- CONCEPT & PROCESSUS -->
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Contexte · Brief</p>
+      <h2 class="section-title">Commander des légumes moches, c'est bon pour tout le monde</h2>
+      <p class="section-body">
+        Brief : concevoir une application mobile en réponse à l'inflation. Notre angle : les légumes moches, ces fruits et légumes écartés de la grande distribution pour leur apparence, disponibles moins chers. L'app <strong>Drôles de Paniers</strong> permet de choisir une recette, de composer son panier autour, et de se faire livrer des légumes imparfaits mais parfaitement bons.
+      </p>
+
+      <p class="section-label">Démarche · 5 phases</p>
+      <div class="process-strip">
+        <div class="process-step">
+          <p class="process-step-num">01</p>
+          <p class="process-step-name">UX Research</p>
+        </div>
+        <div class="process-step">
+          <p class="process-step-num">02</p>
+          <p class="process-step-name">Concept</p>
+        </div>
+        <div class="process-step">
+          <p class="process-step-num">03</p>
+          <p class="process-step-name">Charte graphique</p>
+        </div>
+        <div class="process-step">
+          <p class="process-step-num">04</p>
+          <p class="process-step-name">Tests utilisateurs</p>
+        </div>
+        <div class="process-step">
+          <p class="process-step-num">05</p>
+          <p class="process-step-name">Prototype</p>
+        </div>
+      </div>
+
+      <p class="section-label">Valeurs de l'application</p>
+      <div class="values-grid">
+        <div class="value-item">
+          <p class="value-name">Économie</p>
+          <p class="value-desc">Des légumes moins chers grâce à leur aspect imparfait, pour manger bien sans se ruiner.</p>
+        </div>
+        <div class="value-item">
+          <p class="value-name">Ludique · Sympathique</p>
+          <p class="value-desc">Un univers graphique enfantin et bienveillant qui dédramatise l'alimentation imparfaite.</p>
+        </div>
+        <div class="value-item">
+          <p class="value-name">Simplicité</p>
+          <p class="value-desc">Interface minimaliste centrée sur la recette : on choisit ce qu'on veut manger, le panier se compose seul.</p>
+        </div>
+        <div class="value-item">
+          <p class="value-name">L'imparfait assumé</p>
+          <p class="value-desc">Valoriser l'aspect décalé des légumes comme un atout, pas un défaut.</p>
+        </div>
+        <div class="value-item">
+          <p class="value-name">Bien-être</p>
+          <p class="value-desc">Manger de saison, local, et réduire le gaspillage alimentaire à sa source.</p>
+        </div>
+        <div class="value-item">
+          <p class="value-name">Plaisir</p>
+          <p class="value-desc">La cuisine comme acte positif : des recettes accessibles, un panier tout prêt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPT VISUEL -->
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Concept · Exploration UX</p>
+      <img class="img-full" src="screens/page-07.jpg" alt="Drôles de Paniers · concept · exploration UX" loading="lazy">
+      <p class="img-caption">Exploration UX · personas · insights · user flow</p>
+    </div>
+  </section>
+
+  <!-- PERSONAS -->
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Personas · 3 profils cibles</p>
+      <div class="personas-row">
+        <div class="persona-card">
+          <p class="persona-title">Les retraités</p>
+          <p class="persona-desc">Sensibles aux prix, attachés à la qualité des produits. À l'aise avec le temps de cuisiner, soucieux du gaspillage.</p>
+        </div>
+        <div class="persona-card">
+          <p class="persona-title">Les parents</p>
+          <p class="persona-desc">Budget alimentaire sous pression avec une famille. En quête de praticité et de menus clé en main pour la semaine.</p>
+        </div>
+        <div class="persona-card">
+          <p class="persona-title">Les étudiants</p>
+          <p class="persona-desc">Pouvoir d'achat limité, envie de bien manger sans sacrifier le goût. Sensibles à l'argument anti-gaspi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARTE GRAPHIQUE -->
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Identité visuelle</p>
+      <h2 class="section-title">Minimaliste et enfantin · Nunito</h2>
+      <p class="section-body">
+        Une palette de verts doux, rose et bleu pour évoquer la fraîcheur et la bienveillance. La typographie Nunito apporte une rondeur enfantine qui dédramatise l'alimentation imparfaite. Le style graphique joue sur le dessin d'enfant : simple, immédiat, chaleureux.
+      </p>
+      <img class="img-full" src="screens/page-12.jpg" alt="Drôles de Paniers · charte graphique · Nunito · palette verts rose bleu" loading="lazy">
+      <p class="img-caption">Charte graphique · Nunito · palette chromatique · style illustratif</p>
+    </div>
+  </section>
+
+  <!-- PROTOTYPE SCREENS -->
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Prototype · Vue d'ensemble</p>
+      <img class="img-full" src="screens/page-17.jpg" alt="Drôles de Paniers · prototype interactif · écrans" loading="lazy">
+      <p class="img-caption">Vue d'ensemble du prototype · onboarding · recettes · panier · règlement</p>
+
+      <p class="section-label" style="margin-top:clamp(28px,4vw,40px);">Écrans · Flux utilisateur complet</p>
+      <div class="screens-grid">
+        <div class="screen-item">
+          <img src="screens/page-18.jpg" alt="Drôles de Paniers · onboarding · inscription" loading="lazy">
+          <p class="screen-item-caption">Onboarding · Inscription · Préférences</p>
+        </div>
+        <div class="screen-item">
+          <img src="screens/page-19.jpg" alt="Drôles de Paniers · accueil · catalogue recettes" loading="lazy">
+          <p class="screen-item-caption">Accueil · Catalogue de recettes</p>
+        </div>
+        <div class="screen-item">
+          <img src="screens/page-20.jpg" alt="Drôles de Paniers · fiche recette · composition panier" loading="lazy">
+          <p class="screen-item-caption">Fiche recette · Composition du panier</p>
+        </div>
+        <div class="screen-item">
+          <img src="screens/page-21.jpg" alt="Drôles de Paniers · panier · règlement · confirmation" loading="lazy">
+          <p class="screen-item-caption">Panier · Règlement · Confirmation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTS UTILISATEURS -->
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Tests utilisateurs · Itérations</p>
+      <h2 class="section-title">Tester pour simplifier</h2>
+      <p class="section-body">
+        Des tests utilisateurs ont permis d'identifier les points de friction et d'affiner le flux. Trois grandes itérations ont marqué l'évolution du prototype.
+      </p>
+      <ul class="iter-list">
+        <li><strong>Simplification de l'interface</strong> · Réduction du nombre d'étapes à l'écran, suppression des éléments décoratifs qui parasitaient la lisibilité.</li>
+        <li><strong>Séparation onboarding / inscription</strong> · L'utilisateur peut explorer l'app avant de créer un compte, pour réduire la friction à l'entrée.</li>
+        <li><strong>Ajout du mode calendrier</strong> · Possibilité de planifier ses paniers à la semaine, une fonctionnalité identifiée comme prioritaire par les testeurs parents et retraités.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- INFOS -->
+  <section class="cs-section">
+    <div class="wrap">
+      <div class="infos-grid">
+        <div>
+          <p class="info-label">Contexte</p>
+          <p class="info-value">Projet d'école · M2 Direction Artistique Digitale · brief sur l'inflation alimentaire · Figma</p>
+        </div>
+        <div>
+          <p class="info-label">Équipe</p>
+          <p class="info-value"><strong>Noémi Pointel &amp; Bénédicte Dufour</strong> · UX Research, concept, charte graphique, wireframes, tests utilisateurs, prototype interactif</p>
+        </div>
+        <div>
+          <p class="info-label">Compétences mobilisées</p>
+          <p class="info-value">UX Research · Personas · User Flow · Wireframes · Design UI · Tests utilisateurs · Itérations · Prototype Figma</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="cta-lead">Explorer le prototype interactif</p>
+      <p class="cta-sub">Naviguer dans le flux complet · onboarding, recettes, panier, règlement.</p>
+      <div class="cta-buttons">
+        <a class="cta-btn" href="https://www.figma.com/proto/NfbDw1mtQQtBYlYzmJvkYh/Panier-de-l%C3%A9gumes-moches?node-id=136-24&t=fuFuSihcUaxCSY4B-1&scaling=min-zoom&content-scaling=fixed&page-id=4%3A1011" target="_blank" rel="noopener">
+          Tester le prototype <span>↗</span>
+        </a>
+        <a class="cta-btn outline" href="../../index.html#projects">
+          Voir tous les projets <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
