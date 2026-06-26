@@ -115,19 +115,41 @@
     .kpi-num span { color: var(--green); }
     .kpi-label { font-family: var(--TT); font-size: .72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; line-height: 1.4; }
 
-    /* PROCESS */
-    .process-list { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(14px,2.5vw,24px); }
-    .process-item { border: 1px solid var(--border); padding: 22px 20px; }
-    .process-num {
-      font-family: var(--TT); font-size: .58rem; font-weight: 700;
+    /* SCENES */
+    .scenes-list { display: flex; flex-direction: column; gap: 0; }
+    .scene-item {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: clamp(20px,3vw,40px); align-items: start;
+      padding: clamp(20px,3vw,28px) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .scene-item:last-child { border-bottom: none; }
+    .scene-num {
+      font-family: var(--TT); font-size: .6rem; font-weight: 700;
       letter-spacing: .18em; text-transform: uppercase;
-      color: var(--green); margin-bottom: 8px;
+      color: var(--green); padding-top: 4px;
     }
-    .process-title {
-      font-family: var(--TT); font-size: .9rem; font-weight: 700;
-      color: var(--blue); margin-bottom: 6px; line-height: 1.3;
+    .scene-dur {
+      font-family: var(--TT); font-size: .6rem; font-weight: 600;
+      color: var(--muted); margin-top: 4px; letter-spacing: .06em;
     }
-    .process-desc { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+    .scene-title {
+      font-family: var(--TT); font-size: clamp(.95rem,1.6vw,1.1rem);
+      font-weight: 700; color: var(--blue); margin-bottom: 8px; line-height: 1.25;
+    }
+    .scene-desc { font-size: .85rem; color: var(--muted); line-height: 1.7; }
+
+    /* QUOTE */
+    .quote-block {
+      background: var(--yellow);
+      padding: clamp(24px,4vw,40px) clamp(24px,4vw,48px);
+      margin-top: clamp(32px,4vw,48px);
+    }
+    .quote-text {
+      font-family: var(--TT); font-size: clamp(.9rem,1.5vw,1.05rem);
+      color: var(--blue); line-height: 1.75; font-style: italic; margin-bottom: 14px;
+    }
+    .quote-author { font-family: var(--TT); font-size: .68rem; font-weight: 700; color: var(--blue); opacity: .7; text-transform: uppercase; letter-spacing: .1em; }
 
     /* INFOS */
     .infos-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(16px,3vw,32px); }
@@ -156,7 +178,7 @@
       .kpi-strip { grid-template-columns: 1fr; }
       .kpi-item { border-right: none; border-bottom: 1px solid var(--border); }
       .kpi-item:last-child { border-bottom: none; }
-      .process-list { grid-template-columns: 1fr; }
+      .scene-item { grid-template-columns: 1fr; gap: 8px; }
       .infos-grid { grid-template-columns: repeat(2,1fr); }
     }
   </style>
@@ -175,13 +197,13 @@
       <p class="eyebrow"><span class="eyebrow-dot"></span>Projet 04 · Communication commerciale</p>
       <h1 class="hero-title">Pitcher Strapp à<br><em>Vivatech</em></h1>
       <p class="hero-desc">
-        La plus grande conférence tech européenne, 90 000 visiteurs, des milliers de décideurs et investisseurs, et quelques secondes pour convaincre. Il fallait une vidéo qui capte, qui explique, qui donne envie.
+        Vivatech, 90 000 visiteurs, des milliers de décideurs — quelques secondes pour s'arrêter sur un stand. Il fallait une vidéo qui capte l'attention, pose le problème et convainc, sans décrocher d'une seconde.
       </p>
       <div class="hero-meta">
+        <span class="tag yellow">Narration · Copywriting</span>
         <span class="tag yellow">Motion design</span>
-        <span class="tag yellow">Vidéo commerciale</span>
-        <span class="tag">Narration visuelle</span>
-        <span class="tag">Copywriting</span>
+        <span class="tag">Direction artistique</span>
+        <span class="tag">Communication RSE</span>
         <span class="tag green">Strapp Mobile</span>
       </div>
     </div>
@@ -200,32 +222,32 @@
 
   <section class="cs-section">
     <div class="wrap">
-      <p class="section-label">Contexte · Problème</p>
+      <p class="section-label">Contexte · Double enjeu</p>
       <div class="context-grid">
         <div class="context-block">
-          <h2>Une offre complexe à rendre évidente en quelques secondes</h2>
-          <p>Strapp propose une application mobile B2B pour les opérateurs télécoms. C'est un produit technique, à destination d'une cible de décideurs peu disponibles — pas le profil qui s'arrête longtemps sur un stand.</p>
-          <p>À Vivatech, la concurrence pour l'attention est totale. Sans outil de captation fort dès les premières secondes, aucun interlocuteur ne s'arrête.</p>
+          <h2>La gestion de parc mobile, un vrai casse-tête pour les entreprises</h2>
+          <p>Commander des téléphones, gérer les pannes, suivre les flottes, traiter les fins de contrat, accompagner les collaborateurs… Pour les gestionnaires, c'est une charge invisible qui s'accumule et que personne ne pense à simplifier.</p>
+          <p>Strapp a construit toute son offre pour absorber cette complexité : appareils adaptés, garantie casse et vol, plateforme de gestion, support expert, gestion des fins de vie — deux fois moins cher que les opérateurs traditionnels.</p>
         </div>
         <div class="context-block">
-          <h2>Raconter l'offre plutôt que la décrire</h2>
-          <p>La réponse : une vidéo commerciale animée pensée pour projeter immédiatement le problème, puis la solution. Aucun jargon, une narration visuelle structurée, un rythme calibré pour les contextes bruyants de salon.</p>
-          <p>Motion design, copywriting, séquencement narratif et direction artistique — réalisé dans un format prêt à diffuser sur écran de stand et en présentation commerciale.</p>
+          <h2>Un impact environnemental que personne ne regarde en face</h2>
+          <p>5 milliards de téléphones dorment dans des tiroirs à travers le monde (étude GSMA). 85 % des téléphones ne sont pas recyclés. L'impact sur les pays du Tiers-monde est désastreux. Et la gestion responsable de la flotte mobile est un angle mort dans la stratégie RSE de la plupart des entreprises.</p>
+          <p>L'angle de la vidéo : poser ce double constat — charge opérationnelle et urgence environnementale — avant de montrer que Strapp répond aux deux à la fois.</p>
         </div>
       </div>
 
       <div class="kpi-strip">
         <div class="kpi-item">
-          <p class="kpi-num">90 <span>K</span></p>
-          <p class="kpi-label">Visiteurs<br>Vivatech</p>
+          <p class="kpi-num">5 <span>Md</span></p>
+          <p class="kpi-label">Téléphones dormants<br>dans les entreprises (GSMA)</p>
         </div>
         <div class="kpi-item">
-          <p class="kpi-num"><span>·</span> B2B</p>
-          <p class="kpi-label">Cible décideurs<br>et investisseurs</p>
+          <p class="kpi-num">+<span>68</span>%</p>
+          <p class="kpi-label">Allongement durée d'usage<br>clients Strapp · 2023</p>
         </div>
         <div class="kpi-item">
-          <p class="kpi-num"><span>1</span> vidéo</p>
-          <p class="kpi-label">Pitch visuel<br>stand + démo</p>
+          <p class="kpi-num">30<span>–</span>40%</p>
+          <p class="kpi-label">Économies réalisées<br>vs. opérateurs traditionnels</p>
         </div>
       </div>
     </div>
@@ -233,28 +255,69 @@
 
   <section class="cs-section">
     <div class="wrap">
-      <p class="section-label">Démarche · Réalisation</p>
-      <div class="process-list">
-        <div class="process-item">
-          <p class="process-num">01 · Stratégie narrative</p>
-          <p class="process-title">Définir le fil conducteur</p>
-          <p class="process-desc">Structuration du message autour du problème client (opérateurs qui peinent à convertir en point de vente) avant de révéler la solution Strapp.</p>
+      <p class="section-label">Structure narrative · Les 5 scènes</p>
+      <div class="scenes-list">
+
+        <div class="scene-item">
+          <div>
+            <p class="scene-num">Scène 01</p>
+            <p class="scene-dur">~30 secondes</p>
+          </div>
+          <div>
+            <p class="scene-title">Le problème · La maison brûle</p>
+            <p class="scene-desc">Ouverture sur l'animation du logo Strapp, puis les points de friction de la gestion de flotte qui s'accumulent visuellement. Puis les chiffres choc : 5 milliards de téléphones dormants dans le monde, 85 % non recyclés, impact social dans les pays du Tiers-monde. Conclusion : il est temps de repenser la téléphonie mobile d'entreprise, pour les gestionnaires et pour la planète.</p>
+          </div>
         </div>
-        <div class="process-item">
-          <p class="process-num">02 · Copywriting</p>
-          <p class="process-title">Un script court, chaque mot compte</p>
-          <p class="process-desc">Rédaction d'un script pensé pour la lecture à haute voix et la compréhension sans son — contrainte forte en environnement de salon.</p>
+
+        <div class="scene-item">
+          <div>
+            <p class="scene-num">Scène 02</p>
+            <p class="scene-dur">~30 secondes</p>
+          </div>
+          <div>
+            <p class="scene-title">La solution · Strapp simplifie et responsabilise</p>
+            <p class="scene-desc">Présentation de l'offre Strapp : appareils adaptés aux besoins, garantie casse et vol, plateforme de gestion intégrée, support expert, livraison rapide, gestion des fins de vie, lissage des coûts. Et la Strapp Family, plateforme de revente de téléphones reconditionnés à -30 % vs. les plateformes traditionnelles. Deux fois moins cher qu'un opérateur classique.</p>
+          </div>
         </div>
-        <div class="process-item">
-          <p class="process-num">03 · Direction artistique</p>
-          <p class="process-title">Identité visuelle en mouvement</p>
-          <p class="process-desc">Déclinaison de la charte Strapp en motion design — typographie animée, palette bleue, transitions fluides et séquences d'interface.</p>
+
+        <div class="scene-item">
+          <div>
+            <p class="scene-num">Scène 03</p>
+            <p class="scene-dur">~15 secondes</p>
+          </div>
+          <div>
+            <p class="scene-title">La preuve · Ce que disent les clients</p>
+            <p class="scene-desc">Nuage de témoignages animés avec les logos des entreprises clientes. Notamment Julien Bourgeois, DAF de Sofren : "J'ai été assez surpris de l'enveloppe d'économies générées. Le ratio par rapport à ce que nous payions avant est de l'ordre de 30 à 40 %." Et sur la plateforme : "Intuitif et facile à prendre en main."</p>
+          </div>
         </div>
-        <div class="process-item">
-          <p class="process-num">04 · Montage · Export</p>
-          <p class="process-title">Formats stand et présentation</p>
-          <p class="process-desc">Export en version stand (boucle muette sous-titrée) et version pitch avec voix-off, prête pour les démonstrations commerciales.</p>
+
+        <div class="scene-item">
+          <div>
+            <p class="scene-num">Scène 04</p>
+            <p class="scene-dur">~20 secondes</p>
+          </div>
+          <div>
+            <p class="scene-title">L'engagement · Un cycle de vie responsable</p>
+            <p class="scene-desc">Strapp s'engage sur l'ensemble du cycle de vie : approvisionnement, usage, seconde vie. 100 % des téléphones Strapp ont une seconde vie avant d'être recyclés. Pour chaque collaborateur qui prolonge l'utilisation de son téléphone, un arbre est planté — 1 000 arbres plantés en 2023. +68 % d'allongement de durée d'usage chez les clients.</p>
+          </div>
         </div>
+
+        <div class="scene-item">
+          <div>
+            <p class="scene-num">Scène 05</p>
+            <p class="scene-dur">~15 secondes</p>
+          </div>
+          <div>
+            <p class="scene-title">L'appel à l'action · Contact Vivatech</p>
+            <p class="scene-desc">Logo Strapp sur fond apaisant, message de conclusion sur la téléphonie mobile plus simple et plus responsable. QR code Linktree spécifique Vivatech pour capter les contacts stand directement sur le téléphone des visiteurs.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="quote-block">
+        <p class="quote-text">"La proposition de Strapp est apparue comme la plus complète, car elle intégrait des bénéfices sur tous les plans, financier et écologique. Sa proposition de valeur met l'accent sur des aspects RSE qui nous ont séduit pour de nombreuses raisons."</p>
+        <p class="quote-author">Julien Bourgeois · Directeur Administratif et Financier · Sofren</p>
       </div>
     </div>
   </section>
@@ -273,11 +336,11 @@
         </div>
         <div>
           <p class="info-label">Rôle</p>
-          <p class="info-value">Narration · Motion design · Copywriting · DA</p>
+          <p class="info-value">Brief · Narration · Copywriting · DA · Motion design</p>
         </div>
         <div>
           <p class="info-label">Format</p>
-          <p class="info-value">Vidéo commerciale animée</p>
+          <p class="info-value">Vidéo commerciale animée · ~2 min</p>
         </div>
       </div>
     </div>
