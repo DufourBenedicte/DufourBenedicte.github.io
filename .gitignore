@@ -1,0 +1,19 @@
+# Système
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# PDFs source (trop lourds, non destinés à être publiés)
+**/*.pdf
+**/*.PDF
+
+# Archives
+**/*.zip
+**/*.ZIP
+
+# Fichiers de travail Illustrator
+**/*.ai
+
+# Fichiers temporaires
+*.tmp
+*.log
