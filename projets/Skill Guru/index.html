@@ -104,6 +104,7 @@
     .cta-section { padding: clamp(48px,6vw,80px) 0; text-align: center; border-top: 1px solid var(--border); }
     .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
     .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .cta-btn {
       display: inline-flex; align-items: center; gap: 10px;
       font-family: var(--TT); font-size: .8rem; font-weight: 700;
@@ -112,6 +113,16 @@
       padding: 16px 32px; transition: background .2s, gap .2s;
     }
     .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+    .cta-btn.outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .cta-btn.outline:hover { background: rgba(36,97,140,.06); }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .78rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 14px 28px; margin-top: 32px; transition: background .2s, gap .2s;
+    }
+    .hero-cta:hover { background: #1a4a6e; gap: 16px; }
 
     @media (max-width: 760px) {
       .axes-band { grid-template-columns: repeat(2,1fr); }
@@ -148,6 +159,10 @@
         <span class="tag green">Skill Guru · Skill Project</span>
         <span class="tag yellow">M2 Design Appliqué</span>
       </div>
+
+      <a class="hero-cta" href="https://www.youtube.com/watch?v=2E-_BtXvsbI" target="_blank" rel="noopener">
+        Voir la vidéo de présentation <span>↗</span>
+      </a>
 
       <div class="axes-band">
         <div class="axe">
@@ -274,9 +289,12 @@
 
   <section class="cta-section">
     <div class="wrap">
-      <p class="cta-lead">D'autres projets à explorer</p>
-      <p class="cta-sub">Retour au portfolio pour voir l'ensemble des réalisations.</p>
-      <a class="cta-btn" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+      <p class="cta-lead">Voir le projet en vidéo</p>
+      <p class="cta-sub">Présentation complète de la stratégie Skill Guru.</p>
+      <div class="cta-buttons">
+        <a class="cta-btn" href="https://www.youtube.com/watch?v=2E-_BtXvsbI" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
+        <a class="cta-btn outline" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+      </div>
     </div>
   </section>
 
