@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Présentation Vivatech · Strapp · Bénédicte Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #fffbf4; color: #24618c; line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --cream: #fffbf4;
+      --blue: #24618c;
+      --green: #35d7b1;
+      --yellow: #f9d711;
+      --muted: rgba(36,97,140,.55);
+      --border: rgba(36,97,140,.12);
+      --TT: 'Jost', sans-serif;
+      --max: 1100px;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px,4vw,48px); }
+
+    /* NAV */
+    .top-nav {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,251,244,.96);
+      backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-nav-in { display: flex; align-items: center; justify-content: space-between; }
+    .back-link {
+      font-family: var(--TT); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 8px;
+      transition: gap .2s;
+    }
+    .back-link:hover { gap: 14px; }
+    .nav-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    /* HERO */
+    .hero { padding: clamp(48px,7vw,88px) 0 clamp(40px,5vw,64px); }
+    .eyebrow {
+      font-family: var(--TT); font-size: .68rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue);
+    }
+    .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
+    .hero-title {
+      font-family: var(--TT); font-size: clamp(2.4rem,5vw,4rem);
+      font-weight: 800; color: var(--blue); line-height: 1.05; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--green); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(.95rem,1.5vw,1.05rem); color: var(--muted);
+      max-width: 620px; line-height: 1.75; margin-bottom: 32px;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px; border: 1px solid var(--border); color: var(--blue);
+    }
+    .tag.yellow { background: rgba(249,215,17,.15); border-color: rgba(249,215,17,.4); color: #7a6500; }
+    .tag.green { background: rgba(53,215,177,.15); border-color: rgba(53,215,177,.5); color: #1a6b57; }
+
+    /* SECTIONS */
+    section.cs-section { padding: clamp(40px,6vw,72px) 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+
+    /* VIDEO */
+    .video-wrap {
+      position: relative; width: 100%;
+      border: 2px solid var(--blue);
+      box-shadow: 8px 8px 0 var(--yellow);
+      background: #111827;
+    }
+    .video-wrap video {
+      display: block; width: 100%; max-height: 680px;
+      object-fit: contain;
+    }
+
+    /* CONTEXTE */
+    .context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,4vw,56px); align-items: start; }
+    .context-block h2 {
+      font-family: var(--TT); font-size: clamp(1.3rem,2.5vw,1.9rem);
+      font-weight: 800; color: var(--blue); line-height: 1.15; margin-bottom: 16px;
+    }
+    .context-block p { font-size: .95rem; color: var(--muted); line-height: 1.75; margin-bottom: 12px; }
+
+    /* KPI STRIP */
+    .kpi-strip {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 0; border: 1px solid var(--border); margin-top: clamp(32px,4vw,48px);
+    }
+    .kpi-item {
+      padding: clamp(20px,3vw,32px) clamp(20px,3vw,28px);
+      border-right: 1px solid var(--border);
+    }
+    .kpi-item:last-child { border-right: none; }
+    .kpi-num {
+      font-family: var(--TT); font-size: clamp(1.8rem,3.5vw,2.6rem);
+      font-weight: 800; color: var(--blue); line-height: 1; margin-bottom: 8px;
+    }
+    .kpi-num span { color: var(--green); }
+    .kpi-label { font-family: var(--TT); font-size: .72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; line-height: 1.4; }
+
+    /* PROCESS */
+    .process-list { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(14px,2.5vw,24px); }
+    .process-item { border: 1px solid var(--border); padding: 22px 20px; }
+    .process-num {
+      font-family: var(--TT); font-size: .58rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 8px;
+    }
+    .process-title {
+      font-family: var(--TT); font-size: .9rem; font-weight: 700;
+      color: var(--blue); margin-bottom: 6px; line-height: 1.3;
+    }
+    .process-desc { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+
+    /* INFOS */
+    .infos-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(16px,3vw,32px); }
+    .info-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .info-value { font-size: .95rem; color: var(--blue); line-height: 1.7; }
+    .info-value strong { font-weight: 600; }
+
+    /* CTA */
+    .cta-section { padding: clamp(48px,6vw,80px) 0; text-align: center; border-top: 1px solid var(--border); }
+    .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
+    .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 16px 32px; transition: background .2s, gap .2s;
+    }
+    .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+    .cta-btn.outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .cta-btn.outline:hover { background: rgba(36,97,140,.06); gap: 16px; }
+
+    @media (max-width: 700px) {
+      .context-grid { grid-template-columns: 1fr; }
+      .kpi-strip { grid-template-columns: 1fr; }
+      .kpi-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .kpi-item:last-child { border-bottom: none; }
+      .process-list { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="wrap top-nav-in">
+      <a class="back-link" href="../../index.html"><span>←</span> Portfolio</a>
+      <span class="nav-label">Vidéo commerciale · Vivatech · Strapp</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Projet 04 · Communication commerciale</p>
+      <h1 class="hero-title">Pitcher Strapp à<br><em>Vivatech</em></h1>
+      <p class="hero-desc">
+        La plus grande conférence tech européenne, 90 000 visiteurs, des milliers de décideurs et investisseurs, et quelques secondes pour convaincre. Il fallait une vidéo qui capte, qui explique, qui donne envie.
+      </p>
+      <div class="hero-meta">
+        <span class="tag yellow">Motion design</span>
+        <span class="tag yellow">Vidéo commerciale</span>
+        <span class="tag">Narration visuelle</span>
+        <span class="tag">Copywriting</span>
+        <span class="tag green">Strapp Mobile</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section" style="padding-top:0; border-top:none;">
+    <div class="wrap">
+      <div class="video-wrap">
+        <video controls preload="metadata">
+          <source src="presentation-strapp.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Contexte · Problème</p>
+      <div class="context-grid">
+        <div class="context-block">
+          <h2>Une offre complexe à rendre évidente en quelques secondes</h2>
+          <p>Strapp propose une application mobile B2B pour les opérateurs télécoms. C'est un produit technique, à destination d'une cible de décideurs peu disponibles — pas le profil qui s'arrête longtemps sur un stand.</p>
+          <p>À Vivatech, la concurrence pour l'attention est totale. Sans outil de captation fort dès les premières secondes, aucun interlocuteur ne s'arrête.</p>
+        </div>
+        <div class="context-block">
+          <h2>Raconter l'offre plutôt que la décrire</h2>
+          <p>La réponse : une vidéo commerciale animée pensée pour projeter immédiatement le problème, puis la solution. Aucun jargon, une narration visuelle structurée, un rythme calibré pour les contextes bruyants de salon.</p>
+          <p>Motion design, copywriting, séquencement narratif et direction artistique — réalisé dans un format prêt à diffuser sur écran de stand et en présentation commerciale.</p>
+        </div>
+      </div>
+
+      <div class="kpi-strip">
+        <div class="kpi-item">
+          <p class="kpi-num">90 <span>K</span></p>
+          <p class="kpi-label">Visiteurs<br>Vivatech</p>
+        </div>
+        <div class="kpi-item">
+          <p class="kpi-num"><span>·</span> B2B</p>
+          <p class="kpi-label">Cible décideurs<br>et investisseurs</p>
+        </div>
+        <div class="kpi-item">
+          <p class="kpi-num"><span>1</span> vidéo</p>
+          <p class="kpi-label">Pitch visuel<br>stand + démo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Démarche · Réalisation</p>
+      <div class="process-list">
+        <div class="process-item">
+          <p class="process-num">01 · Stratégie narrative</p>
+          <p class="process-title">Définir le fil conducteur</p>
+          <p class="process-desc">Structuration du message autour du problème client (opérateurs qui peinent à convertir en point de vente) avant de révéler la solution Strapp.</p>
+        </div>
+        <div class="process-item">
+          <p class="process-num">02 · Copywriting</p>
+          <p class="process-title">Un script court, chaque mot compte</p>
+          <p class="process-desc">Rédaction d'un script pensé pour la lecture à haute voix et la compréhension sans son — contrainte forte en environnement de salon.</p>
+        </div>
+        <div class="process-item">
+          <p class="process-num">03 · Direction artistique</p>
+          <p class="process-title">Identité visuelle en mouvement</p>
+          <p class="process-desc">Déclinaison de la charte Strapp en motion design — typographie animée, palette bleue, transitions fluides et séquences d'interface.</p>
+        </div>
+        <div class="process-item">
+          <p class="process-num">04 · Montage · Export</p>
+          <p class="process-title">Formats stand et présentation</p>
+          <p class="process-desc">Export en version stand (boucle muette sous-titrée) et version pitch avec voix-off, prête pour les démonstrations commerciales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Informations projet</p>
+      <div class="infos-grid">
+        <div>
+          <p class="info-label">Client</p>
+          <p class="info-value"><strong>Strapp Mobile</strong></p>
+        </div>
+        <div>
+          <p class="info-label">Contexte</p>
+          <p class="info-value"><strong>Vivatech · Paris</strong></p>
+        </div>
+        <div>
+          <p class="info-label">Rôle</p>
+          <p class="info-value">Narration · Motion design · Copywriting · DA</p>
+        </div>
+        <div>
+          <p class="info-label">Format</p>
+          <p class="info-value">Vidéo commerciale animée</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="cta-lead">D'autres projets à explorer</p>
+      <p class="cta-sub">Communication, produit, UX et automatisation.</p>
+      <div class="cta-buttons">
+        <a class="cta-btn" href="../../index.html">← Voir tous les projets</a>
+        <a class="cta-btn outline" href="../Strapp/">Projet Strapp · Présentation commerciale ↗</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
