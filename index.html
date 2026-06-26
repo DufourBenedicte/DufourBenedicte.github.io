@@ -246,15 +246,15 @@
     .wc-desc { font-size: .97rem; color: var(--muted); line-height: 1.7; max-width: 540px; margin-top: -8px; }
     .wc-side { text-align: right; flex-shrink: 0; }
     .wc-side p { font-family: var(--TT); font-size: .75rem; color: var(--muted); margin-top: 6px; }
-    .wc-gallery { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 200px 200px; gap: clamp(8px,1.2vw,14px); }
+    .wc-gallery { display: grid; grid-template-columns: repeat(2,1fr); grid-template-rows: 240px 240px; gap: clamp(8px,1.2vw,14px); }
     .wc-item { position: relative; overflow: hidden; cursor: pointer; }
     .wc-item::after { content: ''; position: absolute; inset: 0; background: rgba(36,97,140,0); transition: background .3s; }
     .wc-item:hover::after { background: rgba(36,97,140,.12); }
-    .wc-item:nth-child(2) { grid-row: span 2; }
+    .wc-item:nth-child(2) { grid-row: auto; }
     .wc-lbl { position: absolute; bottom: 10px; left: 12px; font-family: var(--TT); font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,251,244,.75); z-index: 1; }
     .wc-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .wc-lbl { background: rgba(255,251,244,.88); color: var(--blue) !important; padding: 3px 8px; }
-    @media (max-width: 680px) { .wc-gallery { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; } .wc-item:nth-child(2) { grid-row: auto; } .wc-gallery .wc-item { height: 160px; } .wc-intro { grid-template-columns: 1fr; } .wc-side { text-align: left; } }
+    @media (max-width: 680px) { .wc-gallery { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; } .wc-gallery .wc-item { height: 160px; } .wc-intro { grid-template-columns: 1fr; } }
 
     /* ── CONTACT · fond vert ── */
     #contact { padding: var(--sp) 0; background: var(--green); position: relative; overflow: hidden; }
@@ -501,7 +501,7 @@
       <!-- Projet 06 · Aléa -->
       <a class="proj-card fi d1" href="projets/Alea/">
         <div class="proj-img" style="background:#551C28;">
-          <img src="projets/Alea/screens/page-14.jpg" alt="Aléa · maquettes Figma" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:90% center;" loading="lazy">
+          <img src="projets/Alea/screens/page-14.jpg" alt="Aléa · maquettes Figma" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:95% center;" loading="lazy">
         </div>
         <div class="proj-body">
           <p class="proj-num">Projet 06 · M2 Design Appliqué</p>
@@ -531,7 +531,7 @@
       <!-- Projet 08 · Florence Brisson -->
       <a class="proj-card fi d1" href="projets/Florence%20Brisson/" style="display:block;text-decoration:none;">
         <div class="proj-img" style="background:#e5e1d9;">
-          <img src="projets/Florence Brisson/Screen_Aperçu.jpg" alt="Florence Brisson · logo guidelines · identité visuelle" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <img src="projets/Florence Brisson/Screen_Aperçu.jpg" alt="Florence Brisson · logo guidelines · identité visuelle" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;">
         </div>
         <div class="proj-body">
           <p class="proj-num">Projet 08 · Workshop Client M2 DAD</p>
@@ -642,11 +642,8 @@
       <div class="wc-item">
         <img src="projets/aquarelles/images/smartmockups_li4kvciu.jpg" alt="Bonsaï · mockup mise en situation ambiance" loading="lazy">
       </div>
-      <div class="wc-item" style="background:var(--cream);">
-        <img src="projets/aquarelles/images/bonsais-serie01.jpg" alt="Aquarelles · série 01 · 6 études bonsaï" loading="lazy" style="object-fit:contain;">
-      </div>
       <div class="wc-item">
-        <img src="projets/aquarelles/images/smartmockups_li4l4k36.jpg" alt="Bonsaï · mockup affiche" loading="lazy" style="object-position:center 22%;">
+        <img src="projets/aquarelles/images/smartmockups_li4l1n52.jpg" alt="Bonsaï · mockup cadre scène" loading="lazy">
       </div>
       <div class="wc-item">
         <img src="projets/aquarelles/images/smartmockups_li4lg7sw.jpg" alt="Bonsaïs · mockup série encadrée" loading="lazy">
