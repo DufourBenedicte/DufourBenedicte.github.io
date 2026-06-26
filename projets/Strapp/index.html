@@ -155,6 +155,9 @@
       padding: 16px 32px; transition: background .2s, gap .2s;
     }
     .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn.outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .cta-btn.outline:hover { background: rgba(36,97,140,.06); gap: 16px; }
 
     @media (max-width: 700px) {
       .slides-structure { grid-template-columns: repeat(2,1fr); }
@@ -285,9 +288,12 @@
 
   <section class="cta-section">
     <div class="wrap">
-      <p class="cta-lead">D'autres projets à explorer</p>
-      <p class="cta-sub">Retour au portfolio pour voir l'ensemble des réalisations.</p>
-      <a class="cta-btn" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+      <p class="cta-lead">Télécharger le dossier complet</p>
+      <p class="cta-sub">Présentation commerciale Strapp · version PDF · 27 slides.</p>
+      <div class="cta-buttons">
+        <a class="cta-btn" href="presentation-commerciale-strapp.pdf" download>Télécharger le PDF <span>↓</span></a>
+        <a class="cta-btn outline" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+      </div>
     </div>
   </section>
 

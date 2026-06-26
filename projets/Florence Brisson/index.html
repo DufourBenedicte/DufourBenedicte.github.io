@@ -145,6 +145,10 @@
       padding: 16px 32px; transition: background .2s, gap .2s;
     }
     .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn.outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .cta-btn.outline:hover { background: rgba(36,97,140,.06); gap: 16px; }
+    .cta-note { font-size: .8rem; color: var(--muted); margin-top: 18px; }
 
     @media (max-width: 700px) {
       .slides-2col { grid-template-columns: 1fr; }
@@ -302,7 +306,10 @@
     <div class="wrap">
       <p class="cta-lead">D'autres projets à explorer</p>
       <p class="cta-sub">Retour au portfolio pour voir l'ensemble des réalisations.</p>
-      <a class="cta-btn" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+      <div class="cta-buttons">
+        <a class="cta-btn outline" href="../../index.html#projects">Voir tous les projets <span>→</span></a>
+      </div>
+      <p class="cta-note">Dossier technique complet disponible sur demande.</p>
     </div>
   </section>
 
