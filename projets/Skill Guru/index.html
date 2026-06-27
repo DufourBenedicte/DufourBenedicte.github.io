@@ -126,6 +126,8 @@
 
     .slides-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,2vw,20px); margin-bottom: clamp(16px,3vw,28px); }
     .slides-3col .slide-wrap { margin-bottom: 0; }
+    .video-wrap { position: relative; padding-bottom: 56.25%; border: 2px solid var(--blue); box-shadow: 6px 6px 0 var(--green); overflow: hidden; margin-bottom: 12px; }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
 
     @media (max-width: 760px) {
       .axes-band { grid-template-columns: repeat(2,1fr); }
@@ -244,6 +246,18 @@
         <img class="slide-img" src="screens/carto-page-57.jpg" alt="Skill Guru · visuels réseaux sociaux · bannière LinkedIn · YouTube" loading="lazy">
         <p class="slide-caption">Déclinaisons · Bannière LinkedIn · Miniature YouTube · Visuels de lancement</p>
       </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Vidéo de présentation · Skill Project</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/2E-_BtXvsbI" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen title="Skill Project · vidéo de présentation"></iframe>
+      </div>
+      <p class="slide-caption">Vidéo de lancement · Skill Project · Stratégie créative M2</p>
     </div>
   </section>
 
