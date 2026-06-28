@@ -141,7 +141,8 @@
     /* Bloc vert · tagline + CTA */
     .hc-green { grid-column: 2 / 4; background: var(--green); padding: clamp(28px,5vw,60px) clamp(22px,4.5vw,56px); display: flex; flex-direction: column; justify-content: center; }
     .h-role { font-family: var(--TT); font-size: clamp(.65rem,1.1vw,.8rem); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,251,244,.65); margin-bottom: 14px; }
-    .h-tagline { font-family: var(--TT); font-size: clamp(1.3rem,3vw,2.4rem); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 36px; }
+    .h-tagline { font-family: var(--TT); font-size: clamp(1.3rem,3vw,2.4rem); font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 14px; }
+    .h-sub { font-size: clamp(.85rem,1.4vw,1rem); font-style: italic; color: rgba(255,251,244,.75); line-height: 1.5; margin-bottom: 32px; }
     .h-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
     /* Boutons · effet wipe horizontal */
@@ -286,7 +287,8 @@
     .hc-yellow > p    { animation: heroUp 0.55s ease 0.5s both; }
     .h-role           { animation: heroUp 0.5s ease 0.85s both; }
     .h-tagline        { animation: heroUp 0.6s ease 1.05s both; }
-    .h-ctas           { animation: heroUp 0.5s ease 1.25s both; }
+    .h-sub            { animation: heroUp 0.5s ease 1.18s both; }
+    .h-ctas           { animation: heroUp 0.5s ease 1.35s both; }
 
     /* ── PROJECT CARDS · hover enrichi ── */
     .proj-img::before {
@@ -389,6 +391,7 @@
   <div class="hc-green">
     <p class="h-role">Communication · Coordination · Transformation</p>
     <p class="h-tagline">Je fais le lien entre les équipes,<br>les outils et les usagers.</p>
+    <p class="h-sub">Communiquer, c'est d'abord faire comprendre.</p>
     <div class="h-ctas">
       <a href="#contact" class="btn btn-w">Me contacter</a>
       <a href="cv.html" target="_blank" rel="noopener noreferrer" class="btn btn-o">Voir mon CV</a>
