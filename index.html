@@ -215,6 +215,8 @@
     .proj-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(36,97,140,.12); }
     .proj-card:nth-child(5) { grid-column: span 2; display: grid; grid-template-columns: 1fr 1.8fr; }
     .proj-card:nth-child(5) .proj-img { height: 100%; min-height: 220px; }
+    .proj-card:nth-child(8) { grid-column: span 2; display: grid; grid-template-columns: 1fr 1.8fr; }
+    .proj-card:nth-child(8) .proj-img { height: 100%; min-height: 220px; }
     .proj-img { height: clamp(160px,18vw,220px); position: relative; overflow: hidden; }
     /* triangle décoratif dans le coin des images */
     .proj-img::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 0; border-bottom: clamp(36px,5vw,60px) solid rgba(255,251,244,.2); border-right: clamp(36px,5vw,60px) solid transparent; }
@@ -233,7 +235,7 @@
     .proj-link { font-family: var(--TT); font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); display: inline-flex; align-items: center; gap: 6px; transition: gap .2s; }
     .proj-link:hover { gap: 10px; }
     .proj-badge { display: inline-block; font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; background: rgba(62,207,178,.14); color: var(--green); }
-    @media (max-width: 640px) { .proj-grid { grid-template-columns: 1fr; } .proj-card:nth-child(5) { grid-column: auto; display: block; } .proj-card:nth-child(5) .proj-img { height: 180px; } }
+    @media (max-width: 640px) { .proj-grid { grid-template-columns: 1fr; } .proj-card:nth-child(5) { grid-column: auto; display: block; } .proj-card:nth-child(5) .proj-img { height: 180px; } .proj-card:nth-child(8) { grid-column: auto; display: block; } .proj-card:nth-child(8) .proj-img { height: 180px; } }
 
     /* ── SKILLS · fond bleu, icônes ▲ ● ■ du design system Fancy ── */
     #skills { padding: var(--sp) 0; background: var(--cream); }
@@ -556,22 +558,7 @@
         </div>
       </a>
 
-      <!-- Projet 08 · Drôles de Paniers -->
-      <a class="proj-card fi d1" href="projets/droles-de-legumes/" style="display:block;text-decoration:none;">
-        <div class="proj-img" style="background:#d6f0e8;">
-          <img src="projets/droles-de-legumes/screens/page-17.jpg" alt="Drôles de Paniers · UX Design · prototype légumes moches" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
-        <div class="proj-body">
-          <p class="proj-num">Binôme · MBA 2</p>
-          <h3 class="proj-title">Drôles de Paniers · UX Design</h3>
-          <p class="proj-ctx">Brief M2 sur l'inflation : 1 ménage sur 3 réduit sa consommation de fruits et légumes · les légumes moches, invendus, sont une opportunité inexploitée.</p>
-          <p class="proj-role">Projet en binôme avec Noémi Pointel · App pour commander des paniers de légumes moches à partir de recettes · UX Research, personas, wireframes, charte, tests, prototype Figma.</p>
-          <p class="proj-kpi">Prototype interactif complet · 3 itérations post-tests utilisateurs · flux bout en bout opérationnel.</p>
-          <span class="proj-link">Voir le projet <span>→</span></span>
-        </div>
-      </a>
-
-      <!-- Projet 09 · Outils métiers & IA -->
+      <!-- Projet 08 · Outils métiers & IA -->
       <a class="proj-card fi" href="projets/outils-metiers/" style="display:block;text-decoration:none;">
         <div class="proj-img" style="background:linear-gradient(135deg,#0a1628,#1a3352 55%,#0f2840);">
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:clamp(12px,2vw,24px);opacity:.25;pointer-events:none;">
@@ -586,6 +573,21 @@
           <p class="proj-role">Analyse du besoin · architecture de l'outil · déploiement · HTML / CSS / JS · Node.js · GitHub Pages.</p>
           <p class="proj-kpi">3 outils en production · 0 développeur mobilisé · problèmes réels résolus.</p>
           <span class="proj-link">Voir les projets <span>→</span></span>
+        </div>
+      </a>
+
+      <!-- Projet 09 · Drôles de Paniers -->
+      <a class="proj-card fi d1" href="projets/droles-de-legumes/" style="display:block;text-decoration:none;">
+        <div class="proj-img" style="background:#d6f0e8;">
+          <img src="projets/droles-de-legumes/screens/page-17.jpg" alt="Drôles de Paniers · UX Design · prototype légumes moches" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+        </div>
+        <div class="proj-body">
+          <p class="proj-num">Binôme · MBA 2</p>
+          <h3 class="proj-title">Drôles de Paniers · UX Design</h3>
+          <p class="proj-ctx">Brief M2 sur l'inflation : 1 ménage sur 3 réduit sa consommation de fruits et légumes · les légumes moches, invendus, sont une opportunité inexploitée.</p>
+          <p class="proj-role">Projet en binôme avec Noémi Pointel · App pour commander des paniers de légumes moches à partir de recettes · UX Research, personas, wireframes, charte, tests, prototype Figma.</p>
+          <p class="proj-kpi">Prototype interactif complet · 3 itérations post-tests utilisateurs · flux bout en bout opérationnel.</p>
+          <span class="proj-link">Voir le projet <span>→</span></span>
         </div>
       </a>
 
