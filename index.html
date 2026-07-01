@@ -114,7 +114,7 @@
     }
 
     /* Bloc bleu · nom */
-    .hc-blue { background: var(--blue); padding: clamp(18px,3vw,40px); padding-top: clamp(80px,13vh,120px); padding-left: clamp(8px,1.5vw,24px); display: flex; flex-direction: column; justify-content: flex-end; }
+    .hc-blue { background: var(--blue); padding: clamp(18px,3vw,40px); padding-top: clamp(80px,13vh,120px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     .h-eyebrow { font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,251,244,.5); margin-bottom: 10px; }
     .h-name { font-family: var(--TT); font-size: clamp(2.2rem,5vw,4.8rem); font-weight: 800; color: var(--cream); line-height: 1.0; }
 
@@ -123,7 +123,7 @@
     .chevrons-svg { width: clamp(100px,17vw,210px); height: auto; }
 
     /* Bloc jaune · accroche */
-    .hc-yellow { background: var(--yellow); padding: clamp(14px,2.5vw,32px); padding-top: clamp(80px,13vh,120px); padding-bottom: clamp(40px,7vh,70px); display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; }
+    .hc-yellow { background: var(--yellow); padding: clamp(14px,2.5vw,32px); padding-top: clamp(80px,13vh,120px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     .hc-yellow small { display: block; font-family: var(--TT); font-size: .56rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--blue); opacity: .5; margin-bottom: 14px; }
     .hc-word { font-family: var(--TT); font-size: clamp(1.15rem,2.6vw,2.1rem); font-weight: 800; color: var(--blue); line-height: 1.05; }
 
@@ -234,7 +234,7 @@
     .proj-kpi { font-size: .82rem; font-weight: 600; color: var(--blue); line-height: 1.5; margin-bottom: 16px; padding-left: 10px; border-left: 2px solid var(--green); }
     .proj-link { font-family: var(--TT); font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); display: inline-flex; align-items: center; gap: 6px; transition: gap .2s; }
     .proj-link:hover { gap: 10px; }
-    .proj-badge { display: inline-block; font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; background: rgba(62,207,178,.14); color: var(--green); }
+    .proj-badge { display: inline-block; font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; background: rgba(62,207,178,.14); color: var(--green); }
     @media (max-width: 640px) { .proj-grid { grid-template-columns: 1fr; } .proj-card:nth-child(5) { grid-column: auto; display: block; } .proj-card:nth-child(5) .proj-img { height: 180px; } .proj-card:nth-child(8) { grid-column: auto; display: block; } .proj-card:nth-child(8) .proj-img { height: 180px; } }
 
     /* ── SKILLS · fond bleu, icônes ▲ ● ■ du design system Fancy ── */
@@ -259,7 +259,7 @@
     .wc-side { text-align: right; flex-shrink: 0; }
     .wc-side p { font-family: var(--TT); font-size: .75rem; color: var(--muted); margin-top: 6px; }
     .wc-gallery { display: grid; grid-template-columns: repeat(4,1fr); grid-template-rows: 200px 200px; gap: clamp(8px,1.2vw,14px); }
-    .wc-item { position: relative; overflow: hidden; cursor: pointer; }
+    .wc-item { position: relative; overflow: hidden; cursor: pointer; border-radius: 10px; }
     .wc-item::after { content: ''; position: absolute; inset: 0; background: rgba(36,97,140,0); transition: background .3s; }
     .wc-item:hover::after { background: rgba(36,97,140,.12); }
     .wc-item:nth-child(2) { grid-row: auto; }
@@ -279,7 +279,7 @@
     .ct-heading em { font-style: italic; font-weight: 300; color: rgba(255,251,244,.7); }
     .ct-sub { font-size: .97rem; color: rgba(255,251,244,.8); line-height: 1.7; }
     .ct-links { display: flex; flex-direction: column; gap: 14px; }
-    .ct-item { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1.5px solid rgba(255,251,244,.3); color: inherit; transition: border-color .22s, background .22s; }
+    .ct-item { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border-radius: 12px; border: 1.5px solid rgba(255,251,244,.3); color: inherit; transition: border-color .22s, background .22s; }
     .ct-item:hover { border-color: var(--cream); background: rgba(255,251,244,.1); }
     .ct-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .ct-icon svg { width: 17px; height: 17px; fill: var(--green); }
