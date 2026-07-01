@@ -106,11 +106,10 @@
       line-height: 1.5; padding-left: 10px; border-left: 2px solid var(--green);
     }
 
-    .screens-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,2vw,20px); }
-    .screen-fig { margin: 0; }
+    .screens-grid { display: flex; flex-direction: column; gap: clamp(24px,4vw,40px); }
+    .screen-fig { margin: 0; display: block; }
     .screen-fig img { width: 100%; display: block; border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(36,97,140,.08); }
     .screen-cap { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
-    @media (max-width: 640px) { .screens-grid { grid-template-columns: 1fr; } }
 
     .context-block { max-width: 700px; }
     .context-block h2 {
