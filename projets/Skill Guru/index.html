@@ -79,12 +79,12 @@
     .section-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; }
 
     /* IMAGES */
-    .slide-wrap { margin-bottom: clamp(16px,3vw,28px); }
+    .slide-wrap { margin-bottom: clamp(16px,3vw,28px);  overflow: hidden; }
     .slide-wrap:last-child { margin-bottom: 0; }
-    .slide-img { width: 100%; display: block; border: 2px solid var(--blue); }
+    .slide-img { width: 100%; display: block; border: 2px solid var(--blue);  border-radius: 10px; overflow: hidden; }
     .slide-caption { font-family: var(--TT); font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
     .slides-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px,3vw,28px); margin-bottom: clamp(16px,3vw,28px); }
-    .slides-2col .slide-wrap { margin-bottom: 0; }
+    .slides-2col .slide-wrap { margin-bottom: 0;  overflow: hidden; }
 
     /* STRATÉGIE COM */
     .com-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2.5vw,24px); }
@@ -134,8 +134,8 @@
     .hero-cta:hover { background: #1a4a6e; gap: 16px; }
 
     .slides-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,2vw,20px); margin-bottom: clamp(16px,3vw,28px); }
-    .slides-3col .slide-wrap { margin-bottom: 0; }
-    .video-wrap { position: relative; padding-bottom: 56.25%; border: 2px solid var(--blue); overflow: hidden; margin-bottom: 12px; }
+    .slides-3col .slide-wrap { margin-bottom: 0;  overflow: hidden; }
+    .video-wrap { position: relative; padding-bottom: 56.25%; border: 2px solid var(--blue); overflow: hidden; margin-bottom: 12px;  border-radius: 10px; }
     .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
 
     @media (max-width: 760px) {
