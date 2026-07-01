@@ -319,7 +319,7 @@
     .sk-block:hover { transform: translateY(-6px); }
 
     /* ── CONTACT · magnétisme (style de base) ── */
-    .ct-item { transition: transform 0.5s cubic-bezier(.25,.46,.45,.94), border-color .22s, background .22s; }
+    .ct-item { transition: border-color .22s, background .22s; }
 
     /* ── FOOTER · fond bleu, 4 triangles ── */
     footer { padding: 24px 0; background: var(--blue); }
@@ -801,20 +801,6 @@
     });
   }
 
-  // ── Boutons contact magnétiques ──
-  document.querySelectorAll('.ct-item').forEach(el => {
-    el.addEventListener('mousemove', e => {
-      const r = el.getBoundingClientRect();
-      const x = (e.clientX - r.left - r.width  / 2) * 0.14;
-      const y = (e.clientY - r.top  - r.height / 2) * 0.14;
-      el.style.transition = 'transform 0.1s ease, border-color .22s, background .22s';
-      el.style.transform  = `translate(${x}px, ${y}px)`;
-    });
-    el.addEventListener('mouseleave', () => {
-      el.style.transition = 'transform 0.55s cubic-bezier(.25,.46,.45,.94), border-color .22s, background .22s';
-      el.style.transform  = '';
-    });
-  });
 </script>
 </body>
 </html>
