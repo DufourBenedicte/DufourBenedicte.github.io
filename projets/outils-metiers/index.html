@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KXP4MQWR9V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KXP4MQWR9V');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outils métiers · IA & code · Bénédicte Dufour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background: #fffbf4; color: #24618c; line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --cream: #fffbf4;
+      --blue: #24618c;
+      --green: #35d7b1;
+      --yellow: #f9d711;
+      --red: #ff6464;
+      --muted: rgba(36,97,140,.55);
+      --border: rgba(36,97,140,.12);
+      --TT: 'Jost', sans-serif;
+      --max: 1100px;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px,4vw,48px); }
+
+    .top-nav {
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+      background: rgba(255,251,244,.96); backdrop-filter: blur(8px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .top-nav-in { display: flex; align-items: center; justify-content: space-between; }
+    .back-link {
+      font-family: var(--TT); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 8px; transition: gap .2s;
+    }
+    .back-link:hover { gap: 14px; }
+    .nav-label { font-family: var(--TT); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    .hero { padding: clamp(48px,7vw,88px) 0 clamp(40px,5vw,64px); }
+    .eyebrow {
+      font-family: var(--TT); font-size: .68rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue);
+    }
+    .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .hero-title {
+      font-family: var(--TT); font-size: clamp(2rem,4.5vw,3.6rem);
+      font-weight: 800; color: var(--blue); line-height: 1.08; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--green); font-style: normal; }
+    .hero-desc {
+      font-size: clamp(.95rem,1.5vw,1.05rem); color: var(--muted);
+      max-width: 640px; line-height: 1.75; margin-bottom: 32px;
+    }
+
+    section.cs-section { padding: clamp(40px,6vw,72px) 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 28px;
+    }
+
+    .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px,3vw,28px); }
+    .tool-card { border: 1px solid var(--border); overflow: hidden; }
+    .tool-header {
+      padding: clamp(28px,4vw,44px) clamp(24px,3vw,36px);
+      display: flex; flex-direction: column; justify-content: flex-end; min-height: 160px;
+      position: relative;
+    }
+    .tool-num {
+      font-family: var(--TT); font-size: .58rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; color: rgba(255,251,244,.5);
+      margin-bottom: 8px;
+    }
+    .tool-name {
+      font-family: var(--TT); font-size: clamp(1.2rem,2vw,1.5rem);
+      font-weight: 800; color: var(--cream); line-height: 1.1;
+    }
+    .tool-tech {
+      font-family: var(--TT); font-size: .62rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,251,244,.55); margin-top: 10px;
+    }
+    .tool-body { padding: clamp(20px,3vw,28px); background: var(--cream); }
+    .tool-problem {
+      font-family: var(--TT); font-size: .65rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--green);
+      margin-bottom: 8px;
+    }
+    .tool-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: 14px; }
+    .tool-impact {
+      font-size: .82rem; font-weight: 600; color: var(--blue);
+      line-height: 1.5; padding-left: 10px; border-left: 2px solid var(--green);
+    }
+
+    .context-block { max-width: 700px; }
+    .context-block h2 {
+      font-family: var(--TT); font-size: clamp(1.2rem,2.2vw,1.7rem);
+      font-weight: 800; color: var(--blue); line-height: 1.15; margin-bottom: 14px;
+    }
+    .context-block p { font-size: .92rem; color: var(--muted); line-height: 1.75; margin-bottom: 10px; }
+
+    .infos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,3vw,32px); }
+    .info-label { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .info-value { font-size: .92rem; color: var(--blue); line-height: 1.7; }
+    .info-value strong { font-weight: 600; }
+
+    .cta-section { padding: clamp(48px,6vw,80px) 0; text-align: center; border-top: 1px solid var(--border); }
+    .cta-lead { font-family: var(--TT); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--blue); margin-bottom: 12px; }
+    .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--TT); font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--blue); color: var(--cream);
+      padding: 16px 32px; transition: background .2s, gap .2s;
+    }
+    .cta-btn:hover { background: #1a4a6e; gap: 16px; }
+    .cta-btn.outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .cta-btn.outline:hover { background: rgba(36,97,140,.06); gap: 16px; }
+
+    @media (max-width: 640px) {
+      .tools-grid { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="wrap top-nav-in">
+      <a class="back-link" href="../../index.html"><span>←</span> Portfolio</a>
+      <span class="nav-label">Outils métiers · IA &amp; code</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Outils métiers · IA &amp; développement</p>
+      <h1 class="hero-title">Construire sans<br><em>attendre un dev</em></h1>
+      <p class="hero-desc">
+        Trois outils fonctionnels conçus et déployés en autonomie, avec Claude et Claude Code · chacun est né d'un vrai problème terrain, sans budget développeur et sans délai d'attente.
+      </p>
+    </div>
+  </section>
+
+  <section class="cs-section" style="border-top:none;padding-top:0;">
+    <div class="wrap">
+      <p class="section-label">Les 4 outils</p>
+      <div class="tools-grid">
+
+        <!-- Strapp Advisor -->
+        <div class="tool-card">
+          <div class="tool-header" style="background:linear-gradient(135deg,#163d5a,#24618c 55%,#1a5a7a);">
+            <p class="tool-num">Outil 01</p>
+            <p class="tool-name">Strapp Advisor</p>
+            <p class="tool-tech">Claude · HTML / CSS / JS</p>
+          </div>
+          <div class="tool-body">
+            <p class="tool-problem">Le problème</p>
+            <p class="tool-desc">Avant chaque rendez-vous prospect, les commerciaux cherchaient les informations dans des fichiers éparpillés : grilles tarifaires, scripts d'objection, fiches produit, cas clients. Chaque RDV commençait par 20 minutes de recherche.</p>
+            <p class="tool-impact">Une interface centralisée · tout accessible en un clic avant le RDV · adoptée par l'équipe commerciale.</p>
+          </div>
+        </div>
+
+        <!-- SEO GEO -->
+        <div class="tool-card">
+          <div class="tool-header" style="background:linear-gradient(135deg,#0a1628,#1a2e50 55%,#0d2040);">
+            <p class="tool-num">Outil 02</p>
+            <p class="tool-name">App SEO GEO</p>
+            <p class="tool-tech">Claude Code · Python · localhost</p>
+          </div>
+          <div class="tool-body">
+            <p class="tool-problem">Le problème</p>
+            <p class="tool-desc">Optimiser le site Strapp pour les moteurs de recherche et pour les IA génératives (GEO · Generative Engine Optimization) exige des analyses répétitives sur le contenu, la structure et les signaux sémantiques.</p>
+            <p class="tool-impact">App locale qui analyse le site et génère des recommandations d'optimisation SEO et GEO priorisées · usage hebdomadaire.</p>
+          </div>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="tool-card" style="grid-column:span 2;">
+          <div class="tool-header" style="background:linear-gradient(135deg,#2d1a0a,#8c4a24 55%,#a05a2c);">
+            <p class="tool-num">Outil 03</p>
+            <p class="tool-name">Ce portfolio</p>
+            <p class="tool-tech">Claude Code · HTML / CSS / JS · GitHub Pages</p>
+          </div>
+          <div class="tool-body">
+            <p class="tool-problem">Le problème</p>
+            <p class="tool-desc">Créer un portfolio professionnel, animé et responsive sans passer par un template ou un développeur · partir d'une intention créative et arriver à un site live, sans délai ni compromis sur le design.</p>
+            <p class="tool-impact">Site conçu et déployé en autonomie complète · hébergé sur GitHub Pages · vous l'avez devant les yeux.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Approche</p>
+      <div class="context-block">
+        <h2>Pas de code avant d'avoir compris le problème</h2>
+        <p>Dans chaque cas, la démarche est la même : identifier précisément le problème terrain, cadrer ce que l'outil doit faire (et ne pas faire), puis construire itérativement avec Claude ou Claude Code. Aucun de ces outils n'a nécessité de mobiliser un développeur.</p>
+        <p>Ce n'est pas une compétence technique au sens strict · c'est une méthode de résolution de problèmes : comprendre, cadrer, construire, tester, ajuster. La même qu'en communication.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">En chiffres</p>
+      <div class="infos-grid">
+        <div>
+          <p class="info-label">Outils en production</p>
+          <p class="info-value"><strong>3 outils</strong><br>déployés et utilisés au quotidien</p>
+        </div>
+        <div>
+          <p class="info-label">Développeurs mobilisés</p>
+          <p class="info-value"><strong>0</strong><br>conception et déploiement en autonomie complète</p>
+        </div>
+        <div>
+          <p class="info-label">Outils utilisés</p>
+          <p class="info-value"><strong>Claude · Claude Code</strong><br>Apps Script · GitHub Pages · Python</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="cta-lead">D'autres projets à explorer</p>
+      <p class="cta-sub">Communication, stratégie, UX et direction artistique.</p>
+      <div class="cta-buttons">
+        <a class="cta-btn outline" href="../../index.html">← Voir tous les projets</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
