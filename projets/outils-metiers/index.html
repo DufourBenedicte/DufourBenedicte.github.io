@@ -106,6 +106,12 @@
       line-height: 1.5; padding-left: 10px; border-left: 2px solid var(--green);
     }
 
+    .screens-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,2vw,20px); }
+    .screen-fig { margin: 0; }
+    .screen-fig img { width: 100%; display: block; border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(36,97,140,.08); }
+    .screen-cap { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+    @media (max-width: 640px) { .screens-grid { grid-template-columns: 1fr; } }
+
     .context-block { max-width: 700px; }
     .context-block h2 {
       font-family: var(--TT); font-size: clamp(1.2rem,2.2vw,1.7rem);
@@ -205,6 +211,26 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="wrap">
+      <p class="section-label">Strapp Advisor · Aperçu de l'interface</p>
+      <div class="screens-grid">
+        <figure class="screen-fig">
+          <img src="screens/strapp-profils-metier.png" alt="Strapp Advisor — Guide par Profil Métier" loading="lazy">
+          <p class="screen-cap">Guide par Profil Métier</p>
+        </figure>
+        <figure class="screen-fig">
+          <img src="screens/strapp-comparateur.png" alt="Strapp Advisor — Comparateur de terminaux" loading="lazy">
+          <p class="screen-cap">Comparateur de terminaux</p>
+        </figure>
+        <figure class="screen-fig">
+          <img src="screens/strapp-simulateur.png" alt="Strapp Advisor — Simulateur de devis" loading="lazy">
+          <p class="screen-cap">Simulateur de devis</p>
+        </figure>
       </div>
     </div>
   </section>
