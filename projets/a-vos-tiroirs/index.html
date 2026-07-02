@@ -161,18 +161,21 @@
     .landing-link:hover { opacity: .6; }
 
     /* LINKEDIN */
-    .li-duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px,3vw,28px); align-items: start; margin-bottom: clamp(20px,3vw,32px); }
-    .post-card { border: 2px solid var(--blue); overflow: hidden;  border-radius: 10px; }
-    .post-card img { width: 100%; display: block; }
-    .post-text { border: 1px solid var(--border); padding: 20px 24px; }
-    .post-text p { font-size: .87rem; color: var(--blue); line-height: 1.75; white-space: pre-line; }
+    .li-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2vw,22px); }
+    .li-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(36,97,140,.06); }
+    .li-media { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #000; }
+    .li-media video, .li-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .li-post { border-top: 1px solid var(--border); overflow: hidden; height: 200px; }
+    .li-post img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .li-foot { padding: 10px 16px; border-top: 1px solid var(--border); }
+    .li-foot span { font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
     @media (max-width: 700px) {
       .stats-grid { grid-template-columns: repeat(2,1fr); }
       .steps { grid-template-columns: 1fr; }
       .rse-grid { grid-template-columns: 1fr; }
       .infos-grid { grid-template-columns: 1fr; }
-      .li-duo { grid-template-columns: 1fr; }
+      .li-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -308,33 +311,38 @@
 
   <section class="cs-section">
     <div class="wrap">
-      <p class="section-label">Publication LinkedIn · Strapp</p>
-      <div class="li-duo">
-        <div>
-          <div class="video-wrap">
+      <p class="section-label">Publications LinkedIn · Strapp</p>
+      <div class="li-grid">
+        <div class="li-card">
+          <div class="li-media">
             <video controls playsinline>
               <source src="medias/video_linkedinb_01.mov" type="video/mp4">
             </video>
           </div>
-          <p class="slide-caption">Vidéo · publiée sur le LinkedIn Strapp</p>
+          <div class="li-post">
+            <img src="medias/post_linkedin_01.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 01">
+          </div>
+          <div class="li-foot"><span>Publication #1 · vidéo</span></div>
         </div>
-        <div>
-          <img class="slide-img" src="medias/post_linkedin_01.png" alt="Capture du post LinkedIn Strapp · À vos tiroirs">
-          <p class="slide-caption">Screenshot · Post LinkedIn Strapp</p>
-        </div>
-      </div>
-      <div class="li-duo">
-        <div>
-          <div class="video-wrap">
+        <div class="li-card">
+          <div class="li-media">
             <video controls playsinline>
               <source src="medias/video_linkedin_02.mp4" type="video/mp4">
             </video>
           </div>
-          <p class="slide-caption">Vidéo · publiée sur le LinkedIn Strapp</p>
+          <div class="li-post">
+            <img src="medias/Post_Linkedin_02.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 02">
+          </div>
+          <div class="li-foot"><span>Publication #2 · vidéo</span></div>
         </div>
-        <div>
-          <img class="slide-img" src="medias/Post_Linkedin_02.png" alt="Capture du post LinkedIn Strapp · À vos tiroirs">
-          <p class="slide-caption">Screenshot · Post LinkedIn Strapp</p>
+        <div class="li-card">
+          <div class="li-media">
+            <img src="medias/visuel_Linkedin_03.png" alt="Visuel LinkedIn Strapp · À vos tiroirs · Publication 03">
+          </div>
+          <div class="li-post">
+            <img src="medias/post+Linkedin_03.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 03">
+          </div>
+          <div class="li-foot"><span>Publication #3 · visuel</span></div>
         </div>
       </div>
     </div>
