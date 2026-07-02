@@ -161,22 +161,19 @@
     .landing-link:hover { opacity: .6; }
 
     /* LINKEDIN */
-    .li-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,2vw,22px); align-items: start; }
-    .li-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(36,97,140,.06); }
-    .li-media { width: 100%; background: #000; }
-    .li-media video { width: 100%; aspect-ratio: 16/9; display: block; object-fit: cover; }
-    .li-media img { width: 100%; height: auto; display: block; }
-    .li-post { border-top: 1px solid var(--border); }
-    .li-post img { width: 100%; height: auto; display: block; }
-    .li-foot { padding: 10px 16px; border-top: 1px solid var(--border); }
-    .li-foot span { font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .li-row { display: grid; grid-template-columns: 3fr 2fr; gap: clamp(16px,2.5vw,28px); align-items: start; padding-bottom: clamp(28px,4vw,40px); margin-bottom: clamp(28px,4vw,40px); border-bottom: 1px solid var(--border); }
+    .li-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .li-media video { width: 100%; height: auto; aspect-ratio: 16/9; display: block; border-radius: 10px; object-fit: cover; }
+    .li-media img { width: 100%; height: auto; display: block; border-radius: 10px; }
+    .li-post img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--border); }
+    .li-label { font-family: var(--TT); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
 
     @media (max-width: 700px) {
       .stats-grid { grid-template-columns: repeat(2,1fr); }
       .steps { grid-template-columns: 1fr; }
       .rse-grid { grid-template-columns: 1fr; }
       .infos-grid { grid-template-columns: 1fr; }
-      .li-grid { grid-template-columns: 1fr; }
+      .li-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -313,37 +310,38 @@
   <section class="cs-section">
     <div class="wrap">
       <p class="section-label">Publications LinkedIn · Strapp</p>
-      <div class="li-grid">
-        <div class="li-card">
-          <div class="li-media">
-            <video controls playsinline>
-              <source src="medias/video_linkedinb_01.mov" type="video/mp4">
-            </video>
-          </div>
-          <div class="li-post">
-            <img src="medias/post_linkedin_01.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 01">
-          </div>
-          <div class="li-foot"><span>Publication #1 · vidéo</span></div>
+      <div class="li-row">
+        <div class="li-media">
+          <video controls playsinline>
+            <source src="medias/video_linkedinb_01.mov" type="video/mp4">
+          </video>
+          <p class="li-label">Vidéo · Publication #1</p>
         </div>
-        <div class="li-card">
-          <div class="li-media">
-            <video controls playsinline>
-              <source src="medias/video_linkedin_02.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="li-post">
-            <img src="medias/Post_Linkedin_02.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 02">
-          </div>
-          <div class="li-foot"><span>Publication #2 · vidéo</span></div>
+        <div class="li-post">
+          <img src="medias/post_linkedin_01.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 01">
+          <p class="li-label">Capture du post LinkedIn</p>
         </div>
-        <div class="li-card">
-          <div class="li-media">
-            <img src="medias/visuel_Linkedin_03.png" alt="Visuel LinkedIn Strapp · À vos tiroirs · Publication 03">
-          </div>
-          <div class="li-post">
-            <img src="medias/post%2BLinkedin_03.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 03">
-          </div>
-          <div class="li-foot"><span>Publication #3 · visuel</span></div>
+      </div>
+      <div class="li-row">
+        <div class="li-media">
+          <video controls playsinline>
+            <source src="medias/video_linkedin_02.mp4" type="video/mp4">
+          </video>
+          <p class="li-label">Vidéo · Publication #2</p>
+        </div>
+        <div class="li-post">
+          <img src="medias/Post_Linkedin_02.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 02">
+          <p class="li-label">Capture du post LinkedIn</p>
+        </div>
+      </div>
+      <div class="li-row">
+        <div class="li-media">
+          <img src="medias/visuel_Linkedin_03.png" alt="Visuel LinkedIn Strapp · À vos tiroirs · Publication 03">
+          <p class="li-label">Visuel · Publication #3</p>
+        </div>
+        <div class="li-post">
+          <img src="medias/post%2BLinkedin_03.png" alt="Post LinkedIn Strapp · À vos tiroirs · Publication 03">
+          <p class="li-label">Capture du post LinkedIn</p>
         </div>
       </div>
     </div>
