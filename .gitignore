@@ -6,6 +6,7 @@ Thumbs.db
 # PDFs source — bloqués par défaut, whitelist des petits fichiers publiables
 **/*.pdf
 **/*.PDF
+!cv-benedicte-dufour.pdf
 !projets/Alea/Presentation Alea_Benedicte_Dufour.pdf
 !projets/Skill Guru/Strategie_Crea - Benedicte Dufour.pdf
 !projets/Skill Guru/Cartographie_Cibles_Briefs_Crea- Bénédicte Dufour.pdf
