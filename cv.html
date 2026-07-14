@@ -537,10 +537,14 @@
       .cv-nav { display: none; }
       .page { margin: 0; width: 100%; box-shadow: none; }
       @page { size: A4; margin: 0; }
-      header { padding: 22px 30px 12px; }
+      /* Force layout 2 colonnes même si impression depuis mobile */
+      header { grid-template-columns: 1fr auto; padding: 22px 30px 12px; gap: 24px; }
       .h-name { font-size: 26pt; }
-      .accroche { padding: 8px 28px 8px 25px; }
-      .col-left { padding: 14px 18px 14px 24px; }
+      .h-contact { align-items: flex-end; border-top: none; padding-top: 0; }
+      .accroche { flex-direction: row; padding: 8px 28px 8px 25px; }
+      .accroche-chips { max-width: 210px; justify-content: flex-end; }
+      .body { grid-template-columns: 35% 1fr; }
+      .col-left { border-right: 1px solid rgba(36,97,140,.1); border-bottom: none; padding: 14px 18px 14px 24px; }
       .col-right { padding: 14px 28px; }
       .section-l { margin-bottom: 14px; }
       .section-r { margin-bottom: 14px; }
