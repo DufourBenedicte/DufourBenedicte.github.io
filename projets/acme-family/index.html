@@ -273,11 +273,17 @@
     .section-yellow { background: var(--yellow); }
     .section-green { background: var(--green); }
 
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn.outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .cta-btn.outline:hover { background: rgba(36,97,140,.06); gap: 16px; }
+
     .section-blue { background: var(--blue); border-top: none !important; }
     .section-blue .cta-lead { color: var(--cream); }
     .section-blue .cta-sub { color: rgba(255,251,244,.7); }
     .section-blue .cta-btn { background: var(--cream); color: var(--blue); }
     .section-blue .cta-btn:hover { background: var(--green); color: var(--blue); }
+    .section-blue .cta-btn.outline { background: transparent; border-color: rgba(255,251,244,.5); color: var(--cream); }
+    .section-blue .cta-btn.outline:hover { background: rgba(255,251,244,.1); }
   </style>
 </head>
 <body>
@@ -370,9 +376,14 @@
     <div class="wrap">
       <p class="cta-lead">Envie de voir le prototype en action ?</p>
       <p class="cta-sub">Accédez à l'application complète, entièrement fonctionnelle.</p>
-      <a class="cta-btn" href="app.html">
-        Tester le prototype <span class="cta-arrow">→</span>
-      </a>
+      <div class="cta-buttons">
+        <a class="cta-btn" href="app.html">
+          Tester le prototype <span class="cta-arrow">→</span>
+        </a>
+        <a class="cta-btn outline" href="../../index.html#projects">
+          Voir tous les projets <span class="cta-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
