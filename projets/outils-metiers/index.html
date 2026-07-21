@@ -110,6 +110,8 @@
     .screen-fig { margin: 0; display: block; }
     .screen-fig img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 4px 24px rgba(36,97,140,.08); }
     .screen-cap { font-family: var(--TT); font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+    .img-blur-wrap { position: relative; display: block; }
+    .price-blur { position: absolute; backdrop-filter: blur(7px); background: rgba(240,245,252,0.12); pointer-events: none; border-radius: 4px; }
 
     .context-block { max-width: 700px; }
     .context-block h2 {
@@ -216,7 +218,11 @@
       </div>
       <div class="screens-grid">
         <figure class="screen-fig">
-          <img src="screens/strapp-profils-metier.png" alt="Strapp Advisor · Guide par Profil Métier" loading="lazy">
+          <div class="img-blur-wrap">
+            <img src="screens/strapp-profils-metier.png" alt="Strapp Advisor · Guide par Profil Métier" loading="lazy">
+            <div class="price-blur" style="top:86%;left:1%;width:47%;height:11%;"></div>
+            <div class="price-blur" style="top:86%;left:52%;width:47%;height:11%;"></div>
+          </div>
           <p class="screen-cap">Guide par Profil Métier</p>
         </figure>
         <figure class="screen-fig">
@@ -224,7 +230,12 @@
           <p class="screen-cap">Comparateur de terminaux</p>
         </figure>
         <figure class="screen-fig">
-          <img src="screens/strapp-simulateur.png" alt="Strapp Advisor · Simulateur de devis" loading="lazy">
+          <div class="img-blur-wrap">
+            <img src="screens/strapp-simulateur.png" alt="Strapp Advisor · Simulateur de devis" loading="lazy">
+            <div class="price-blur" style="top:23%;left:53%;width:42%;height:10%;"></div>
+            <div class="price-blur" style="top:37%;left:5%;width:90%;height:13%;"></div>
+            <div class="price-blur" style="top:60%;left:35%;width:60%;height:9%;"></div>
+          </div>
           <p class="screen-cap">Simulateur de devis</p>
         </figure>
       </div>
