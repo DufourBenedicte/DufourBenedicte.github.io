@@ -256,6 +256,27 @@
       .app-deal-card:last-child { display: none; }
       .app-card:last-child { display: none; }
     }
+
+    /* ── HERO SPLIT · DA Bauhaus ── */
+    .hero-split { display: grid; grid-template-columns: 28% 1fr; border-bottom: 2px solid var(--blue); }
+    .hero-aside { background: var(--blue); padding: clamp(80px,12vh,110px) clamp(20px,3vw,32px) clamp(32px,5vw,48px); display: flex; flex-direction: column; justify-content: flex-end; }
+    .aside-geo { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 18px; }
+    .aside-ctx { font-family: var(--TT); font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,251,244,.4); line-height: 1.7; }
+    .hero-main { background: var(--cream); padding: clamp(80px,12vh,110px) 0 clamp(48px,7vw,72px); }
+    @media (max-width: 760px) { .hero-split { grid-template-columns: 1fr; } .hero-aside { display: none; } .hero-main { padding-top: 80px; } }
+
+    /* ── CUBE EYEBROW ── */
+    .eyebrow::before { content: ''; display: block; width: 15px; height: 20px; flex-shrink: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 26'%3E%3Cpolygon points='10,0 20,6 10,12 0,6' fill='%23f9d711'/%3E%3Cpolygon points='0,6 0,20 10,26 10,12' fill='%2324618c'/%3E%3Cpolygon points='20,6 10,12 10,26 20,20' fill='%23ff6464'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+    .eyebrow-dot { display: none; }
+
+    /* ── SECTIONS COLORÉES ── */
+    .section-yellow { background: var(--yellow); }
+
+    .section-blue { background: var(--blue); border-top: none !important; }
+    .section-blue .cta-lead { color: var(--cream); }
+    .section-blue .cta-sub { color: rgba(255,251,244,.7); }
+    .section-blue .cta-btn { background: var(--cream); color: var(--blue); }
+    .section-blue .cta-btn:hover { background: var(--green); color: var(--blue); }
   </style>
 </head>
 <body>
@@ -269,27 +290,37 @@
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="wrap">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>Prototype e-commerce · Strapp · En cours</div>
-      <h1 class="hero-title">Acme<br><em>Family</em></h1>
-      <p class="hero-desc">
-        Prototype e-commerce interactif pour la vente de téléphones reconditionnés issus de flottes d'entreprises, conçu pour les collaborateurs de l'entreprise.
-      </p>
-      <div class="hero-meta">
-        <span class="tag">Direction créative</span>
-        <span class="tag">Architecture UX</span>
-        <span class="tag">HTML · CSS · JS</span>
-        <span class="tag">Apps Script</span>
-        <span class="tag green">Prototype fonctionnel</span>
+  <div class="hero-split">
+    <div class="hero-aside" aria-hidden="true">
+      <div class="aside-geo">
+        <svg width="26" height="22" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg>
+        <svg width="22" height="22" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#f9d711"/></svg>
+        <svg width="20" height="20" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ff6464"/></svg>
       </div>
-      <a class="cta-btn" href="app.html">
-        Tester le prototype <span class="cta-arrow">→</span>
-      </a>
+      <p class="aside-ctx">Prototype e-commerce<br>Strapp · En cours</p>
     </div>
-  </section>
+    <section class="hero-main">
+      <div class="wrap">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Prototype e-commerce · Strapp · En cours</div>
+        <h1 class="hero-title">Acme<br><em>Family</em></h1>
+        <p class="hero-desc">
+          Prototype e-commerce interactif pour la vente de téléphones reconditionnés issus de flottes d'entreprises, conçu pour les collaborateurs de l'entreprise.
+        </p>
+        <div class="hero-meta">
+          <span class="tag">Direction créative</span>
+          <span class="tag">Architecture UX</span>
+          <span class="tag">HTML · CSS · JS</span>
+          <span class="tag">Apps Script</span>
+          <span class="tag green">Prototype fonctionnel</span>
+        </div>
+        <a class="cta-btn" href="app.html">
+          Tester le prototype <span class="cta-arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </div>
 
-  <section class="mockup-section">
+  <section class="mockup-section section-yellow">
     <div class="wrap">
       <div style="display:flex;justify-content:center;align-items:flex-start;gap:clamp(32px,5vw,64px);flex-wrap:wrap;">
         <div style="flex:none;width:clamp(240px,32vw,360px);">
@@ -334,7 +365,7 @@
     </div>
   </section>
 
-  <section class="cta-section">
+  <section class="cta-section section-blue">
     <div class="wrap">
       <p class="cta-lead">Envie de voir le prototype en action ?</p>
       <p class="cta-sub">Accédez à l'application complète, entièrement fonctionnelle.</p>

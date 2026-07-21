@@ -142,6 +142,34 @@
       .enseignements { grid-template-columns: 1fr; }
       .infos-grid { grid-template-columns: repeat(2,1fr); }
     }
+
+    /* ── HERO SPLIT · DA Bauhaus ── */
+    .hero-split { display: grid; grid-template-columns: 28% 1fr; border-bottom: 2px solid var(--blue); }
+    .hero-aside { background: var(--blue); padding: clamp(80px,12vh,110px) clamp(20px,3vw,32px) clamp(32px,5vw,48px); display: flex; flex-direction: column; justify-content: flex-end; }
+    .aside-geo { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 18px; }
+    .aside-ctx { font-family: var(--TT); font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,251,244,.4); line-height: 1.7; }
+    .hero-main { background: var(--cream); padding: clamp(80px,12vh,110px) 0 clamp(48px,7vw,72px); }
+    @media (max-width: 760px) { .hero-split { grid-template-columns: 1fr; } .hero-aside { display: none; } .hero-main { padding-top: 80px; } }
+
+    /* ── CUBE EYEBROW ── */
+    .eyebrow::before { content: ''; display: block; width: 15px; height: 20px; flex-shrink: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 26'%3E%3Cpolygon points='10,0 20,6 10,12 0,6' fill='%23f9d711'/%3E%3Cpolygon points='0,6 0,20 10,26 10,12' fill='%2324618c'/%3E%3Cpolygon points='20,6 10,12 10,26 20,20' fill='%23ff6464'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+    .eyebrow-dot { display: none; }
+
+    /* ── SECTIONS COLORÉES ── */
+    .section-yellow { background: var(--yellow); }
+    .section-yellow .section-label { color: rgba(36,97,140,.65); }
+    .section-yellow .part-item, .section-yellow .ens-item { background: rgba(255,251,244,.55); border-color: rgba(36,97,140,.14); }
+    .section-yellow .part-items, .section-yellow .ens-desc { color: rgba(36,97,140,.7); }
+    .section-yellow .part-num, .section-yellow .ens-num { color: var(--blue); }
+
+    .section-blue { background: var(--blue); border-top: none !important; }
+    .section-blue .cta-lead { color: var(--cream); }
+    .section-blue .cta-sub { color: rgba(255,251,244,.7); }
+    .section-blue .cta-note { color: rgba(255,251,244,.5); }
+    .section-blue .cta-btn { background: var(--cream); color: var(--blue); }
+    .section-blue .cta-btn:hover { background: var(--green); color: var(--blue); }
+    .section-blue .cta-btn.outline { background: transparent; border-color: rgba(255,251,244,.5); color: var(--cream); }
+    .section-blue .cta-btn.outline:hover { background: rgba(255,251,244,.1); color: var(--cream); }
   </style>
 </head>
 <body>
@@ -153,23 +181,33 @@
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow"><span class="eyebrow-dot"></span>Mémoire professionnel · 2025</p>
-      <h1 class="hero-title">Croître sans<br><em>déshumaniser</em></h1>
-      <p class="hero-desc">
-        Comment Strapp peut-elle automatiser sa communication client tout en conservant une relation de qualité fidèle à ses valeurs ? 64 pages à l'intersection de la stratégie de contenu, de la relation client B2B et de l'automatisation IA.
-      </p>
-      <div class="hero-meta">
-        <span class="tag yellow">Communication client</span>
-        <span class="tag yellow">Automatisation IA</span>
-        <span class="tag">Stratégie relationnelle</span>
-        <span class="tag">Recherche qualitative</span>
-        <span class="tag green">M2 MBA · MyDigitalSchool</span>
+  <div class="hero-split">
+    <div class="hero-aside" aria-hidden="true">
+      <div class="aside-geo">
+        <svg width="26" height="22" viewBox="0 0 100 87"><polygon points="50,0 0,87 100,87" fill="#35d7b1"/></svg>
+        <svg width="22" height="22" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#f9d711"/></svg>
+        <svg width="20" height="20" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ff6464"/></svg>
       </div>
-      <div class="mention-note"><span>16,5</span> / 20 · Meilleure note à l'écrit de la promotion</div>
+      <p class="aside-ctx">Mémoire professionnel<br>M2 MBA · 2025</p>
     </div>
-  </section>
+    <section class="hero-main">
+      <div class="wrap">
+        <p class="eyebrow">Mémoire professionnel · 2025</p>
+        <h1 class="hero-title">Croître sans<br><em>déshumaniser</em></h1>
+        <p class="hero-desc">
+          Comment Strapp peut-elle automatiser sa communication client tout en conservant une relation de qualité fidèle à ses valeurs ? 64 pages à l'intersection de la stratégie de contenu, de la relation client B2B et de l'automatisation IA.
+        </p>
+        <div class="hero-meta">
+          <span class="tag yellow">Communication client</span>
+          <span class="tag yellow">Automatisation IA</span>
+          <span class="tag">Stratégie relationnelle</span>
+          <span class="tag">Recherche qualitative</span>
+          <span class="tag green">M2 MBA · MyDigitalSchool</span>
+        </div>
+        <div class="mention-note"><span>16,5</span> / 20 · Meilleure note à l'écrit de la promotion</div>
+      </div>
+    </section>
+  </div>
 
   <section class="cs-section" style="border-top:none; padding-top:0;">
     <div class="wrap">
@@ -204,7 +242,7 @@
     </div>
   </section>
 
-  <section class="cs-section">
+  <section class="cs-section section-yellow">
     <div class="wrap">
       <p class="section-label">Structure · 3 parties</p>
       <div class="parts-list">
@@ -272,7 +310,7 @@
     </div>
   </section>
 
-  <section class="cs-section">
+  <section class="cs-section section-yellow">
     <div class="wrap">
       <p class="section-label">Conclusion · 3 enseignements</p>
       <div class="enseignements">
@@ -319,7 +357,7 @@
     </div>
   </section>
 
-  <section class="cta-section">
+  <section class="cta-section section-blue">
     <div class="wrap">
       <p class="cta-lead">D'autres projets à explorer</p>
       <p class="cta-sub">Communication, produit, UX et automatisation.</p>
